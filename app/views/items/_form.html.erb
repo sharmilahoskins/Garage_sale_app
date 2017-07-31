@@ -1,15 +1,31 @@
-<%= form_with(model: item, local: true) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<h2>Items:</h2>
+<% @sale.items.each do |i| %>
 
-      <ul>
-      <% item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <p>
+      <strong>Item name:</strong>
+      <%= i.item_name %>
+    </p>
+
+    <p>
+      <strong>Item description:</strong>
+      <%= i.item_description %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= i.price %>
+    </p>
+
+    <p>
+    <%= link_to image_tag(i.image.url(:large)), i.image.url %>
+    </p>
+
+<% end %>
+
+
+
+<%= form_for([@sale, @sale.items.build], html: { multipart: true }) do |form| %>
+
 
   <div class="field">
     <%= form.label :item_name %>
@@ -30,6 +46,12 @@
     <%= form.label :sale_id %>
     <%= form.text_field :sale_id, id: :item_sale_id %>
   </div>
+
+  <div class="field">
+    <%= form.file_field :image, id: :attach %>
+  </div>
+
+  <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >
 
   <div class="actions">
     <%= form.submit %>
