@@ -46,6 +46,8 @@
     <%= form.text_area :description, id: :sale_description %>
   </div>
 
+  <input type="hidden" name="sale[user_id]" id="user_id" value="<%=@user.id%>" >
+
   <div class="actions">
     <%= form.submit %>
   </div>

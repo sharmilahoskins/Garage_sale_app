@@ -16,16 +16,19 @@ class SalesController < ApplicationController
   # GET /sales/new
   def new
     @sale = Sale.new
+    @user = current_user
   end
 
   # GET /sales/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /sales
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
+    @user = current_user
 
     respond_to do |format|
       if @sale.save
@@ -41,6 +44,7 @@ class SalesController < ApplicationController
   # PATCH/PUT /sales/1
   # PATCH/PUT /sales/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @sale.update(sale_params)
         format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
@@ -55,6 +59,7 @@ class SalesController < ApplicationController
   # DELETE /sales/1
   # DELETE /sales/1.json
   def destroy
+    @user = current_user
     @sale.destroy
     respond_to do |format|
       format.html { redirect_to sales_url, notice: 'Sale was successfully destroyed.' }
@@ -70,6 +75,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:street, :city, :state, :zip, :date, :time, :description)
+      params.require(:sale).permit(:street, :city, :state, :zip, :date, :time, :description, :user_id)
     end
 end
