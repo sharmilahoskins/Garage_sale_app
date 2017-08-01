@@ -1,11 +1,16 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user! #add this line
+  before_action :authenticate_user!, :except => [:show, :index]
 
   # GET /sales
   # GET /sales.json
   def index
     @sales = Sale.all
+  end
+
+  def mysales
+    @user = current_user
+    @sales = Sale.where(:user_id => @user.id )
   end
 
   # GET /sales/1
