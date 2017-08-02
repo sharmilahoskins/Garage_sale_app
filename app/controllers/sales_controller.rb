@@ -1,11 +1,15 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :except => [:show, :index]
+  before_action :authenticate_user!, :except => [:show, :index, :mysales]
+
+  load_and_authorize_resource
 
   # GET /sales
   # GET /sales.json
   def index
+    @user = current_user
     @sales = Sale.all
+    @ability = Ability.new(current_user)
   end
 
   def mysales
@@ -16,6 +20,7 @@ class SalesController < ApplicationController
   # GET /sales/1
   # GET /sales/1.json
   def show
+    @ability = Ability.new(current_user)
   end
 
   # GET /sales/new

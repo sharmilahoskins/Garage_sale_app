@@ -37,5 +37,8 @@
 
 <%= render 'items/form' %>
 
-<%= link_to 'Edit', edit_sale_path(@sale) %> |
+<% if @ability.can? :manage, Sale %>
+  <%= link_to 'Edit', edit_sale_path(@sale) %>
+<% end %>
+
 <%= link_to 'Back', sales_path %>

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, :except => [:show, :index]
   # GET /items
   # GET /items.json
   def index
@@ -10,6 +10,8 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @user = current_user
+    @ability = Ability.new(current_user)
   end
 
   # GET /items/new
