@@ -20,8 +20,9 @@ class SalesController < ApplicationController
 
   # GET /sales/new
   def new
-    @sale = Sale.new
+    # @sale = Sale.new
     @user = current_user
+    @sale = current_user.sales.build
   end
 
   # GET /sales/1/edit
@@ -32,8 +33,9 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    @sale = Sale.new(sale_params)
+    # @sale = Sale.new(sale_params)
     @user = current_user
+    @sale = current_user.sales.build(sale_params)
 
     respond_to do |format|
       if @sale.save
