@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user! #add this line
-
+  before_action :authenticate_user!
+  # load_and_authorize_resource
   # GET /sales
   # GET /sales.json
   def index
@@ -15,8 +15,9 @@ class SalesController < ApplicationController
 
   # GET /sales/new
   def new
-    @sale = Sale.new
+    # @sale = Sale.new
     @user = current_user
+    @sale = current_user.sales.build
   end
 
   # GET /sales/1/edit
@@ -27,8 +28,9 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    @sale = Sale.new(sale_params)
+    # @sale = Sale.new(sale_params)
     @user = current_user
+    @sale = current_user.sales.build(sale_params)
 
     respond_to do |format|
       if @sale.save
