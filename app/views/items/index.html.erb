@@ -8,7 +8,6 @@
       <th>Item name</th>
       <th>Item description</th>
       <th>Price</th>
-      <th>Sale</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,13 +18,15 @@
         <td><%= item.item_name %></td>
         <td><%= item.item_description %></td>
         <td><%= item.price %></td>
-        <td><%= item.sale %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- show does not work -->
+        <td><%= link_to 'Show', sale_items_path(item) %></td>
+        <!-- Edit still does not work -->
+        <td><%= link_to 'Edit', edit_sale_item_path(@sale, item) %></td>
+        <!-- Destroy works -->
+        <td><%= link_to 'Destroy', sale_item_path(@sale, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<!-- Need to add link to add item here -->
