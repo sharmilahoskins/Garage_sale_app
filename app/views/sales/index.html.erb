@@ -85,20 +85,23 @@ function plotMarkers(){
   console.log(jsonarray);
     var i;
     for(i = 0; i < jsonarray.length; i++){
-        codeAddresses(jsonarray[i].street, jsonarray[i].city);
+        codeAddresses(jsonarray[i].street, jsonarray[i].city, jsonarray[i].time, jsonarray[i].state, jsonarray[i].date, jsonarray[i].zip, jsonarray[i].description, jsonarray[i].id );
+        content += jsonarray[i].street
     }
 }
-
-function codeAddresses(street, city){
+var content = []
+function codeAddresses(street, city, time, state, date, zip, description, id){
     geocoder.geocode( { 'address': street + city}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
+                // title: markers[0][1]
             });
 
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.setContent(address[0]);
+            google.maps.event.addListener(marker, 'mouseover', function() {
+              // for(i = 0; i < jsonarray.length; i++){
+                infowindow.setContent('<strong>Address:</strong>' + ' ' + street + ', ' + city + ',' + ' ' + state + ',' + ' ' + zip + '<br />' + '<strong>Date:</strong>' + ' ' + date + '<br />' + '<strong>Time:</strong>' + ' ' + time + ' ' + '<br />' +  '<strong>Description:</strong>' + ' ' + description + '<br />' + ' ' + '<a href="' + '../sales/' + id + '">Show</a>' );
                 infowindow.open(map, this);
             });
 
