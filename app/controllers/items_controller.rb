@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :index]
   # GET /items
   # GET /items.json
+
   def index
     @items = Item.all
   end
