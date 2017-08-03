@@ -8,8 +8,15 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @user = current_user
-    @sales = Sale.all
+    # @sales = Sale.all
     @ability = Ability.new(current_user)
+
+    if params[:search].nil? || params[:search].empty?
+      @sales = Sale.all
+    else
+      @sales = Sale.basic_search(params[:search])
+      render '/sales/index.html'
+    end
   end
 
   def mysales
