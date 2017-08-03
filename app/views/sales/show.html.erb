@@ -81,6 +81,8 @@ function geocodeAddress(geocoder, resultsMap) {
 <!-- Item view and form is below -->
 
 <%= render 'items/form' %>
+<%= render 'items/carousel' %>
+<%= render 'items/showitems' %>
 
 <% if @ability.can? :manage, Sale %>
   <%= link_to 'Edit', edit_sale_path(@sale) %>

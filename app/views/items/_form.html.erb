@@ -1,30 +1,5 @@
-<h2>Items:</h2>
-<% @sale.items.each do |i| %>
-
-    <p>
-      <strong>Item name:</strong>
-      <%= i.item_name %>
-    </p>
-
-    <p>
-      <strong>Item description:</strong>
-      <%= i.item_description %>
-    </p>
-
-    <p>
-      <strong>Price:</strong>
-      <%= i.price %>
-    </p>
-
-    <p>
-      <%= link_to image_tag(i.image.url(:large)), i.image.url, :class => "active item" %>
-    </p>
-
-<% end %>
-
 <% if @ability.can? :manage, Sale %>
     <%= form_for([@sale, @sale.items.build], html: { multipart: true }) do |form| %>
-
 
       <div class="field">
         <%= form.label :item_name %>
@@ -41,57 +16,9 @@
         <%= form.text_field :price, id: :item_price %>
       </div>
 
-
-      <!-- <div class="field">
-        <%#= form.file_field :image, id: :attach %>
-      </div> -->
-
-      <div class="container">
-          <!--  Carousel -->
-        <div id="this-carousel-id" class="carousel slide">
-          <div class="carousel-inner">
-            <div class="active item">
-                <a><img src="/system/items/images/000/000/014/original/putter.jpg?1501783475" alt="Putter" /></a>
-
-              <div class="carousel-caption">
-                <p>The Cheap Putters!</p>
-                <p><a href="https://ae01.alicdn.com/kf/HTB12JhJIVXXXXbvapXXq6xXFXXXy/-font-b-Golf-b-font-colorful-font-b-Kids-b-font-font-b-Putter-b.jpg">Putters For Sale &raquo;</a></p>
-              </div>
-            </div>
-            <div class="item">
-                <a><img src="/system/items/images/000/000/015/original/nike_golf_bag.jpg?1501783564" alt="golf bag" /></a>
-
-              <div class="carousel-caption">
-                <p>Nike Golf Bag. Dooooo it!</p>
-                <p><a href="http://www.discountgolfworld.com/content/nike/collegiate-carry-stand-bags.jpg">The Golf Bag</a> &raquo;</a></p>
-              </div>
-            </div>
-
-          </div><!-- .carousel-inner -->
-          <!--  next and previous controls here
-                href values must reference the id for this carousel -->
-            <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
-            <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
-        </div><!-- .carousel -->
-        <!-- end carousel -->
-          <div class="content">
-             <div class="row">
-              <div class="span12">
-
-                <%= yield %>
-              </div>
-            </div>
-            <footer>
-            </footer>
-          </div>
-        </div> <!--! end of .container -->
-      </div> <!--! end of #main -->
-
-      <script>
-      $(function(){
-      $('#this-carousel-id').carousel();
-      });
-      </script>
+      <div class="field">
+        <%= form.file_field :image, id: :attach %>
+      </div>
 
       <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >
 

@@ -1,0 +1,19 @@
+<h2>Items:</h2>
+<% @sale.items.each do |i| %>
+
+    <p>
+      <strong>Item name:</strong>
+      <%= i.item_name %>
+    </p>
+
+    <p>
+      <strong>Item description:</strong>
+      <%= i.item_description %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= i.price %>
+    </p>
+
+<% end %>

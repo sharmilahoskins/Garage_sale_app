@@ -5,7 +5,7 @@ class User < ApplicationRecord
   after_create :assign_role
 
   def assign_role
-    add_role(:user)
+    add_role(:admin)
   end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
