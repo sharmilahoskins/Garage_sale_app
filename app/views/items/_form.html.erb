@@ -1,4 +1,4 @@
-<% if @ability.can? :manage, Sale %>
+
     <%= form_for([@sale, @sale.items.build], html: { multipart: true }) do |form| %>
 
       <div class="field">
