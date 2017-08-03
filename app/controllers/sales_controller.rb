@@ -21,6 +21,7 @@ class SalesController < ApplicationController
   # GET /sales/1.json
   def show
     @ability = Ability.new(current_user)
+    @user = current_user
   end
 
   # GET /sales/new
