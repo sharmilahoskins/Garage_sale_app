@@ -1,23 +1,64 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Street:</strong>
-  <%= @sale.street %>
-</p>
+
+
+<!-- Map starts here -->
+
+<style>
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #showmap {
+    height: 50vh;
+    width: 50vw;
+  }
+</style>
+
+<!-- We pull address from this input -->
+<input id="address" type="hidden" value="<%= @sale.street %>,<%= @sale.city %>,<%= @sale.state %>,<%= @sale.zip %>">
+
+<div id="showmap"></div>
+
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('showmap'), {
+    zoom: 12,
+    center: {lat: 32.70961, lng: -117.1579991}
+  });
+
+  var geocoder = new google.maps.Geocoder();
+  // document.getElementById('submit').addEventListener('click',
+  function geocodeme() {
+    geocodeAddress(geocoder, map);
+  };
+  geocodeme()
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === 'OK') {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+</script>
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9nhXMWs8RXF_OXTGrVAB7x-msZVhahGw&callback=initMap">
+</script>
+
+
+<!-- Displays sale info: -->
 
 <p>
-  <strong>City:</strong>
-  <%= @sale.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @sale.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @sale.zip %>
+  <strong>Address: </strong>
+  <%= @sale.street %>, <%= @sale.city %>, <%= @sale.state %>, <%= @sale.zip %>
 </p>
 
 <p>
@@ -34,6 +75,9 @@
   <strong>Description:</strong>
   <%= @sale.description %>
 </p>
+
+
+<!-- Item view and form is below -->
 
 <%= render 'items/form' %>
 
