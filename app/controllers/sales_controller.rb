@@ -8,13 +8,30 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @user = current_user
-    @sales = Sale.all
+
+    @finished = Sale.where('date < ?', DateTime.now)
+    @finished.destroy_all
+
+  #find the current sales (today's and future sales)
+    @sales = Sale.where('date >= ?', DateTime.now)
+
+  #find the completed sales from the past and delete them from the database
+
+
     @ability = Ability.new(current_user)
   end
 
   def mysales
     @user = current_user
+
+    @finished = Sale.where('date < ?', DateTime.now)
+    @finished.destroy_all
+
+    #show only the future sales
     @sales = Sale.where(:user_id => @user.id )
+
+    #find the completed sales from the past and delete them from the database
+
   end
 
   # GET /sales/1
