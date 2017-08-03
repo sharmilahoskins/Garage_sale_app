@@ -1,3 +1,5 @@
+
+
 <h2>Items:</h2>
 <% @sale.items.each do |i| %>
 
@@ -23,7 +25,7 @@
 <% end %>
 
 
-<% if @ability.can? :manage, Sale %>
+<% if @sale.user_id == @user.id %>
     <%= form_for([@sale, @sale.items.build], html: { multipart: true }) do |form| %>
 
 
