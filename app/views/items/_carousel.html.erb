@@ -1,0 +1,45 @@
+<div class="container">
+  <!--  Carousel -->
+  <div id="this-carousel-id" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="active item">
+        <% @sale.items.each do |j| %>
+          <a><%= link_to image_tag(j.image.url(:large)), j.image.url, class: "active item" %></a>
+        <% end %>
+
+        <!-- <p><a href="https://ae01.alicdn.com/kf/HTB12JhJIVXXXXbvapXXq6xXFXXXy/-font-b-Golf-b-font-colorful-font-b-Kids-b-font-font-b-Putter-b.jpg">Putters For Sale &raquo;</a></p> -->
+
+      </div> <!--ends .active item -->
+      <div class="item">
+          <a><img src="/system/items/images/000/000/019/original/nike_golf_bag.jpg?1501798219" alt="golf bag" /></a>
+
+          <!-- <p><a href="http://www.discountgolfworld.com/content/nike/collegiate-carry-stand-bags.jpg">The Golf Bag</a> &raquo;</a></p> -->
+
+      </div> <!--end .item-->
+
+    </div> <!--end .carousel-inner-->
+    <!--  next and previous controls here
+          href values must reference the id for this carousel -->
+      <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
+  </div><!-- end of .carousel slide -->
+
+<!-- ending carousel -->
+  <div class="content">
+    <div class="row">
+      <div class="span12">
+        <%= yield %>
+      </div><!-- end of .span12 -->
+    </div><!-- end of .row -->
+    <footer>
+    </footer>
+  </div><!-- end of .content -->
+</div> <!-- end of .container -->
+
+
+
+<script>
+$(function(){
+$('#this-carousel-id').carousel();
+});
+</script>
