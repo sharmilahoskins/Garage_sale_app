@@ -1,4 +1,4 @@
-
+  <% if @sale.user_id == @user.id %>
     <%= form_for([@sale, @sale.items.build], html: { multipart: true }) do |form| %>
 
       <div class="field">
