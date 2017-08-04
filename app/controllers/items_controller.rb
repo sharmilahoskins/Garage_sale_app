@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @sale = Sale.find(params[:sale_id])
   end
 
   # GET /items/1
@@ -22,6 +23,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @sale = Sale.find(params[:sale_id])
   end
 
   # POST /items
@@ -60,7 +62,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to sale_items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
