@@ -20,13 +20,14 @@
         <td><%= item.price %></td>
         <!-- show does not work -->
         <td><%= link_to 'Show', sale_items_path(item) %></td>
-        <!-- Edit still does not work -->
-        <td><%= link_to 'Edit', edit_sale_item_path(@sale, item) %></td>
+
+        <td><%= link_to 'Edit', edit_sale_item_path(@sale.id, item.id) %></td>
         <!-- Destroy works -->
         <td><%= link_to 'Destroy', sale_item_path(@sale, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 
 <!-- Need to add link to add item here -->

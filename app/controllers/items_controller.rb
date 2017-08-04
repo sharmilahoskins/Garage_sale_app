@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-
+    @sale = Sale.find(params[:sale_id])
   end
 
   # POST /items
