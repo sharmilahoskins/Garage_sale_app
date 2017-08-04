@@ -91,7 +91,7 @@ function plotMarkers(){
 }
 var content = []
 function codeAddresses(street, city, time, state, date, zip, description, id){
-    geocoder.geocode( { 'address': street + city}, function(results, status) {
+    geocoder.geocode( { 'address': street + city + state}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             marker = new google.maps.Marker({
                 map: map,
