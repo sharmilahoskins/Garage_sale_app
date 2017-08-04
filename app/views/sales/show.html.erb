@@ -83,15 +83,13 @@ function geocodeAddress(geocoder, resultsMap) {
 <%= render 'items/carousel' %>
 <%= render 'items/showitems' %>
 
-<% if @sale.user_id == @user.id %>
-  <%= render 'items/form' %>
-  <%= link_to 'Edit Items', sale_items_path(@sale) %>
-<% end %>
 
 
 <% if @user.nil? %>
 <% else %>
   <% if @sale.user_id == @user.id %>
+  <%= render 'items/form' %>
+  <%= link_to 'Edit Items', sale_items_path(@sale) %>
     <%= link_to 'Edit Sale', edit_sale_path(@sale) %>
   <% end %>
 <% end %>
