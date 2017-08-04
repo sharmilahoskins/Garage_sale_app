@@ -37,6 +37,7 @@ gem 'rolify', '~> 5.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'textacular', '~> 5.0', '>= 5.0.1'
 gem 'paperclip', '~> 5.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

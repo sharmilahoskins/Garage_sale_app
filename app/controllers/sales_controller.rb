@@ -13,8 +13,10 @@ class SalesController < ApplicationController
 
     if params[:search].nil? || params[:search].empty?
       @sales = Sale.all
+      @searched = "off"
     else
       @sales = Sale.basic_search(params[:search])
+      @searched = "on"
       render '/sales/index.html'
     end
   end
