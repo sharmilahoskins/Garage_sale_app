@@ -25,7 +25,7 @@ class SalesController < ApplicationController
 
   def mysales
     @user = current_user
-    
+
     #find the completed sales from the past and delete them from the database
     @finished = Sale.where('date < ?', DateTime.now)
     @finished.destroy_all
