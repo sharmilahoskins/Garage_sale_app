@@ -7,10 +7,24 @@
 #map {
   height: 50vh;
 }
+
+#showmap {
+  margin-left: 12%;
+  height: 75vh;
+  width: 75vw;
+}
 /* Optional: Makes the sample page fill the window. */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: white;
+  ;
+}
+.navbar {
+  background-color: #32544A;
+  .navbar-brand{
+    color: white;
+    
+  }
 }

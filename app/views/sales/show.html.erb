@@ -1,18 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <!-- Map starts here -->
-
-<style>
-  /* Always set the map height explicitly to define the size of the div
-   * element that contains the map. */
-  #showmap {
-    margin-left: 12%;
-    height: 75vh;
-    width: 75vw;
-  }
-</style>
 
 <!-- We pull address from this input -->
 <input id="address" type="hidden" value="<%= @sale.street %>,<%= @sale.city %>,<%= @sale.state %>,<%= @sale.zip %>">
