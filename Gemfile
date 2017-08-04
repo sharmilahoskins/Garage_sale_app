@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.3'
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'cancancan', '~> 2.0'
