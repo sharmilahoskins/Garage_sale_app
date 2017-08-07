@@ -47,6 +47,7 @@
         </div>
       </div>
     </nav> -->
+<div class="container">
 
     <nav class="navbar fixed-top navbar-expand-sm navbar-inverse bg-inverse" style="background-color: rgba(13, 75, 0, .8);">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,11 +72,16 @@
             <% if user_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>  User</a>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
-                  <a class="dropdown-item" data-method="get" href="/sales/mysales">Log out</a>
-                </div>
-              </li>
+
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
+                <a class="dropdown-item" data-method="delete" href="/users/sign_out">Log out</a>
+              </div>
+            
+
+
+
+              <!-- </li> -->
                 <!-- <li class="nav-item"><a class="nav-link active" data-method="delete" href="/users/sign_out"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
                 </li> -->
             <% else %>
@@ -87,6 +93,9 @@
           </ul>
       </div>
     </nav>
+  </div>
+
+
     <div class="spacer">
 
     </div>
