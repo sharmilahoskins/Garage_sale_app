@@ -1,0 +1,182 @@
+<style>
+  /*body {
+  background-color: #d3d3d3;
+  }*/
+
+  /*h1 {
+  text-align: center;
+  }*/
+
+  .images {
+  text-align: center;
+  }
+
+  /*Modal Styling*/
+  #myImg, ``#myImg2, #myImg3, #myImg4 {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #myImg:hover {opacity: 0.7;}
+  #myImg2:hover {opacity: 0.7;}
+  #myImg3:hover {opacity: 0.7;}
+  #myImg4:hover {opacity: 0.7;}
+
+  /* The Modal (background) */
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;  /*Enable scroll if needed*/
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+
+  /* Modal Content (Image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 25%;
+    max-width: 700px;
+    margin-top: 15vh;
+  }
+
+  /* Caption of Modal Image (Image Text) - Same Width as the Image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    /*height: 150px;*/
+  }
+
+  /* Add Animation - Zoom in the Modal */
+  .modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+  .modal-footer {
+    background: none repeat scroll 0 0;
+    height: 100px;
+    margin: auto;
+    width: 400px;
+  }
+
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+  }
+
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+
+  /* The Close Button */
+  /*.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }*/
+
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+  }
+</style>
+      <% @sale.items.each do |i| %>
+        <div class="col-sm-3">
+          <%#= link_to image_tag(i.image.url(:large)), i.image.url %>
+          <%= link_to image_tag(i.image.url(:large), :alt => "i.item_description"), "#myModal", :class => "btn", "data-toggle" => "modal", "data-dismiss" => "modal", :src => i.image.url(:large)  %>
+          <p>
+            <strong>Item name:</strong>
+            <%= i.item_name %>
+          </p>
+
+          <p>
+            <strong>Item description:</strong>
+            <%= i.item_description %>
+          </p>
+
+          <p>
+            <strong>Price:</strong>
+            <%= i.price %>
+          </p>
+            <%= link_to 'Show Item', sale_item_path(i.sale_id, i.id) %> |
+            <%= link_to 'Edit Item', edit_sale_item_path(i.sale_id, i.id) %> |
+            <%= link_to 'Delete Item', i, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+<% end %>
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal" role="dialog"><!--Images will be placed inside this div, which represents the modal itself-->
+
+      <!-- Modal Content (The Image) -->
+      <div class="modal-body">
+          <img class="modal-content" src="" />
+          <div id="caption">
+              <%#= alt %>
+          </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+</div>
+    <script>
+    $(document).ready(function () {
+      $('#myModal').on('show.bs.modal', function (e) {
+        var image = $(e.relatedTarget).attr('src');
+        $(".modal-content").attr("src", image);
+      });
+    });
+
+    // var captionText = document.getElementById("caption");
+    // var img1 = document.getElementById('myImg');
+    // img1.onclick = function(){
+    //   captionText.innerHTML = this.alt;
+    // }
+    //
+    // var img2 = document.getElementById('myImg2');
+    // img2.onclick = function(){
+    //   captionText.innerHTML = this.alt;
+    // }
+    //
+    // var img3 = document.getElementById('myImg3');
+    // img3.onclick = function(){
+    //   captionText.innerHTML = this.alt;
+    // }
+    //
+    // var img4 = document.getElementById('myImg4');
+    // img4.onclick = function(){
+    //   captionText.innerHTML = this.alt;
+    // }
+    </script>
