@@ -113,3 +113,10 @@ table {
   text-align: center;
   margin-top: 20vh;
 }
+.dropdown {
+  position: relative;
+  .dropdown-menu-right {
+    position: absolute !important;
+    right: 0 !important;
+  }
+}
