@@ -1,6 +1,8 @@
 <h2>Items:</h2>
 <% @sale.items.each do |i| %>
+<div class="col-sm-3">
 
+  <%= link_to image_tag(i.image.url(:large)), i.image.url %>
     <p>
       <strong>Item name:</strong>
       <%= i.item_name %>
@@ -16,4 +18,5 @@
       <%= i.price %>
     </p>
 
+  </div>
 <% end %>
