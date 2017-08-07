@@ -9,19 +9,51 @@ class SalesController < ApplicationController
   def index
     @user = current_user
 
+
+
+
 #find the completed sales from the past and delete them from the database
     @finished = Sale.where('date < ?', DateTime.now)
     @finished.destroy_all
 
     @ability = Ability.new(current_user)
 
+
+
+#find the sales based on zip code or city
+
     if params[:search].nil? || params[:search].empty?
       @sales = Sale.all
     else
       @sales = Sale.basic_search(params[:search])
-      render '/sales/index.html'
+      @zip_or_city = params[:search]
+      @searched = "true"
+
     end
+
+
+
+      if !(params[:item].nil? || params[:item].empty?)
+
+
+
+        @search_results = Item.basic_search( item_name: params[:item])
+
+        @items = @search_results
+
+
+      else
+
+        @items =  []
+
+      end
+
+      render '/sales/index.html'
+
   end
+
+
+
 
   def mysales
     @user = current_user

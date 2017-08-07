@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   get 'admin/update'
 
+
+  get 'sales/find_item'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'sales/mysales'
 
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   root 'sales#index'
+
 
   get "admin" => "admin#index"
   put "admin/:id" => "admin#update"
