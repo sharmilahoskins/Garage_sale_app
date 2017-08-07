@@ -53,8 +53,9 @@ function initialize() {
         }
     };
     map = new google.maps.Map(document.getElementById("map"), myOptions);
-
-    geocoder.geocode( { 'address': '30 j st san diego'}, function(results, status) {
+    var test = 'las vegas, ca'
+    var center_map = { 'address' : test}
+    geocoder.geocode( center_map, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
 

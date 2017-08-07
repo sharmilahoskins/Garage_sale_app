@@ -1,0 +1,28 @@
+<%= form_with(model: item, local: true, html: {multipart: true}) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :item_name %>
+    <%= form.text_field :item_name, id: :item_item_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item_description %>
+    <%= form.text_area :item_description, id: :item_item_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :item_price %>
+  </div>
+
+  <div class="field">
+    <%= form.file_field :image, id: :attach %>
+  </div>
+
+  <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
