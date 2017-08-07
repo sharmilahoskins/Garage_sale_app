@@ -5,18 +5,22 @@
   <%= link_to image_tag(i.image.url(:large)), i.image.url %>
     <p>
       <strong>Item name:</strong>
-      <%= i.item_name %>
+      <%= item.item_name %>
     </p>
 
     <p>
       <strong>Item description:</strong>
-      <%= i.item_description %>
+      <%= item.item_description %>
     </p>
 
     <p>
       <strong>Price:</strong>
-      <%= i.price %>
+      <%= item.price %>
     </p>
+    <%= link_to 'Show Item', sale_item_path(item.sale_id, item.id) %> |
+    <%= link_to 'Edit Item', edit_sale_item_path(item.sale_id, item.id) %> |
+    <%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <hr>
 
   </div>
 <% end %>

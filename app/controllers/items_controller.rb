@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    @sale = Sale.find(params[:sale_id])
   end
 
   # GET /items/1
@@ -14,6 +13,9 @@ class ItemsController < ApplicationController
   def show
     @user = current_user
     @ability = Ability.new(current_user)
+    # @item = Item.new
+    @sale = Sale.find(params[:sale_id])
+    @item = Item.find(params[:id])
   end
 
   # GET /items/new
@@ -23,7 +25,9 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    # @sale = Sale.find(params[:sale_id])
     @sale = Sale.find(params[:sale_id])
+    @item = Item.find(params[:id])
   end
 
   # POST /items
@@ -46,9 +50,10 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    @sale = Sale.find_by_id(@item.sale_id)
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to sale_items_path(@sale), notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -60,9 +65,10 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    @sale = Sale.find_by_id(@item.sale_id)
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to sale_items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to @sale, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

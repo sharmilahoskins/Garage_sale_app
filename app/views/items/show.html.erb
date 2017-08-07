@@ -24,5 +24,5 @@
 <%= link_to image_tag(@item.image.url(:large)), @item.image.url %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to 'Edit', edit_sale_item_path(@item.sale, @item) %> |
+<%= link_to 'Back', sale_path(@sale) %>
