@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :items
   end
 
+  resources :items
+
   root 'sales#index'
 
 

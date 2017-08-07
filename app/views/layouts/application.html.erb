@@ -5,21 +5,14 @@
     <title>Garage</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'jquery', 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
   <body>
 
-    <nav class="navbar navbar-fixed-top navbar-inverse">
+    <!-- <nav class="navbar navbar-fixed-top navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -51,6 +44,39 @@
             <% end %>
           </ul>
         </div>
+      </div>
+    </nav> -->
+
+    <nav class="navbar fixed-top navbar-expand-sm navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand" href="/sales">Garage Sale Finder</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My Sales</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" data-method="get" href="/sales/new">Create Sale</a>
+                <a class="dropdown-item" data-method="get" href="/sales/mysales">View My Sales</a>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+          <ul class="nav justify-content-end">
+            <% if user_signed_in? %>
+                <li class="nav-item"><a class="nav-link active" data-method="delete" href="/users/sign_out"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
+                </li>
+            <% else %>
+              <li class="nav-item"><a class="nav-link" data-method="get" href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" data-method="get" href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+              </li>
+            <% end %>
+          </ul>
       </div>
     </nav>
     <div class="spacer">
