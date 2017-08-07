@@ -146,6 +146,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </html>
 
+<div class="table-view">
+
 <h1>Sales</h1>
 
 <table>
@@ -189,3 +191,5 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <% if @ability.can? :manage, Sale %>
   <%= link_to 'New Sale', new_sale_path %>
 <% end %>
+
+</div>

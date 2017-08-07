@@ -1,11 +1,13 @@
-
+$break-smalldesk: 1280px;
+$break-ipad: 1024px;
+$break-iphone: 640px;
 
 .spacer {
-  height: 45px;
+  height: 65px;
 }
 
 #map {
-  height: 50vh;
+  height: 65vh;
 }
 
 #showmap {
@@ -13,18 +15,72 @@
   height: 75vh;
   width: 75vw;
 }
-/* Optional: Makes the sample page fill the window. */
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: #dfece8;
   ;
 }
 .navbar {
   background-color: #32544A;
-  .navbar-brand{
+  .navbar-brand {
     color: white;
-    
+  }
+}
+.white, .dropdown-item {
+  color: white !important;
+  background-color: #32544A;
+}
+table {
+  border: 1px solid black;
+  margin: auto;
+  th, td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid white;
+    background-color: rgba(188, 188, 188, 0.5)
+  }
+}
+.table-view {
+  max-width: 80vw;
+  margin: auto;
+  text-align: center;
+  padding: 5vh 0 5vh 0;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.container {
+  max-width: 350px;
+  max-height: 525px;
+  background-color: rgba(188, 188, 188, 0.5);
+  margin: 20vh auto;
+  padding: 5%;
+  @media screen and (max-width: $break-smalldesk) {
+    max-width: 300px;
+  }
+  @media screen and (max-width: $break-ipad) {
+    max-width: 280px;
+  }
+  @media screen and (max-width: $break-iphone) {
+    max-width: 240px;
+  }
+}
+.container-large {
+  max-width: 350px;
+  max-height: 800px;
+  background-color: rgba(188, 188, 188, 0.5);
+  margin: 20vh auto;
+  padding: 2% 5% 2% 5%;
+  @media screen and (max-width: $break-smalldesk) {
+    max-width: 300px;
+  }
+  @media screen and (max-width: $break-ipad) {
+    max-width: 280px;
+  }
+  @media screen and (max-width: $break-iphone) {
+    max-width: 240px;
   }
 }
