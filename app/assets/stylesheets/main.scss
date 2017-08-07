@@ -2,9 +2,9 @@ $break-smalldesk: 1280px;
 $break-ipad: 1024px;
 $break-iphone: 640px;
 
-.spacer {
-  height: 65px;
-}
+// .spacer {
+//   height: 65px;
+// }
 
 #map {
   height: 65vh;
@@ -21,17 +21,20 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #dfece8;
-  ;
+  font-family: 'Muli', sans-serif;
 }
 .navbar {
-  background-color: #32544A;
+  // background-color: rgba(13, 75, 0, .5);
   .navbar-brand {
     color: white;
   }
+  a {
+    color: white;
+  }
 }
-.white, .dropdown-item {
-  color: white !important;
-  background-color: #32544A;
+.dropdown-item {
+  color: black !important;
+
 }
 table {
   border: 1px solid black;
@@ -83,4 +86,30 @@ table {
   @media screen and (max-width: $break-iphone) {
     max-width: 240px;
   }
+}
+
+.title {
+  font-family: 'Muli', sans-serif;
+  font-size: 4em;
+  text-align: center;
+  padding-top: 30vh;
+  padding-bottom: 20px;
+}
+.sale {
+  font-family: 'Philosopher', sans-serif;
+
+}
+.heading {
+  height: 100vh;
+  background-image: url(asset-path('grass.jpg'));
+  // background-image: url('/assets/images/grass.jpg') !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.search {
+  text-align: center;
+}
+.mysales {
+  text-align: center;
+  margin-top: 20vh;
 }
