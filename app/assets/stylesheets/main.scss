@@ -105,12 +105,12 @@ table {
   padding-bottom: 20px;
 }
 .sale {
-  font-family: 'Philosopher', sans-serif;
+  font-family: 'Architects Daughter', sans-serif;
 
 }
 .heading {
   height: 100vh;
-  background-image: url(asset-path('grass.jpg'));
+  background-image: url(asset-path('grass.png'));
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -140,4 +140,8 @@ textarea {
 .item-image {
   height: 200px;
   border: 5px solid black;
+}
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
 }
