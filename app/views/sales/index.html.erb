@@ -121,8 +121,8 @@ function codeAddresses(street, city, time, state, date, zip, description, id){
                 infowindow.setContent('<strong>Address:</strong>' + ' ' + street + ', ' + city + ',' + ' ' + state + ',' + ' ' + zip + '<br />' + '<strong>Date:</strong>' + ' ' + date + '<br />' + '<strong>Time:</strong>' + ' ' + time + ' ' + '<br />' +  '<strong>Description:</strong>' + ' ' + description + '<br />' + ' ' + '<a href="' + '../sales/' + id + '">Show</a>' );
                 infowindow.open(map, this);
             });
-            google.maps.event.addListener(marker, 'mouseout', function() {
-              setTimeout(function(){infowindow.close();}, '2500');
+            google.maps.event.addListener(map, 'click', function() {
+              infowindow.close();
             });
 
             bounds.extend(results[0].geometry.location);
