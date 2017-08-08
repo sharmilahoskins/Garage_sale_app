@@ -69,9 +69,9 @@
             </li>
             <% end %>
           </ul>
-          <ul class="nav justify-content-end">
+          <ul class="nav">
             <% if user_signed_in? %>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown user-dropdown">
                 <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>  User</a>
 
               <div class="dropdown-menu dropdown-menu-right">
@@ -90,7 +90,7 @@
   </div>
 
 
-    
+
     <%= yield %>
 
   </body>
