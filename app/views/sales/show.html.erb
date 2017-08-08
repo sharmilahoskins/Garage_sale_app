@@ -1,6 +1,6 @@
 
 
-<p id="notice"><%= notice %></p>
+
 
 
 
@@ -50,7 +50,7 @@ function geocodeAddress(geocoder, resultsMap) {
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9nhXMWs8RXF_OXTGrVAB7x-msZVhahGw&callback=initMap">
 </script>
 
-
+<p id="notice"><%= notice %></p>
 <!-- Displays sale info: -->
 
 <p>
@@ -85,8 +85,9 @@ function geocodeAddress(geocoder, resultsMap) {
     <% else %>
     <% if @sale.user_id == @user.id %>
     <%= render 'items/form' %>
-    <%= link_to 'Edit Items', sale_items_path(@sale) %>
-    <%= link_to 'Edit Sale', edit_sale_path(@sale) %>
+    <br>
+    <%= link_to 'Edit Items', sale_items_path(@sale) %> |
+    <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
     <% end %>
     <% end %>
 
