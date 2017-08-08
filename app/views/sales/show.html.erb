@@ -1,13 +1,4 @@
-<script
-src="http://code.jquery.com/jquery-3.2.1.min.js"
-integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-crossorigin="anonymous"></script>
 
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <p id="notice"><%= notice %></p>
 
@@ -87,16 +78,18 @@ function geocodeAddress(geocoder, resultsMap) {
 
 <%= render 'sales/modal' %>
 <%#= render 'items/showitems' %>
+<div class="container">
 
-<div class="col-sm-12">
-  <% if @user.nil? %>
-  <% else %>
-  <% if @sale.user_id == @user.id %>
-  <%= render 'items/form' %>
-  <%= link_to 'Edit Items', sale_items_path(@sale) %>
-  <%= link_to 'Edit Sale', edit_sale_path(@sale) %>
-  <% end %>
-  <% end %>
+  <div class="col">
+    <% if @user.nil? %>
+    <% else %>
+    <% if @sale.user_id == @user.id %>
+    <%= render 'items/form' %>
+    <%= link_to 'Edit Items', sale_items_path(@sale) %>
+    <%= link_to 'Edit Sale', edit_sale_path(@sale) %>
+    <% end %>
+    <% end %>
 
-  <%= link_to 'Back', sales_path %>
+    <%= link_to 'Back', sales_path %>
+  </div>
 </div>
