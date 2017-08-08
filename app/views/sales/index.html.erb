@@ -151,6 +151,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <!-- Search -->
 <form method="get" action="/sales">
   <label for="textsearch">Find A specific item:</label>
+  <input type ="hidden" name = "search" value = "<%= @zip_or_city %>">
   <input type="text" name="item" placeholder="Item" >
   <input type="submit" value="Search">
 </form>

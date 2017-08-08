@@ -29,27 +29,37 @@ class SalesController < ApplicationController
       @zip_or_city = params[:search]
       @searched = "true"
 
+
     end
 
 
 
       if !(params[:item].nil? || params[:item].empty?)
-
-
-
+        # @searchu_results = Item.basic_search( item_name: params[:item])
         @search_results = Item.basic_search( item_name: params[:item])
 
+#find items only in the zip or city that the user has already specified
+
+     temp = @zip_or_city.to_i
+
+     if temp = 0
+        @search_results = @search_results.where("city = '@zip_or_city'")
+     else    
+        @search_results = @search_results.where("zip = '@zip_or_city'")
+     end
+
+        
         @items = @search_results
 
 
       else
-
         @items =  []
-
       end
 
-      render '/sales/index.html'
-
+      respond_to do |format|
+        format.html { render '/sales/index.html' }
+        format.json { render json: @sales }
+      end
   end
 
 
