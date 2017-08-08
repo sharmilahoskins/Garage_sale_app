@@ -134,6 +134,10 @@ textarea {
 #attach {
   // background-color: blue;
 }
-.items-header {
+.items-header, #notice {
   text-align: center;
+}
+.item-image {
+  height: 200px;
+  border: 5px solid black;
 }
