@@ -2,9 +2,7 @@ $break-smalldesk: 1280px;
 $break-ipad: 1024px;
 $break-iphone: 640px;
 
-// .spacer {
-//   height: 65px;
-// }
+
 
 #map {
   height: 65vh;
@@ -12,10 +10,15 @@ $break-iphone: 640px;
 }
 
 #showmap {
-  margin-left: 12%;
-  margin-top: 8%;
-  height: 75vh;
-  width: 75vw;
+
+  margin-left: 1vw;
+  height: 45vh;
+  max-width: 40vw;
+}
+.map-show {
+  margin: 15vh auto 15vh auto;
+
+
 }
 
 html, body {
@@ -63,6 +66,8 @@ table {
   background-color: rgba(188, 188, 188, 0.5);
   margin: 20vh auto;
   padding: 5%;
+  border: 3px outset rgba(188, 188, 188, 0.5);
+  border-radius: 5px;
   @media screen and (max-width: $break-smalldesk) {
     max-width: 300px;
   }
@@ -74,11 +79,13 @@ table {
   }
 }
 .container-large {
-  max-width: 350px;
+  max-width: 380px;
   max-height: 800px;
   background-color: rgba(188, 188, 188, 0.5);
   margin: 20vh auto;
   padding: 2% 5% 2% 5%;
+  border: 3px outset rgba(188, 188, 188, 0.5);
+  border-radius: 5px;
   @media screen and (max-width: $break-smalldesk) {
     max-width: 300px;
   }
@@ -104,7 +111,6 @@ table {
 .heading {
   height: 100vh;
   background-image: url(asset-path('grass.jpg'));
-  // background-image: url('/assets/images/grass.jpg') !important;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -117,4 +123,17 @@ table {
 }
 .dropdown {
   width: 170px;
+}
+input {
+  border-radius: 5px;
+}
+textarea {
+  border-radius: 5px;
+  border: 2px inset rgba(154,154,154,0.5);
+}
+#attach {
+  // background-color: blue;
+}
+.items-header {
+  text-align: center;
 }

@@ -51,7 +51,7 @@
 
     <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-inverse bg-inverse" style="background-color: rgba(13, 75, 0, .8);">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/sales">Garage Sale Finder</a>
+        <a class="navbar-brand" href="/">Garage Sale Finder</a>
       </div>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -71,20 +71,13 @@
           </ul>
           <ul class="nav justify-content-end">
             <% if user_signed_in? %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>  User</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>  User</a>
 
               <div class="dropdown-menu dropdown-menu-right">
                 <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
                 <a class="dropdown-item" data-method="delete" href="/users/sign_out">Log out</a>
               </div>
-
-
-
-
-              <!-- </li> -->
-                <!-- <li class="nav-item"><a class="nav-link active" data-method="delete" href="/users/sign_out"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
-                </li> -->
             <% else %>
               <li class="nav-item"><a class="nav-link" data-method="get" href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
               </li>
@@ -97,9 +90,7 @@
   </div>
 
 
-    <div class="spacer">
-
-    </div>
+    
     <%= yield %>
 
   </body>

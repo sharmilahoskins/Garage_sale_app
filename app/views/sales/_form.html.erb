@@ -12,36 +12,37 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :street %>
+    <%= form.label :street %><br>
     <%= form.text_field :street, id: :sale_street %>
   </div>
 
   <div class="field">
-    <%= form.label :city %>
+    <%= form.label :city %><br>
     <%= form.text_field :city, id: :sale_city %>
   </div>
 
   <div class="field">
-    <%= form.label :state %>
+    <%= form.label :state %><br>
     <%= form.text_field :state, id: :sale_state %>
   </div>
 
   <div class="field">
-    <%= form.label :zip %>
+    <%= form.label :zip %><br>
     <%= form.text_field :zip, id: :sale_zip %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :date %><br>
+
     <%= form.date_select :date, id: :sale_date %>
   </div>
 
   <div class="field">
-    <%= form.label :time %>
+    <%= form.label :time %><br>
     <%= form.text_field :time, id: :sale_time %>
   </div>
 
-  <div class="field">
+  <div class="field"><br>
     <%= form.label :description %>
     <%= form.text_area :description, id: :sale_description %>
   </div>
