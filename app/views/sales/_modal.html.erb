@@ -12,7 +12,7 @@
   }
 
   /*Modal Styling*/
-  #myImg, ``#myImg2, #myImg3, #myImg4 {
+  /*#myImg, #myImg2, #myImg3, #myImg4 {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
@@ -21,7 +21,7 @@
   #myImg:hover {opacity: 0.7;}
   #myImg2:hover {opacity: 0.7;}
   #myImg3:hover {opacity: 0.7;}
-  #myImg4:hover {opacity: 0.7;}
+  #myImg4:hover {opacity: 0.7;}*/
 
   /* The Modal (background) */
 
@@ -109,34 +109,43 @@
         width: 100%;
     }
   }
+  .item-info {
+    padding: 13px;
+  }
 </style>
-      <% @sale.items.each do |i| %>
-        <div class="col-sm-3">
-          <%
-              @test = i.item_description
-             %>
 
+  <div class="container">
+    <div class="row">
+
+      <% @sale.items.each do |i| %>
+
+
+        <div class="col col-lg-3">
           <%#= link_to image_tag(i.image.url(:large)), i.image.url %>
           <%= link_to image_tag(i.image.url(:large), :alt => "i.item_description"), "#myModal", :class => "btn", "data-toggle" => "modal", "data-dismiss" => "modal", :src => i.image.url(:large)  %>
-          <p>
-            <strong>Item name:</strong>
-            <%= i.item_name %>
-          </p>
+          <div class="item-info">
 
-          <p>
-            <strong>Item description:</strong>
-            <%= i.item_description %>
-          </p>
+            <p>
+              <strong>Item name:</strong>
+              <%= i.item_name %>
+            </p>
 
-          <p>
-            <strong>Price:</strong>
-            <%= i.price %>
-          </p>
-            <%= link_to 'Show Item', sale_item_path(i.sale_id, i.id) %> |
-            <%= link_to 'Edit Item', edit_sale_item_path(i.sale_id, i.id) %> |
-            <%= link_to 'Delete Item', i, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <p>
+              <strong>Item description:</strong>
+              <%= i.item_description %>
+            </p>
+
+            <p>
+              <strong>Price:</strong>
+              <%= i.price %>
+            </p>
+              <%= link_to 'Edit Item', edit_sale_item_path(i.sale_id, i.id) %> |
+              <%= link_to 'Delete Item', i, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
       </div>
-<% end %>
+    <% end %>
+  </div>
+</div>
 
 
     <!-- The Modal -->

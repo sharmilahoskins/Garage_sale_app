@@ -57,7 +57,7 @@ item.save
 
 
 item = Item.new(item_name: 'Set of padded blue desk chairs', item_description: 'Set of 4 blue desk chairs for office', price: 'A steal at $399', sale_id: sale.id)
-item.image = File.open("/Users/amydyson/Desktop/SeedFileImages/bluechair.jpg")
+item.image = File.open("#{Rails.root}/test/SeedFileImages/bluechair.jpg")
 item.save
 
 item = Item.new(item_name: 'Running shoes', item_description: 'Womens size 7 black Nike running shoes', price: 'A steal at $29', sale_id: sale.id)
