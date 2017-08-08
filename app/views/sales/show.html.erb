@@ -1,6 +1,6 @@
 
 
-<p id="notice"><%= notice %></p>
+
 
 
 
@@ -49,12 +49,17 @@ function geocodeAddress(geocoder, resultsMap) {
 </script>
 
 
+<p id="notice"><%= notice %></p>
+
 <div class="container map-show">
   <div class="row">
 
   <div class="col col-lg-8">
     <div id="showmap"></div>
   </div>
+
+
+
 <!-- Displays sale info: -->
   <div class="col col-lg-4">
     <h2>Sale Info:</h2>
@@ -96,6 +101,7 @@ function geocodeAddress(geocoder, resultsMap) {
 
     <h2>Add Item:</h2>
     <%= render 'items/form' %>
+
     <%= link_to 'Edit Items', sale_items_path(@sale) %> |
     <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
     <% end %>

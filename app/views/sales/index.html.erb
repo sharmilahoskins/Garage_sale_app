@@ -110,6 +110,11 @@ function plotMarkers(){
 }
 // takes json values and puts them into geocode
 function codeAddresses(street, city, time, state, date, zip, description, id){
+  var test = new Date(date)
+  var day = test.getDate();
+  var month = test.getMonth();
+  var year = test.getFullYear();
+  console.log(test.getDate())
     geocoder.geocode( { 'address': street + city + state}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             marker = new google.maps.Marker({
@@ -118,7 +123,7 @@ function codeAddresses(street, city, time, state, date, zip, description, id){
             });
 // json values into info window
             google.maps.event.addListener(marker, 'mouseover', function() {
-                infowindow.setContent('<strong>Address:</strong>' + ' ' + street + ', ' + city + ',' + ' ' + state + ',' + ' ' + zip + '<br />' + '<strong>Date:</strong>' + ' ' + date + '<br />' + '<strong>Time:</strong>' + ' ' + time + ' ' + '<br />' +  '<strong>Description:</strong>' + ' ' + description + '<br />' + ' ' + '<a href="' + '../sales/' + id + '">Show</a>' );
+                infowindow.setContent('<strong>Address:</strong>' + ' ' + street + ', ' + city + ',' + ' ' + state + ',' + ' ' + zip + '<br />' + '<strong>Date:</strong>' + ' ' + month + '-' +  day + '-' + year + '<br />' + '<strong>Time:</strong>' + ' ' + time + ' ' + '<br />' +  '<strong>Description:</strong>' + ' ' + description + '<br />' + ' ' + '<a href="' + '../sales/' + id + '">Show</a>' );
                 infowindow.open(map, this);
             });
             google.maps.event.addListener(map, 'click', function() {
