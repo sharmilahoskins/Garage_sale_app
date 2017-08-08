@@ -112,6 +112,10 @@
 </style>
       <% @sale.items.each do |i| %>
         <div class="col-sm-3">
+          <%
+              @test = i.item_description
+             %>
+
           <%#= link_to image_tag(i.image.url(:large)), i.image.url %>
           <%= link_to image_tag(i.image.url(:large), :alt => "i.item_description"), "#myModal", :class => "btn", "data-toggle" => "modal", "data-dismiss" => "modal", :src => i.image.url(:large)  %>
           <p>
@@ -142,7 +146,7 @@
       <div class="modal-body">
           <img class="modal-content" src="" />
           <div id="caption">
-              <%#= alt %>
+               <%= @test %>
           </div>
       </div>
 
