@@ -2,16 +2,18 @@ $break-smalldesk: 1280px;
 $break-ipad: 1024px;
 $break-iphone: 640px;
 
-.spacer {
-  height: 65px;
-}
+// .spacer {
+//   height: 65px;
+// }
 
 #map {
   height: 65vh;
+  margin-top: 56px;
 }
 
 #showmap {
   margin-left: 12%;
+  margin-top: 8%;
   height: 75vh;
   width: 75vw;
 }
@@ -21,17 +23,20 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #dfece8;
-  ;
+  font-family: 'Muli', sans-serif;
 }
 .navbar {
-  background-color: #32544A;
+  // background-color: rgba(13, 75, 0, .5);
   .navbar-brand {
     color: white;
   }
+  a {
+    color: white;
+  }
 }
-.white, .dropdown-item {
-  color: white !important;
-  background-color: #32544A;
+.dropdown-item {
+  color: black !important;
+
 }
 table {
   border: 1px solid black;
@@ -52,7 +57,7 @@ table {
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-.container {
+.container-small {
   max-width: 350px;
   max-height: 525px;
   background-color: rgba(188, 188, 188, 0.5);
@@ -83,4 +88,33 @@ table {
   @media screen and (max-width: $break-iphone) {
     max-width: 240px;
   }
+}
+
+.title {
+  font-family: 'Muli', sans-serif;
+  font-size: 4em;
+  text-align: center;
+  padding-top: 30vh;
+  padding-bottom: 20px;
+}
+.sale {
+  font-family: 'Philosopher', sans-serif;
+
+}
+.heading {
+  height: 100vh;
+  background-image: url(asset-path('grass.jpg'));
+  // background-image: url('/assets/images/grass.jpg') !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.search {
+  text-align: center;
+}
+.mysales {
+  text-align: center;
+  margin-top: 20vh;
+}
+.dropdown {
+  width: 170px;
 }

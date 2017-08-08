@@ -1,25 +1,24 @@
 <h2>Items:</h2>
-<% @sale.items.each do |i| %>
-<div class="col-sm-3">
-
-  <%= link_to image_tag(i.image.url(:large)), i.image.url %>
+  <% @sale.items.each do |i| %>
+  <div class="col-sm-3">
+    <%= link_to image_tag(i.image.url(:large)), i.image.url %>
     <p>
       <strong>Item name:</strong>
-      <%= item.item_name %>
+      <%= i.item_name %>
     </p>
 
     <p>
       <strong>Item description:</strong>
-      <%= item.item_description %>
+      <%= i.item_description %>
     </p>
 
     <p>
       <strong>Price:</strong>
-      <%= item.price %>
+      <%= i.price %>
     </p>
-    <%= link_to 'Show Item', sale_item_path(item.sale_id, item.id) %> |
-    <%= link_to 'Edit Item', edit_sale_item_path(item.sale_id, item.id) %> |
-    <%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Show Item', sale_item_path(i.sale_id, i.id) %> |
+    <%= link_to 'Edit Item', edit_sale_item_path(i.sale_id, i.id) %> |
+    <%= link_to 'Delete Item', i, method: :delete, data: { confirm: 'Are you sure?' } %>
     <hr>
 
   </div>

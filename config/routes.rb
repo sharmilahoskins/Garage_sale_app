@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :items
 
-  root 'sales#index'
+  root 'statics#home'
 
 
   get "admin" => "admin#index"
