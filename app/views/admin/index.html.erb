@@ -1,10 +1,12 @@
+<br><br>
+<div class="table-view">
 
 <h1>Users</h1>
 <table>
   <thead>
     <thead>
       <tr>
-        <th>Email</th><th>Role</th>
+        <th>Email</th><th>Role</th><th></th>
       </tr>
     </thead>
   </thead>
@@ -22,3 +24,48 @@
   <% end %>
   </tbody>
 </table>
+
+<br>
+
+<div class="search">
+  <form method="get" action="/admin">
+    <span class="search-headers"><label for="search">Find Garage Sales:</label></span><br>
+    <input type="text" name="search" >
+    <input type="submit" value="Search">
+  </form>
+</div>
+<h1>Sales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.each do |sale| %>
+      <tr>
+        <td><%= sale.street %></td>
+        <td><%= sale.city %></td>
+        <td><%= sale.state %></td>
+        <td><%= sale.zip %></td>
+        <td><%= sale.date %></td>
+        <td><%= sale.time %></td>
+        <td><%= sale.description %></td>
+        <td><%= link_to 'Show', sale %></td>
+        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+        <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

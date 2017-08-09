@@ -15,13 +15,13 @@
     <%= form.label :price %>
     <%= form.text_field :price, id: :item_price, required: true %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.file_field :image, id: :attach %>
   </div>
 
   <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >
-
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>

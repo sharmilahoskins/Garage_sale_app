@@ -102,21 +102,30 @@ function geocodeAddress(geocoder, resultsMap) {
 
 
 
-    <div class="items-form">
-      <div class="container-small">
-        <% if @user.nil? %>
-        <% else %>
+      <% if @user.nil? %>
+      <% else %>
         <% if @sale.user_id == @user.id %>
-        <h2>Add Item:</h2>
-        <%= render 'items/form' %>
+        <div class="items-form">
+          <div class="container-small">
+            <h2>Add Item:</h2>
+            <%= render 'items/form' %>
 
-      </div>
-    </div>
-    <div class="links col">
+          </div>
+        </div>
+        <% end %>
+      <% end %>
 
-    <%= link_to 'Edit Items', sale_items_path(@sale) %> |
-    <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
-    <% end %>
+  <div class="container show-page-links" >
+
+    <!-- <div class="row" style="border:5px dashed black;">
+
+      <div class="col col-md-4" style="border:5px dotted black;"> -->
+    <% if @user.nil? %>
+    <% else %>
+      <% if @sale.user_id == @user.id %>
+      <%= link_to 'Edit Items', sale_items_path(@sale) %> |
+      <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
+      <% end %>
     <% end %>
     <%= link_to 'Back', sales_path %>
-    </div>
+  </div>

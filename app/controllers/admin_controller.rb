@@ -5,6 +5,11 @@ class AdminController < ApplicationController
   # get "admin"
   def index
     @users = User.all
+    if params[:search].nil? || params[:search].empty?
+      @sales = Sale.all
+    else
+      @sales = Sale.basic_search(params[:search])
+    end
     @ability = Ability.new(current_user)
   end
 
