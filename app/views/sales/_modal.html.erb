@@ -141,8 +141,13 @@
               <%= i.price %>
             </p>
             <!-- Put if statements here to show links based on role -->
-              <%= link_to 'Edit Item', edit_sale_item_path(i.sale_id, i.id) %> |
-              <%= link_to 'Delete Item', i, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% if @user.nil? %>
+            <% else %>
+              <% if @sale.user_id == @user.id || (@ability.can? :manage, :all) %>
+                <%= link_to 'Edit Item', edit_sale_item_path(i.sale_id, i.id) %> |
+                <%= link_to 'Delete Item', i, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            <% end %>
           </div>
       </div>
     <% end %>

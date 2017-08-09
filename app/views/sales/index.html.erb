@@ -7,7 +7,10 @@
 <!-- map -->
 
 <div id="map"></div>
+<% if @user.nil? %>
+<% else %>
 <p id="notice"><%= notice %> <%="Welcome, #{@user.email}!"%></p>
+<% end %>
 <script>
 
 var geocoder;
@@ -191,7 +194,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         </tr>
     </tbody>
     </table>
-    
+
   <% end %>
 
 
