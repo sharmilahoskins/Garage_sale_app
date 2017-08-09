@@ -28,8 +28,6 @@ class SalesController < ApplicationController
       @sales = Sale.basic_search(params[:search])
       @zip_or_city = params[:search]
       @searched = "true"
-
-
     end
 
 # if it's a city (a string), to_i will make it evaluate to 0
