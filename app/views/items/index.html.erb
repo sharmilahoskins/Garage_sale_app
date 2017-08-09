@@ -1,3 +1,4 @@
+<br><br>
 <p id="notice"><%= notice %></p>
 
 <h1>Items</h1>
@@ -18,17 +19,14 @@
         <td><%= item.item_name %></td>
         <td><%= item.item_description %></td>
         <td><%= item.price %></td>
-        <!-- show does not work -->
-        <td><%= link_to 'Show', sale_items_path(item) %></td>
 
-        <td><%= link_to 'Edit', edit_sale_item_path(@sale.id, item.id) %></td>
-        <!-- Destroy works -->
-        <td><%= link_to 'Destroy', sale_item_path(@sale, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show Item', sale_item_path(item.sale_id, item.id) %></td>
+        <td><%= link_to 'Edit Item', edit_sale_item_path(item.sale_id, item.id) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 
 
 

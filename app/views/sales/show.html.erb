@@ -1,23 +1,17 @@
-<p id="notice"><%= notice %></p>
+
+
+
+
+
+
 
 
 
 <!-- Map starts here -->
 
-<style>
-  /* Always set the map height explicitly to define the size of the div
-   * element that contains the map. */
-  #showmap {
-    margin-left: 12%;
-    height: 75vh;
-    width: 75vw;
-  }
-</style>
 
 <!-- We pull address from this input -->
 <input id="address" type="hidden" value="<%= @sale.street %>,<%= @sale.city %>,<%= @sale.state %>,<%= @sale.zip %>">
-
-<div id="showmap"></div>
 
 <script>
 function initMap() {
@@ -55,43 +49,74 @@ function geocodeAddress(geocoder, resultsMap) {
 </script>
 
 
+
+
+<div class="container map-show">
+  <div class="row">
+
+  <div class="col col-lg-8">
+    <div id="showmap"></div>
+  </div>
+
+
+
 <!-- Displays sale info: -->
+  <div class="col col-lg-4">
+    <h2>Sale Info:</h2>
 
-<p>
-  <strong>Address: </strong>
-  <%= @sale.street %>, <%= @sale.city %>, <%= @sale.state %>, <%= @sale.zip %>
-</p>
+    <p>
+      <strong>Address: </strong>
+      <%= @sale.street %>, <%= @sale.city %>, <%= @sale.state %>, <%= @sale.zip %>
+    </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @sale.date %>
-</p>
+    <p>
+      <strong>Date:</strong>
+      <%= @sale.date.strftime("%m-%d-%Y") %>
+    </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @sale.time %>
-</p>
+    <p>
+      <strong>Time:</strong>
+      <%= @sale.time %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @sale.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @sale.description %>
+    </p>
 
+  </div>
+
+  </div>
+</div>
+
+<div class="container show-page-items">
+
+<p id="notice"><%= notice %></p>
 
 <!-- Item view and form is below -->
+<h2 class="items-header">Items for Sale</h2>
+<%= render 'sales/modal' %>
+<%#= render 'items/showitems' %>
 
-<%= render 'items/carousel' %>
-<%= render 'items/showitems' %>
+</div>
 
 
 
-<% if @user.nil? %>
-<% else %>
-  <% if @sale.user_id == @user.id %>
-  <%= render 'items/form' %>
-  <%= link_to 'Edit Items', sale_items_path(@sale) %>
-    <%= link_to 'Edit Sale', edit_sale_path(@sale) %>
-  <% end %>
-<% end %>
+    <div class="items-form">
+      <div class="container-small">
+        <% if @user.nil? %>
+        <% else %>
+        <% if @sale.user_id == @user.id %>
+        <h2>Add Item:</h2>
+        <%= render 'items/form' %>
 
-<%= link_to 'Back', sales_path %>
+      </div>
+    </div>
+    <div class="links col">
+
+    <%= link_to 'Edit Items', sale_items_path(@sale) %> |
+    <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
+    <% end %>
+    <% end %>
+    <%= link_to 'Back', sales_path %>
+    </div>

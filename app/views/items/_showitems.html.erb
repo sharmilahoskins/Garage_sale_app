@@ -1,6 +1,7 @@
 <h2>Items:</h2>
-<% @sale.items.each do |i| %>
-
+  <% @sale.items.each do |i| %>
+  <div class="col-sm-3">
+    <%= link_to image_tag(i.image.url(:large)), i.image.url %>
     <p>
       <strong>Item name:</strong>
       <%= i.item_name %>
@@ -15,5 +16,10 @@
       <strong>Price:</strong>
       <%= i.price %>
     </p>
+    <%= link_to 'Show Item', sale_item_path(i.sale_id, i.id) %> |
+    <%= link_to 'Edit Item', edit_sale_item_path(i.sale_id, i.id) %> |
+    <%= link_to 'Delete Item', i, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <hr>
 
+  </div>
 <% end %>
