@@ -35,6 +35,7 @@ class SalesController < ApplicationController
 # declare an array to hold items in area of search
      @items_within_search = []
 
+
       if !(params[:item].nil? || params[:item].empty?)
         # @search_results = Item.basic_search( item_name: params[:item])
 
@@ -43,7 +44,9 @@ class SalesController < ApplicationController
 
         if zip_city_var == 0 
           @item_search_results.each do |item|
-            if item.sale.city == @zip_or_city
+
+            if item.sale.city.downcase == @zip_or_city.downcase
+
               @items_within_search.push(item)
             end
           end
