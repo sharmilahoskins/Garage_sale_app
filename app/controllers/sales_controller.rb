@@ -45,6 +45,7 @@ class SalesController < ApplicationController
         if zip_city_var == 0 
           @item_search_results.each do |item|
 
+  #add downcase to fix search problem
             if item.sale.city.downcase == @zip_or_city.downcase
 
               @items_within_search.push(item)
