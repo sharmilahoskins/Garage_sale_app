@@ -3,12 +3,10 @@ $break-ipad: 1024px;
 $break-iphone: 640px;
 
 
-
 #map {
   height: 65vh;
   margin-top: 56px;
 }
-
 #showmap {
 
   margin-left: 1vw;
@@ -17,10 +15,7 @@ $break-iphone: 640px;
 }
 .map-show {
   margin: 15vh auto 15vh auto;
-
-
 }
-
 html, body {
   height: 100%;
   margin: 0;
@@ -97,7 +92,6 @@ table {
     max-width: 240px;
   }
 }
-
 .title {
   font-family: 'Muli', sans-serif;
   font-size: 4em;
@@ -107,7 +101,6 @@ table {
 }
 .sale {
   font-family: 'Architects Daughter', sans-serif;
-
 }
 .heading {
   height: 100vh;
@@ -160,9 +153,6 @@ textarea {
   padding-top: 1vh;
   padding-bottom: 1vh;
   background-color: #ECECE4;
-  // background-image: url(asset-path('map_page_bacground.png'));
-  // background-repeat: no-repeat;
-  // background-size: cover;
 }
 .links {
   text-align: center;
@@ -175,3 +165,8 @@ textarea {
 //   background: rgba(239, 239, 239, 0.7);
 //   box-shadow: 0 0 15px 10px rgba(239, 239, 239, 0.7);
 // }
+
+//good code for making background pictures
+// background-image: url(asset-path('map_page_bacground.png'));
+// background-repeat: no-repeat;
+// background-size: cover;
