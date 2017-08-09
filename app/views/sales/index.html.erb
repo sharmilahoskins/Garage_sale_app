@@ -146,20 +146,22 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </html>
 
-<br>
 
-<div class="search">
 
-  <form method="get" action="/sales">
-    <label for="search">Find Garage Sales:</label>
-    <input type="text" name="search" placeholder="City or Zip code" >
-    <input type="submit" value="Search">
-  </form>
-</div>
 
+<div class="container map-page-content">
+
+  <div class="search">
+    <form method="get" action="/sales">
+      <label for="search">Find Garage Sales:</label>
+      <input type="text" name="search" placeholder="City or Zip code" >
+      <input type="submit" value="Search">
+    </form>
+  </div>
 
     <p id="notice"><%= notice %></p>
 
+</div>
 <!-- <div class="table-view"> -->
 
 <!-- <h1>Sales</h1>
