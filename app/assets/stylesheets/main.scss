@@ -8,7 +8,6 @@ $break-iphone: 640px;
   margin-top: 56px;
 }
 #showmap {
-
   margin-left: 1vw;
   height: 45vh;
   max-width: 40vw;
@@ -110,6 +109,7 @@ table {
 }
 .search {
   text-align: center;
+  padding: 3vh 0 3vh 0;
 }
 .mysales {
   text-align: center;
@@ -145,7 +145,7 @@ textarea {
 .map-page-content {
   width: 100vw;
   height: 50vh;
-  padding-top: 10vh;
+  padding-top: 5vh;
 
 }
 .show-page-items {
@@ -160,8 +160,11 @@ textarea {
   padding-bottom: 1vh;
   background-color: #ECECE4;
 }
-.links {
+.show-page-links {
   text-align: center;
+}
+.search-headers {
+  font-size: 1.5em;
 }
 
 //shadow box around show page items
