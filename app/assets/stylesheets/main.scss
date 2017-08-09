@@ -3,12 +3,10 @@ $break-ipad: 1024px;
 $break-iphone: 640px;
 
 
-
 #map {
   height: 65vh;
   margin-top: 56px;
 }
-
 #showmap {
 
   margin-left: 1vw;
@@ -17,15 +15,12 @@ $break-iphone: 640px;
 }
 .map-show {
   margin: 15vh auto 15vh auto;
-
-
 }
-
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #dfece8;
+  background-color: #ECECE4;
   font-family: 'Muli', sans-serif;
 }
 .navbar {
@@ -63,7 +58,7 @@ table {
 .container-small {
   max-width: 350px;
   max-height: 525px;
-  background-color: rgba(188, 188, 188, 0.5);
+  background-color: rgba(50,144,110, 0.5);
   margin: 20vh auto;
   padding: 5%;
   border: 3px outset rgba(188, 188, 188, 0.5);
@@ -81,7 +76,8 @@ table {
 .container-large {
   max-width: 380px;
   max-height: 800px;
-  background-color: rgba(188, 188, 188, 0.5);
+  background-color: rgba(50,144,110, 0.5);
+
   margin: 20vh auto;
   padding: 2% 5% 2% 5%;
   border: 3px outset rgba(188, 188, 188, 0.5);
@@ -96,7 +92,6 @@ table {
     max-width: 240px;
   }
 }
-
 .title {
   font-family: 'Muli', sans-serif;
   font-size: 4em;
@@ -106,11 +101,10 @@ table {
 }
 .sale {
   font-family: 'Architects Daughter', sans-serif;
-
 }
 .heading {
   height: 100vh;
-  background-image: url(asset-path('grass.png'));
+  background-image: url(asset-path('grass_final.png'));
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -131,11 +125,14 @@ textarea {
   border-radius: 5px;
   border: 2px inset rgba(154,154,154,0.5);
 }
-#attach {
-  // background-color: blue;
-}
 .items-header, #notice {
   text-align: center;
+}
+
+#notice {
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 46%;
 }
 .item-image {
   height: 200px;
@@ -145,3 +142,37 @@ textarea {
   padding-top: 0;
   padding-bottom: 0;
 }
+.map-page-content {
+  width: 100vw;
+  height: 50vh;
+  padding-top: 10vh;
+
+}
+.show-page-items {
+  width: 100vw;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  background-color: white;
+}
+.items-form {
+  width: 100vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  background-color: #ECECE4;
+}
+.links {
+  text-align: center;
+}
+
+//shadow box around show page items
+// .items-container {
+//   margin: 25px 10px;
+//   padding-right: 30px;
+//   background: rgba(239, 239, 239, 0.7);
+//   box-shadow: 0 0 15px 10px rgba(239, 239, 239, 0.7);
+// }
+
+//good code for making background pictures
+// background-image: url(asset-path('map_page_bacground.png'));
+// background-repeat: no-repeat;
+// background-size: cover;

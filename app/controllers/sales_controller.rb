@@ -9,19 +9,69 @@ class SalesController < ApplicationController
   def index
     @user = current_user
 
+
+
+
 #find the completed sales from the past and delete them from the database
     @finished = Sale.where('date < ?', DateTime.now)
     @finished.destroy_all
 
     @ability = Ability.new(current_user)
 
+
+
+#find the sales based on zip code or city
+
     if params[:search].nil? || params[:search].empty?
       @sales = Sale.all
     else
       @sales = Sale.basic_search(params[:search])
-      render '/sales/index.html'
+      @zip_or_city = params[:search]
+      @searched = "true"
     end
+
+# if it's a city (a string), to_i will make it evaluate to 0
+     zip_city_var = @zip_or_city.to_i
+# declare an array to hold items in area of search
+     @items_within_search = []
+
+
+      if !(params[:item].nil? || params[:item].empty?)
+        # @search_results = Item.basic_search( item_name: params[:item])
+
+        @item_search_results = Item.basic_search( item_name: params[:item])
+        
+
+        if zip_city_var == 0 
+          @item_search_results.each do |item|
+
+  #add downcase to fix search problem
+            if item.sale.city.downcase == @zip_or_city.downcase
+
+              @items_within_search.push(item)
+            end
+          end
+
+        else
+          @item_search_results.each do |item|
+            if item.sale.zip == @zip_or_city
+              @items_within_search.push(item)
+            end
+          end
+        end 
+
+      else
+        @items =  []
+      end
+
+      respond_to do |format|
+        format.html { render '/sales/index.html' }
+        format.json { render json: @sales }
+      end
   end
+
+
+
 
   def mysales
     @user = current_user
