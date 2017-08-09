@@ -11,6 +11,7 @@ class Ability
     elsif user.has_role? :user
       can [:read, :create], :all
       can :manage, Sale, user_id: user.id
+      can :manage, Item, user_id: user.id
     else
       can [:read], :all
     end
