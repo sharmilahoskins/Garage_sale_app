@@ -25,10 +25,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url(asset-path('show_page_background.png'));
-  background-repeat: no-repeat;
-  background-size: cover;
-  // background-color: #dfece8;
+  background-color: #ECECE4;
   font-family: 'Muli', sans-serif;
 }
 .navbar {
@@ -66,7 +63,7 @@ table {
 .container-small {
   max-width: 350px;
   max-height: 525px;
-  background-color: rgba(188, 188, 188, 0.5);
+  background-color: rgba(50,144,110, 0.5);
   margin: 20vh auto;
   padding: 5%;
   border: 3px outset rgba(188, 188, 188, 0.5);
@@ -84,7 +81,8 @@ table {
 .container-large {
   max-width: 380px;
   max-height: 800px;
-  background-color: rgba(188, 188, 188, 0.5);
+  background-color: rgba(50,144,110, 0.5);
+
   margin: 20vh auto;
   padding: 2% 5% 2% 5%;
   border: 3px outset rgba(188, 188, 188, 0.5);
@@ -161,9 +159,10 @@ textarea {
   width: 100vw;
   padding-top: 1vh;
   padding-bottom: 1vh;
-  background-image: url(asset-path('map_page_bacground.png'));
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #ECECE4;
+  // background-image: url(asset-path('map_page_bacground.png'));
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 .links {
   text-align: center;
