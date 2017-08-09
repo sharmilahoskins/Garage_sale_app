@@ -12,9 +12,8 @@ Sale.destroy_all
 Item.destroy_all
 User.destroy_all
 
-
-user = User.create!(email: 'amy.dyson@mac.com', password: 'jstreet', password_confirmation: 'jstreet')
-
+user = User.create!(email: 'amy@gmail.com', password: 'jstreet', password_confirmation: 'jstreet')
+user.grant(:admin)
 
 sale = Sale.create!(street: '13162 Capstone Drive', city: 'San Diego', state: 'California', zip: '92130', date: "2017-09-14", time: "8-11am", description: 'Moving soon and everything must go.', user_id: user.id )
 
