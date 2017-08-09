@@ -1,15 +1,6 @@
-<script
-src="http://code.jquery.com/jquery-3.2.1.min.js"
-integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-crossorigin="anonymous"></script>
 
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<p id="notice"><%= notice %></p>
 
 
 
@@ -21,8 +12,6 @@ crossorigin="anonymous"></script>
 
 <!-- We pull address from this input -->
 <input id="address" type="hidden" value="<%= @sale.street %>,<%= @sale.city %>,<%= @sale.state %>,<%= @sale.zip %>">
-
-<div id="showmap"></div>
 
 <script>
 function initMap() {
@@ -60,43 +49,68 @@ function geocodeAddress(geocoder, resultsMap) {
 </script>
 
 
+
+
+<div class="container map-show">
+  <div class="row">
+
+  <div class="col col-lg-8">
+    <div id="showmap"></div>
+  </div>
+
+
+
 <!-- Displays sale info: -->
+  <div class="col col-lg-4">
+    <h2>Sale Info:</h2>
 
-<p>
-  <strong>Address: </strong>
-  <%= @sale.street %>, <%= @sale.city %>, <%= @sale.state %>, <%= @sale.zip %>
-</p>
+    <p>
+      <strong>Address: </strong>
+      <%= @sale.street %>, <%= @sale.city %>, <%= @sale.state %>, <%= @sale.zip %>
+    </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @sale.date %>
-</p>
+    <p>
+      <strong>Date:</strong>
+      <%= @sale.date.strftime("%m-%d-%Y") %>
+    </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @sale.time %>
-</p>
+    <p>
+      <strong>Time:</strong>
+      <%= @sale.time %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @sale.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @sale.description %>
+    </p>
 
+  </div>
+
+  </div>
+</div>
+
+<p id="notice"><%= notice %></p>
 
 <!-- Item view and form is below -->
-
+<h2 class="items-header">Items for Sale</h2>
 <%= render 'sales/modal' %>
 <%#= render 'items/showitems' %>
+<div class="container">
 
-<div class="col-sm-12">
-  <% if @user.nil? %>
-  <% else %>
-  <% if @sale.user_id == @user.id %>
-  <%= render 'items/form' %>
-  <%= link_to 'Edit Items', sale_items_path(@sale) %>
-  <%= link_to 'Edit Sale', edit_sale_path(@sale) %>
-  <% end %>
-  <% end %>
+  <div class="col">
+    <% if @user.nil? %>
+    <% else %>
+    <% if @sale.user_id == @user.id %>
 
-  <%= link_to 'Back', sales_path %>
+    <h2>Add Item:</h2>
+    <%= render 'items/form' %>
+
+    <%= link_to 'Edit Items', sale_items_path(@sale) %> |
+    <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
+    <% end %>
+    <% end %>
+
+
+    <%= link_to 'Back', sales_path %>
+  </div>
 </div>
