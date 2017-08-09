@@ -32,25 +32,31 @@ class SalesController < ApplicationController
 
     end
 
-
+# if it's a city (a string), to_i will make it evaluate to 0
+     zip_city_var = @zip_or_city.to_i
+# declare an array to hold items in area of search
+     @items_within_search = []
 
       if !(params[:item].nil? || params[:item].empty?)
-        # @searchu_results = Item.basic_search( item_name: params[:item])
-        @search_results = Item.basic_search( item_name: params[:item])
+        # @search_results = Item.basic_search( item_name: params[:item])
 
-#find items only in the zip or city that the user has already specified
-
-     temp = @zip_or_city.to_i
-
-     if temp = 0
-        @search_results = @search_results.where("city = '@zip_or_city'")
-     else    
-        @search_results = @search_results.where("zip = '@zip_or_city'")
-     end
-
+        @item_search_results = Item.basic_search( item_name: params[:item])
         
-        @items = @search_results
 
+        if zip_city_var == 0 
+          @item_search_results.each do |item|
+            if item.sale.city == @zip_or_city
+              @items_within_search.push(item)
+            end
+          end
+
+        else
+          @item_search_results.each do |item|
+            if item.sale.zip == @zip_or_city
+              @items_within_search.push(item)
+            end
+          end
+        end 
 
       else
         @items =  []

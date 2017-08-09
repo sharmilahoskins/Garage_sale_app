@@ -174,7 +174,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
   <tbody>
-    <% @items.each do |item| %>
+    <% @items_within_search.each do |item| %>
       <tr>
         <td><%= item.item_name %></td>
         <td><%= item.item_description %></td>
