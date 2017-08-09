@@ -49,7 +49,7 @@ function geocodeAddress(geocoder, resultsMap) {
 </script>
 
 
-<p id="notice"><%= notice %></p>
+
 
 <div class="container map-show">
   <div class="row">
@@ -88,26 +88,35 @@ function geocodeAddress(geocoder, resultsMap) {
 
   </div>
 </div>
+
+<div class="container show-page-items">
+
+<p id="notice"><%= notice %></p>
+
 <!-- Item view and form is below -->
 <h2 class="items-header">Items for Sale</h2>
 <%= render 'sales/modal' %>
 <%#= render 'items/showitems' %>
-<div class="container">
 
-  <div class="col">
-    <% if @user.nil? %>
-    <% else %>
-    <% if @sale.user_id == @user.id %>
+</div>
 
-    <h2>Add Item:</h2>
-    <%= render 'items/form' %>
+
+
+    <div class="items-form">
+      <div class="container-small">
+        <% if @user.nil? %>
+        <% else %>
+        <% if @sale.user_id == @user.id %>
+        <h2>Add Item:</h2>
+        <%= render 'items/form' %>
+
+      </div>
+    </div>
+    <div class="links col">
 
     <%= link_to 'Edit Items', sale_items_path(@sale) %> |
     <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
     <% end %>
     <% end %>
-
-
     <%= link_to 'Back', sales_path %>
-  </div>
-</div>
+    </div>

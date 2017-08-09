@@ -25,7 +25,10 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #dfece8;
+  background-image: url(asset-path('show_page_background.png'));
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-color: #dfece8;
   font-family: 'Muli', sans-serif;
 }
 .navbar {
@@ -105,12 +108,12 @@ table {
   padding-bottom: 20px;
 }
 .sale {
-  font-family: 'Philosopher', sans-serif;
+  font-family: 'Architects Daughter', sans-serif;
 
 }
 .heading {
   height: 100vh;
-  background-image: url(asset-path('grass.jpg'));
+  background-image: url(asset-path('grass_final.png'));
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -131,9 +134,45 @@ textarea {
   border-radius: 5px;
   border: 2px inset rgba(154,154,154,0.5);
 }
-#attach {
-  // background-color: blue;
-}
-.items-header {
+.items-header, #notice {
   text-align: center;
 }
+.item-image {
+  height: 200px;
+  border: 5px solid black;
+}
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.map-page-content {
+  width: 100vw;
+  height: 50vh;
+  padding-top: 10vh;
+
+}
+.show-page-items {
+  width: 100vw;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  background-color: white;
+}
+.items-form {
+  width: 100vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  background-image: url(asset-path('map_page_bacground.png'));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.links {
+  text-align: center;
+}
+
+//shadow box around show page items
+// .items-container {
+//   margin: 25px 10px;
+//   padding-right: 30px;
+//   background: rgba(239, 239, 239, 0.7);
+//   box-shadow: 0 0 15px 10px rgba(239, 239, 239, 0.7);
+// }
