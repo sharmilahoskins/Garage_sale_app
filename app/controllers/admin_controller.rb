@@ -5,7 +5,7 @@ class AdminController < ApplicationController
   # get "admin"
   def index
     @users = User.all
-    # @ability = Ability.new(current_user)
+    @ability = Ability.new(current_user)
   end
 
     # put/patch "admin/:id"
