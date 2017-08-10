@@ -1,5 +1,5 @@
 <!-- Map starts here -->
-<!-- We pull address from this input -->
+<!-- Pull address from this input -->
 <input id="address" type="hidden" value="<%= @sale.street %>,<%= @sale.city %>,<%= @sale.state %>,<%= @sale.zip %>">
 
 <script>
@@ -43,72 +43,63 @@ function geocodeAddress(geocoder, resultsMap) {
       <div id="showmap"></div>
     </div>
 
-<!-- Displays sale info: -->
-  <div class="col col-lg-4">
-    <h2>Sale Info:</h2>
+    <!-- Display sale info: -->
+    <div class="col col-lg-4">
+      <h2>Sale Info:</h2>
 
-    <p>
-      <strong>Address: </strong>
-      <%= @sale.street %>, <%= @sale.city %>, <%= @sale.state %>, <%= @sale.zip %>
-    </p>
+      <p>
+        <strong>Address: </strong>
+        <%= @sale.street %>, <%= @sale.city %>, <%= @sale.state %>, <%= @sale.zip %>
+      </p>
 
-    <p>
-      <strong>Date:</strong>
-      <%= @sale.date.strftime("%m-%d-%Y") %>
-    </p>
+      <p>
+        <strong>Date:</strong>
+        <%= @sale.date.strftime("%m-%d-%Y") %>
+      </p>
 
-    <p>
-      <strong>Time:</strong>
-      <%= @sale.time %>
-    </p>
+      <p>
+        <strong>Time:</strong>
+        <%= @sale.time %>
+      </p>
 
-    <p>
-      <strong>Description:</strong>
-      <%= @sale.description %>
-    </p>
+      <p>
+        <strong>Description:</strong>
+        <%= @sale.description %>
+      </p>
 
-  </div>
-
-  </div>
-</div>
+    </div> <!--closes col div-->
+  </div> <!--closes row div-->
+</div> <!--closes container div-->
 
 <div class="container show-page-items">
+  <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
-
-<!-- Item view and form is below -->
-<h2 class="items-header">Items for Sale</h2>
-<%= render 'sales/modal' %>
-<%#= render 'items/showitems' %>
-
+  <!-- Item view and form is below -->
+  <h2 class="items-header">Items for Sale</h2>
+  <%= render 'sales/modal' %>
 </div>
 
-
-
-      <% if @user.nil? %>
-      <% else %>
-        <% if @sale.user_id == @user.id %>
-        <div class="items-form">
-          <div class="container-small">
-            <h2>Add Item:</h2>
-            <%= render 'items/form' %>
-
-          </div>
-        </div>
-        <% end %>
-      <% end %>
-
-  <div class="container show-page-links" >
-
-    <!-- <div class="row" style="border:5px dashed black;">
-
-      <div class="col col-md-4" style="border:5px dotted black;"> -->
-    <% if @user.nil? %>
-    <% else %>
-      <% if @sale.user_id == @user.id %>
-      <%= link_to 'Edit Items', sale_items_path(@sale) %> |
-      <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
-      <% end %>
-    <% end %>
-    <%= link_to 'Back', sales_path %>
+<!--Check user role for adding items-->
+<% if @user.nil? %>
+<% else %>
+  <% if @sale.user_id == @user.id %>
+  <div class="items-form">
+    <div class="container-small">
+      <h2>Add Item:</h2>
+      <%= render 'items/form' %>
+    </div>
   </div>
+  <% end %>
+<% end %>
+
+<!--Check user role for editing items or sales items-->
+<div class="container show-page-links" >
+  <% if @user.nil? %>
+  <% else %>
+    <% if @sale.user_id == @user.id %>
+    <%= link_to 'Edit Items', sale_items_path(@sale) %> |
+    <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
+    <% end %>
+  <% end %>
+  <%= link_to 'Back', sales_path %>
+</div>
