@@ -2,22 +2,22 @@
 <%= form_for([@sale, @sale.items.build], html: { multipart: true }) do |form| %>
 
   <div class="field">
-    <%= form.label :item_name %><br>
-    <%= form.text_field :item_name, id: :item_item_name %>
+    <%= form.label :item_name, class: 'edit_form' %><br>
+    <%= form.text_field :item_name, id: :item_item_name, class: 'edit_form' %>
   </div>
 
   <div class="field">
-    <%= form.label :item_description %><br>
-    <%= form.text_area :item_description, id: :item_item_description %>
+    <%= form.label :item_description, class: 'edit_form' %><br>
+    <%= form.text_area :item_description, id: :item_item_description, class: 'edit_form' %>
   </div>
 
   <div class="field">
-    <%= form.label :price %><br>
-    <%= form.text_field :price, id: :item_price %>
+    <%= form.label :price, class: 'edit_form' %><br>
+    <%= form.text_field :price, id: :item_price, class: 'edit_form' %>
   </div>
   <br>
   <div class="field">
-    <%= form.file_field :image, id: :attach %>
+    <%= form.file_field :image, id: :attach, class: 'edit_form' %>
   </div>
 
   <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >

@@ -12,39 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :street %><br>
-    <%= form.text_field :street, id: :sale_street %>
+    <%= form.label :street, class: 'edit_form'  %><br>
+    <%= form.text_field :street, id: :sale_street, class: 'edit_form'  %>
   </div>
 
   <div class="field">
-    <%= form.label :city %><br>
-    <%= form.text_field :city, id: :sale_city %>
+    <%= form.label :city, class: 'edit_form'  %><br>
+    <%= form.text_field :city, id: :sale_city, class: 'edit_form'  %>
   </div>
 
   <div class="field">
-    <%= form.label :state %><br>
-    <%= form.text_field :state, id: :sale_state %>
+    <%= form.label :state, class: 'edit_form'  %><br>
+    <%= form.text_field :state, id: :sale_state, class: 'edit_form'  %>
   </div>
 
   <div class="field">
-    <%= form.label :zip %><br>
-    <%= form.text_field :zip, id: :sale_zip %>
+    <%= form.label :zip, class: 'edit_form'  %><br>
+    <%= form.text_field :zip, id: :sale_zip, class: 'edit_form'  %>
   </div>
 
   <div class="field">
-    <%= form.label :date %><br>
+    <%= form.label :date, class: 'edit_form'  %><br>
 
-    <%= form.date_select :date, id: :sale_date %>
+    <%= form.date_select :date, id: :sale_date, class: 'edit_form'  %>
   </div>
 
   <div class="field">
-    <%= form.label :time %><br>
-    <%= form.text_field :time, id: :sale_time %>
+    <%= form.label :time, class: 'edit_form'  %><br>
+    <%= form.text_field :time, id: :sale_time, class: 'edit_form'  %>
   </div>
 
   <div class="field"><br>
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :sale_description %>
+    <%= form.label :description, class: 'edit_form'  %>
+    <%= form.text_area :description, id: :sale_description, class: 'edit_form'  %>
   </div>
 
   <input type="hidden" name="sale[user_id]" id="user_id" value="<%=@user.id%>" >
