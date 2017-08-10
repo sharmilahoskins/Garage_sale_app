@@ -28,9 +28,18 @@ class SalesController < ApplicationController
     if params[:search].nil? || params[:search].empty?
       @sales = Sale.all
     else
-      @sales = Sale.basic_search(params[:search])
+
       @zip_or_city = params[:search]
       @searched = "true"
+      zip_city_var = @zip_or_city.to_i
+
+      if zip_city_var == 0 
+        @sales = Sale.where(city: @zip_or_city)
+        # @sales = Sale.basic_search(params[:search])
+      else
+        @sales = Sale.where(zip: @zip_or_city)
+      end
+      
     end
 
 # if it's a city (a string), to_i will make it evaluate to 0
