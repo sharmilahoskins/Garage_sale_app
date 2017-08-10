@@ -156,50 +156,58 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <input type="text" name="search" placeholder="City or Zip code" >
       <input type="submit" value="Search">
     </form>
-  </div> <!--ends search div--> -->
-
+  </div> <!--ends search div-->
+<%= link_to 'Wrong city? Search again.', root_path %>
 
 <div class="search">
   <form method="get" action="/sales">
     <input type ="hidden" name = "search" value = "<%= @zip_or_city %>">
-    <span class="search-headers"><label for="textsearch">Search by Item:</label></span><br>
+    <span class="search-headers"><label for="textsearch">Search for Item in:  <%= @zip_or_city %></label></span><br>
     <input type="text" name="item" placeholder="Item" >
     <input type="submit" value="Search">
   </form>
 </div>
 
+<% if @items_within_search.length == 0 %>
+   <div class="table-view">
+    <h4 id = "search_message">No <%= @item %> found in <%= @zip_or_city %></h4>
+   </div>
 
-<% if !(params[:item].nil? || params[:item].empty?) %>
-  <div class="table-view">
-    <h1>Items</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Photo</th>
-          <th>Description</th>
+<% else %>
 
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @items_within_search.each do |item| %>
+  <% if !(params[:item].nil? || params[:item].empty?) %>
+    <div class="table-view">
+      <h1>Items</h1>
+      <table>
+        <thead>
           <tr>
+            <th>Photo</th>
+            <th>Description</th>
 
-            <td><%= link_to image_tag(item.image.url(:med)), item.image.url %></td>
-            <td><%= item.item_description %>  <%= item.price %></td>
-    
-
-            <td><%= link_to 'Show Sale Details', item.sale %></td>
-          <% end %> <!-- ends for loop-->
+            <th colspan="3"></th>
           </tr>
-      </tbody>
-      </table>
-    </div> <!-- ends if params[:item] -->
-  </div> <!-- ends container map-page-content-->
-<% end %> <!-- ends table-view div-->
+        </thead>
+        <tbody>
+          <% @items_within_search.each do |item| %>
+            <tr>
+
+              <td><%= link_to image_tag(item.image.url(:med)), item.image.url %></td>
+              <td><%= item.item_description %>  <%= item.price %></td>
+      
+
+              <td><%= link_to 'Show Sale Details', item.sale %></td>
+            <% end %> <!-- ends for loop-->
+            </tr>
+        </tbody>
+        </table>
+      </div> <!-- ends if params[:item] -->
+    </div> <!-- ends container map-page-content-->
+
+  <% end %> <!-- ends table-view div-->
 
 
 
+<% end %> 
 
 
 
