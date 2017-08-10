@@ -114,18 +114,12 @@
   }
 </style>
 
-  <div class="container">
-    <div class="row items-container">
-
-      <% @sale.items.each do |i| %>
-
-
-        <div class="col col-lg-3 pictext">
-          <%#= link_to image_tag(i.image.url(:large)), i.image.url %>
-          <%= link_to image_tag(i.image.url(:large), :alt => i.item_description), "#myModal", :class => "btn", "data-toggle" => "modal", "data-dismiss" => "modal", :src => i.image.url(:original)  %>
-          <div class="iteminfo">
-
-
+<div class="container">
+  <div class="row items-container">
+    <% @sale.items.each do |i| %>
+      <div class="col col-lg-3 pictext">
+        <%= link_to image_tag(i.image.url(:large), :alt => i.item_description), "#myModal", :class => "btn", "data-toggle" => "modal", "data-dismiss" => "modal", :src => i.image.url(:original)  %>
+        <div class="iteminfo">
             <p>
               <strong>Item name:</strong>
               <%= i.item_name %>
@@ -140,7 +134,8 @@
               <strong>Price:</strong>
               <%= i.price %>
             </p>
-            <!-- Put if statements here to show links based on role -->
+
+            <!-- Show links based on user role -->
             <% if @user.nil? %>
             <% else %>
               <% if @sale.user_id == @user.id || (@ability.can? :manage, :all) %>
@@ -148,60 +143,57 @@
                 <%= link_to 'Delete Item', i, method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
             <% end %>
-          </div>
-      </div>
-    <% end %>
+        </div> <!--ends inteminfo div-->
+      </div> <!--ends pictext div-->
+    <% end %> <!--ends items.each for loop-->
+  </div> <!--ends items-container div-->
+</div> <!--ends container div-->
+
+<!-- The Modal -->
+<div id="myModal" class="modal" role="dialog"><!--Images will be placed inside this div, which represents the modal itself-->
+
+  <!-- Modal Content (The Image) -->
+  <div class="modal-body">
+    <img class="modal-content" src="" />
+    <div id="caption"></div>
   </div>
-</div>
-
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal" role="dialog"><!--Images will be placed inside this div, which represents the modal itself-->
-
-      <!-- Modal Content (The Image) -->
-      <div class="modal-body">
-          <img class="modal-content" src="" />
-
-          <div id="caption">
-          </div>
-
-      </div>
 
   <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-</div>
-    <script>
-    $(document).ready(function () {
-      $('#myModal').on('show.bs.modal', function (e) {
-        var image = $(e.relatedTarget).attr('src');
-        $(".modal-content").attr("src", image);
-      });
-      var captionText = document.getElementById("caption");
-      $( ".pictext" ).on( "click", function() {
-        captionText.innerHTML = $(this).find("#itemdesc").text();
-      });
-    });
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+  </div>
+</div> <!--ends myModal div-->
+<!--</div> cant find what this div goes to-->
 
-    // var captionText = document.getElementById("caption");
-    // var img1 = document.getElementsByClassName('modal-content');
-    // this.onclick = function(){
-    //   captionText.innerHTML = this.alt;
-    // }
-    //
-    // var img2 = document.getElementById('myImg2');
-    // img2.onclick = function(){
-    //   captionText.innerHTML = this.alt;
-    // }
-    //
-    // var img3 = document.getElementById('myImg3');
-    // img3.onclick = function(){
-    //   captionText.innerHTML = this.alt;
-    // }
-    //
-    // var img4 = document.getElementById('myImg4');
-    // img4.onclick = function(){
-    //   captionText.innerHTML = this.alt;
-    // }
-    </script>
+<script>
+$(document).ready(function () {
+  $('#myModal').on('show.bs.modal', function (e) {
+    var image = $(e.relatedTarget).attr('src');
+    $(".modal-content").attr("src", image);
+  });
+  var captionText = document.getElementById("caption");
+  $( ".pictext" ).on( "click", function() {
+    captionText.innerHTML = $(this).find("#itemdesc").text();
+  });
+});
+
+// var captionText = document.getElementById("caption");
+// var img1 = document.getElementsByClassName('modal-content');
+// this.onclick = function(){
+//   captionText.innerHTML = this.alt;
+// }
+//
+// var img2 = document.getElementById('myImg2');
+// img2.onclick = function(){
+//   captionText.innerHTML = this.alt;
+// }
+//
+// var img3 = document.getElementById('myImg3');
+// img3.onclick = function(){
+//   captionText.innerHTML = this.alt;
+// }
+//
+// var img4 = document.getElementById('myImg4');
+// img4.onclick = function(){
+//   captionText.innerHTML = this.alt;
+// }
+</script>
