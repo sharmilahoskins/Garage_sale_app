@@ -133,8 +133,9 @@ textarea {
   text-align: center;
 }
 .home-notice {
-padding-top: 60px;
-text-align: center;
+  position: absolute;
+  padding-top: 60px;
+  // text-align: center;
 }
 .navbar-brand {
   padding-top: 0;
