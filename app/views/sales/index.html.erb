@@ -149,6 +149,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <p id="notice"><%= notice %> <%="Welcome, #{@user.email}!"%></p>
   <% end %>
 
+
 <!-- <div class="container map-page-content">
   <div class="search">
     <form method="get" action="/sales">
@@ -168,14 +169,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </form>
 </div>
 
-<% if @items_within_search.length == 0 %>
-   <div class="table-view">
-    <h4 id = "search_message">No <%= @item %> found in <%= @zip_or_city %></h4>
-   </div>
 
-<% else %>
 
-  <% if !(params[:item].nil? || params[:item].empty?) %>
+ <% if !(params[:item].nil? || params[:item].empty?) && @items_within_search.length == 0 %>
+ <div class = "items-header"> <h4>No items found</h4>
+ </div>
+
+ <%end %>
+
+  <% if !(params[:item].nil? || params[:item].empty?) && @items_within_search.length != 0 %>
     <div class="table-view">
       <h1>Items</h1>
       <table>
@@ -207,7 +209,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 
-<% end %> 
 
 
 

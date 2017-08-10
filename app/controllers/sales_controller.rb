@@ -27,11 +27,13 @@ class SalesController < ApplicationController
 
     if params[:search].nil? || params[:search].empty?
       @sales = Sale.all
-      @zip_or_city = "planet Earth"
+
     else
 
       @zip_or_city = params[:search]
 #      @searched = "true"
+
+
 
   # if it's a city (a string), to_i will make it evaluate to 0
       zip_city_var = @zip_or_city.to_i
@@ -82,6 +84,10 @@ class SalesController < ApplicationController
 
       else
         @items =  []
+      end
+
+      if @zip_or_city.nil?
+        @items_within_search = Item.basic_search( item_name: params[:item])
       end
 
       respond_to do |format|
