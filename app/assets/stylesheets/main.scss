@@ -95,7 +95,7 @@ table {
   font-family: 'Muli', sans-serif;
   font-size: 4em;
   text-align: center;
-  padding-top: 30vh;
+  padding-top: 20vh;
   padding-bottom: 20px;
 }
 .sale {
@@ -128,11 +128,9 @@ textarea {
 .items-header, #notice {
   text-align: center;
 }
-
-#notice {
-  position: absolute;
-  margin-top: 5%;
-  margin-left: 46%;
+.home-notice {
+padding-top: 60px;
+text-align: center;
 }
 .item-image {
   height: 200px;
