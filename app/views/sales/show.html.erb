@@ -1,15 +1,4 @@
-
-
-
-
-
-
-
-
-
 <!-- Map starts here -->
-
-
 <!-- We pull address from this input -->
 <input id="address" type="hidden" value="<%= @sale.street %>,<%= @sale.city %>,<%= @sale.state %>,<%= @sale.zip %>">
 
@@ -48,17 +37,11 @@ function geocodeAddress(geocoder, resultsMap) {
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9nhXMWs8RXF_OXTGrVAB7x-msZVhahGw&callback=initMap">
 </script>
 
-
-
-
 <div class="container map-show">
   <div class="row">
-
-  <div class="col col-lg-8">
-    <div id="showmap"></div>
-  </div>
-
-
+    <div class="col col-lg-8">
+      <div id="showmap"></div>
+    </div>
 
 <!-- Displays sale info: -->
   <div class="col col-lg-4">
