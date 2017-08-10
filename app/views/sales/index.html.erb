@@ -144,15 +144,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <div id="map"></div>
 
 
+<p>Wrong city?<%= link_to ' Search again', root_path %></p>
 <div class="container map-page-content">
-  <div class="search">
-    <form method="get" action="/sales">
-      <span class="search-headers"><label for="search">Find Garage Sales:</label></span><br>
-      <input type="text" name="search" placeholder="City or Zip code" >
-      <input type="submit" value="Search">
-    </form>
-  </div> <!--ends search div-->
-<%= link_to 'Wrong city? Search again.', root_path %>
+
 
 <div class="search">
   <form method="get" action="/sales">
@@ -188,7 +182,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
               <td><%= link_to image_tag(item.image.url(:med)), item.image.url %></td>
               <td><%= item.item_description %>  <%= item.price %></td>
-      
+
 
               <td><%= link_to 'Show Sale Details', item.sale %></td>
             <% end %> <!-- ends for loop-->
@@ -202,7 +196,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 
-<% end %> 
+<% end %>
 
 
 
