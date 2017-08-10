@@ -91,6 +91,7 @@ function geocodeAddress(geocoder, resultsMap) {
   <% if @sale.user_id == @user.id %>
   <div class="items-form">
     <div class="container-small">
+      <p><%= alert %></p>
       <h2>Add Item:</h2>
       <%= render 'items/form' %>
     </div>
