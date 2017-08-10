@@ -2,6 +2,9 @@ class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show, :index, :mysales]
 
+  #ajax experiment
+  respond_to :html, :js
+
   load_and_authorize_resource
 
   # GET /sales
@@ -40,9 +43,9 @@ class SalesController < ApplicationController
         # @search_results = Item.basic_search( item_name: params[:item])
 
         @item_search_results = Item.basic_search( item_name: params[:item])
-        
 
-        if zip_city_var == 0 
+
+        if zip_city_var == 0
           @item_search_results.each do |item|
 
   #add downcase to fix search problem
@@ -58,7 +61,7 @@ class SalesController < ApplicationController
               @items_within_search.push(item)
             end
           end
-        end 
+        end
 
       else
         @items =  []
@@ -69,8 +72,6 @@ class SalesController < ApplicationController
         format.json { render json: @sales }
       end
   end
-
-
 
 
   def mysales

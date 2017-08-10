@@ -4,8 +4,15 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
 
+  #ajax experiment
+  respond_to :html, :js
+
   def index
     @items = Item.all
+    respond_to do |format|
+    format.html
+    format.json
+    end
   end
 
   # GET /items/1

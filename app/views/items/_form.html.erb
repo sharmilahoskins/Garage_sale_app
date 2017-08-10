@@ -1,5 +1,5 @@
 
-<%= form_for([@sale, @sale.items.build], html: { multipart: true }) do |form| %>
+<%= form_for([@sale, @sale.items.build], remote: true, html: { multipart: true }) do |form| %>
 
   <div class="field">
     <%= form.label :item_name %><br>
@@ -23,6 +23,6 @@
   <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >
   <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit id: :add_new_item_button %>
   </div>
 <% end %>
