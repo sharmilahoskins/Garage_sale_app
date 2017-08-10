@@ -3,21 +3,21 @@
 
   <div class="field">
     <%= form.label :item_name, class: 'edit_form' %><br>
-    <%= form.text_field :item_name, id: :item_item_name, class: 'edit_form' %>
+    <%= form.text_field :item_name, id: :item_item_name, class: 'edit_form', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :item_description, class: 'edit_form' %><br>
-    <%= form.text_area :item_description, id: :item_item_description, class: 'edit_form' %>
+    <%= form.text_area :item_description, id: :item_item_description, class: 'edit_form', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :price, class: 'edit_form' %><br>
-    <%= form.text_field :price, id: :item_price, class: 'edit_form' %>
+    <%= form.text_field :price, id: :item_price, class: 'edit_form', required: true %>
   </div>
   <br>
   <div class="field">
-    <%= form.file_field :image, id: :attach, class: 'edit_form' %>
+    <%= form.file_field :image, id: :attach %>
   </div>
 
   <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >

@@ -72,7 +72,9 @@ function geocodeAddress(geocoder, resultsMap) {
 </div> <!--closes container div-->
 
 <div class="container show-page-items">
-  <p id="notice"><%= notice %></p>
+  <p class="show-notice">
+    <%= notice %>
+  </p>
 
   <!-- Item view and form is below -->
   <h2 class="items-header">Items for Sale</h2>
@@ -89,6 +91,7 @@ function geocodeAddress(geocoder, resultsMap) {
   <% if @sale.user_id == @user.id %>
   <div class="items-form">
     <div class="container-small">
+      <p><%= alert %></p>
       <h2>Add Item:</h2>
       <%= render 'items/form' %>
     </div>

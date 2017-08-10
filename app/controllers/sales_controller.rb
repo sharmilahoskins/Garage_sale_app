@@ -27,22 +27,36 @@ class SalesController < ApplicationController
 
     if params[:search].nil? || params[:search].empty?
       @sales = Sale.all
+      @zip_or_city = "planet Earth"
     else
-      @sales = Sale.basic_search(params[:search])
+
       @zip_or_city = params[:search]
-      @searched = "true"
+#      @searched = "true"
+
+  # if it's a city (a string), to_i will make it evaluate to 0
+      zip_city_var = @zip_or_city.to_i
+
+      if zip_city_var == 0 
+        @sales = Sale.where(city: @zip_or_city)
+        # @sales = Sale.basic_search(params[:search])
+      else
+        @sales = Sale.where(zip: @zip_or_city)
+      end
+      
     end
 
-# if it's a city (a string), to_i will make it evaluate to 0
-     zip_city_var = @zip_or_city.to_i
-# declare an array to hold items in area of search
-     @items_within_search = []
 
+  #   zip_city_var = @zip_or_city.to_i
+# declare an array to hold items in area of search
+    @items_within_search = []
+    @items_within_search2 = []
 
       if !(params[:item].nil? || params[:item].empty?)
         # @search_results = Item.basic_search( item_name: params[:item])
+        @item =  params[:item]
 
         @item_search_results = Item.basic_search( item_name: params[:item])
+        @item_search_results2 = Sale.basic_search( item_name: params[:item])
 
 
         if zip_city_var == 0
@@ -52,6 +66,7 @@ class SalesController < ApplicationController
             if item.sale.city.downcase == @zip_or_city.downcase
 
               @items_within_search.push(item)
+              @items_within_search2.push(item)
             end
           end
 
@@ -59,6 +74,8 @@ class SalesController < ApplicationController
           @item_search_results.each do |item|
             if item.sale.zip == @zip_or_city
               @items_within_search.push(item)
+              @items_within_search2.push(item)
+
             end
           end
         end
