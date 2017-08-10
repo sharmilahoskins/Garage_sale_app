@@ -54,21 +54,21 @@ table {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 .container-small {
-  max-width: 350px;
+  max-width: 370px;
   max-height: 525px;
   background-color: rgba(50,144,110, 0.5);
   margin: 20vh auto;
-  padding: 5%;
+  padding: 4%;
   border: 3px outset rgba(188, 188, 188, 0.5);
   border-radius: 5px;
   @media screen and (max-width: $break-smalldesk) {
     max-width: 300px;
   }
   @media screen and (max-width: $break-ipad) {
-    max-width: 280px;
+    max-width: 295px;
   }
   @media screen and (max-width: $break-iphone) {
-    max-width: 240px;
+    max-width: 260px;
   }
 }
 .container-large {
@@ -123,6 +123,7 @@ input {
 textarea {
   border-radius: 5px;
   border: 2px inset rgba(154,154,154,0.5);
+  width: 195px;
 }
 .items-header{
   text-align: center;
@@ -161,6 +162,16 @@ text-align: center;
 .edit_form{
   line-height: 80%;
 }
+.button_style {
+  width: 195px;
+}
+#attach {
+  width: 210px;
+}
+
+
+
+
 
 //MODAL STYLING
 .images {
@@ -257,14 +268,3 @@ text-align: center;
 // background-image: url(asset-path('map_page_bacground.png'));
 // background-repeat: no-repeat;
 // background-size: cover;
-
-.edit_form{
-line-height: 80%;
-}
-
-.button_style {
-  width: 200px;
-}
-
-
-
