@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   root 'statics#home'
 
 
+
   get "admin" => "admin#index"
   put "admin/:id" => "admin#update"
   patch "admin/:id" => "admin#update"

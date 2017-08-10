@@ -40,7 +40,7 @@ function geocodeAddress(geocoder, resultsMap) {
 <div class="container map-show">
   <div class="row">
     <div class="col col-lg-8">
-      <div id="showmap"></div>
+      <div id="showmap" data-turbolinks-permanent></div>
     </div>
 
     <!-- Display sale info: -->
@@ -72,11 +72,17 @@ function geocodeAddress(geocoder, resultsMap) {
 </div> <!--closes container div-->
 
 <div class="container show-page-items">
-  <p id="notice"><%= notice %></p>
+  <p class="show-notice">
+    <%= notice %>
+  </p>
 
   <!-- Item view and form is below -->
   <h2 class="items-header">Items for Sale</h2>
-  <%= render 'sales/modal' %>
+  <div id="items-modal-area">
+    <%= render 'modal' %>
+
+  </div>
+  <!-- Used to be render 'sales/modal' -->
 </div>
 
 <!--Check user role for adding items-->
@@ -85,6 +91,7 @@ function geocodeAddress(geocoder, resultsMap) {
   <% if @sale.user_id == @user.id %>
   <div class="items-form">
     <div class="container-small">
+      <p><%= alert %></p>
       <h2>Add Item:</h2>
       <%= render 'items/form' %>
     </div>

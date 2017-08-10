@@ -1,0 +1,11 @@
+$(document).ready(function(){
+
+
+$("#add_new_item_button").on(
+ "click",
+ function() {
+   $("#items-modal-area").html("<%= j (render 'modal') %>");
+ });
+
+ 
+});

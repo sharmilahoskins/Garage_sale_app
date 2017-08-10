@@ -1,8 +1,8 @@
 <%= form_with(model: item, local: true, html: {multipart: true}) do |form| %>
 
     <div class="field">
-     <%= form.label :item_name, class: 'edit_form' %> 
-     <%= form.text_field :item_name, id: :item_item_name, class: 'edit_form'  %> 
+     <%= form.label :item_name, class: 'edit_form' %>
+     <%= form.text_field :item_name, id: :item_item_name, class: 'edit_form'  %>
     </div>
     <br>
     <div class="field">
@@ -16,14 +16,14 @@
     </div>
     <br>
       <div class="field">
-      <%= form.file_field :image, id: :attach, class: 'edit_form' %>
+      <%= form.file_field :image, id: :attach%>
     </div>
     <br>
 
     <p>
     <%= link_to image_tag(@item.image.url(:large)), @item.image.url %>
     </p>
-                                                  
+
     <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >
 
     <div class="actions">
