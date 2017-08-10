@@ -143,12 +143,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <!-- Map is placed inside the div -->
 <div id="map"></div>
 
-<!--Show welcome message for users with an account, underneath the map-->
-  <% if @user.nil? %>
-  <% else %>
-  <p id="notice"><%= notice %> <%="Welcome, #{@user.email}!"%></p>
-  <% end %>
-
 <div class="container map-page-content">
   <div class="search">
     <form method="get" action="/sales">
