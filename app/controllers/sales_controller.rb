@@ -46,14 +46,14 @@ class SalesController < ApplicationController
 # declare an array to hold items in area of search
     @items_within_search = []
     @sales_within_search = []
-
+    
+    #if there was an item put in the search box:
       if !(params[:item].nil? || params[:item].empty?)
-        # @search_results = Item.basic_search( item_name: params[:item])
+    #save the item to be used later
         @item =  params[:item]
-
+    #find all items of that kind in the total database
         @item_search_results = Item.basic_search( item_name: params[:item])
-        @ales_within_search = Sale.basic_search( item_name: params[:item])
-
+    #if search was by city, select the items that are in the city
         if zip_city_var == 0
           @item_search_results.each do |item|
           #add downcase to fix search problem
@@ -61,20 +61,56 @@ class SalesController < ApplicationController
               @items_within_search.push(item)
             end #end if
           end #end do
+    #if search was by zip, select the items that are in the zip
         else
           @item_search_results.each do |item|
             if item.sale.zip == @zip_or_city
             @items_within_search.push(item)
             end #end if
           end #end do
-        end #end if-else
 
+        end #end if-else
+    #if item search box was empty, return no items
       else
         @items =  []
       end
 
+
+ #if there was an item put in the search box:
+      if !(params[:item].nil? || params[:item].empty?)
+    #save the item to be used later
+        @item =  params[:item]
+    #find all items of that kind in the total database
+        @sales_search_results = Sale.basic_search( description: params[:item])
+    #if search was by city, select the items that are in the city
+        if zip_city_var == 0
+          @sales_search_results.each do |sale|
+          #add downcase to fix search problem
+            if sale.city.downcase == @zip_or_city.downcase
+              @sales_within_search.push(sale)
+            end #end if
+          end #end do
+    #if search was by zip, select the items that are in the zip
+        else
+          @sales_search_results.each do |sale|
+            if sale.zip == @zip_or_city
+            @sales_within_search.push(sale)
+            end #end if
+          end #end do
+      
+        end #end if-else
+    #if item search box was empty, return no items
+      else
+        @items =  []
+      end
+
+
+
+
+#if user doesn't choose a city or zip, show ALL items, everywhere
       if @zip_or_city.nil?
         @items_within_search = Item.basic_search( item_name: params[:item])
+        @sales_within_search = Sale.basic_search( description: params[:item])
       end
 
       respond_to do |format|
