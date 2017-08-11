@@ -31,15 +31,19 @@ class SalesController < ApplicationController
       @zip_or_city = params[:search]
   # if it's a city (a string), to_i will make it evaluate to 0
       zip_city_var = @zip_or_city.to_i
+    
 
       if zip_city_var == 0 
-        @sales = Sale.where(city: @zip_or_city)
-          # @sales = Sale.basic_search(params[:search])
+
+        @sales = Sale.where('lower(city) = ?', @zip_or_city.downcase)  
       else
         @sales = Sale.where(zip: @zip_or_city)
       end
-      
     end
+
+
+
+
 
 
   #   zip_city_var = @zip_or_city.to_i
