@@ -15,6 +15,18 @@ class ItemsController < ApplicationController
     end
   end
 
+    def user_index
+
+    @user = current_user
+    @sales = Sale.where(:user_id => @user.id).map{ |x| x.id }
+    @items = Item.where(:sale_id => @sales )
+    respond_to do |format|
+    format.html
+    format.json
+    end
+    render '/items/index.html.erb'
+  end
+
   # GET /items/1
   # GET /items/1.json
   def show
@@ -22,7 +34,7 @@ class ItemsController < ApplicationController
     @ability = Ability.new(current_user)
     # @item = Item.new
     @sale = Sale.find(params[:sale_id])
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
   end
 
   # GET /items/new

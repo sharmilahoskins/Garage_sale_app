@@ -172,7 +172,9 @@ textarea {
 #search_message{
   color: #a40000
 }
-
+.spacer {
+  height: 60px;
+}
 
 
 //MODAL STYLING
@@ -255,8 +257,23 @@ text-align: center;
   padding: 13px;
 }
 
+.loginalert, #error_explanation {
+  position: absolute;
+  color: red;
+}
 
+#error_explanation {
+  width: 200px;
+}
 
+ul {
+  list-style-type: none;
+  margin-left: -40px;
+}
+
+div.field_with_errors {
+  display: inline;
+}
 
 //shadow box around show page items
 // .items-container {
@@ -271,3 +288,9 @@ text-align: center;
 // background-repeat: no-repeat;
 // background-size: cover;
 
+
+#new_table{
+
+float: top;
+
+}

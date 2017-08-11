@@ -1,9 +1,7 @@
 <div class="container-small col col-lg-3">
-
-
   <h2>Log in</h2>
-
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
     <div class="field">
       <%= f.label :email, class: 'edit_form' %><br />
       <%= f.email_field :email, autofocus: true, class: 'edit_form' %>
@@ -31,6 +29,9 @@
 
   <%= render "devise/shared/links" %>
 
-
+  <br>
+  <p class="loginalert"><%=alert%></p>
+  <p class="loginalert"><%=notice%></p>
+  <br>
 
 </div>
