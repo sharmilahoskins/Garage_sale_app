@@ -12,15 +12,11 @@ class SalesController < ApplicationController
   def index
     @user = current_user
 
-
-
-
 #find the completed sales from the past and delete them from the database
     @finished = Sale.where('date < ?', DateTime.now)
     @finished.destroy_all
 
     @ability = Ability.new(current_user)
-
 
 
 #find the sales based on zip code or city
@@ -32,13 +28,13 @@ class SalesController < ApplicationController
   # if it's a city (a string), to_i will make it evaluate to 0
       zip_city_var = @zip_or_city.to_i
     
-
       if zip_city_var == 0 
 
         @sales = Sale.where('lower(city) = ?', @zip_or_city.downcase)  
       else
         @sales = Sale.where(zip: @zip_or_city)
       end
+
     end
 
 
@@ -50,7 +46,7 @@ class SalesController < ApplicationController
 # declare an array to hold items in area of search
     @items_within_search = []
     @sales_within_search = []
-    
+
     #if there was an item put in the search box:
       if !(params[:item].nil? || params[:item].empty?)
     #save the item to be used later
@@ -101,7 +97,7 @@ class SalesController < ApplicationController
             @sales_within_search.push(sale)
             end #end if
           end #end do
-      
+
         end #end if-else
     #if item search box was empty, return no items
       else
@@ -120,7 +116,7 @@ class SalesController < ApplicationController
       respond_to do |format|
         format.html { render '/sales/index.html' }
         format.json { render json: @sales }
-      end #do 
+      end #do
   end #index method
 
 

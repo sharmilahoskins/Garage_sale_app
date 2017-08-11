@@ -30,15 +30,15 @@
     <%= form.text_field :time, id: :sale_time, class: 'edit_form', required: true  %>
   </div>
 
-  <div class="field"><br>
+  <div class="field">
     <%= form.label :description, class: 'edit_form'  %>
     <%= form.text_area :description, id: :sale_description, class: 'edit_form', required: true  %>
   </div>
 
   <input type="hidden" name="sale[user_id]" id="user_id" value="<%=@user.id%>" >
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'button_style'%>
   </div>
 
 
