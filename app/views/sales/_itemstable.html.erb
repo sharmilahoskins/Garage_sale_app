@@ -3,10 +3,10 @@
   </div>
 <%end %>
 
-<div>
+
+
  <% if !(params[:item].nil? || params[:item].empty?) && @items_within_search.length != 0 %>
    <div class="table-view">
-     <h1>Items</h1>
      <table>
        <thead>
          <tr>
@@ -27,7 +27,7 @@
        </tbody>
        </table>
      </div> <!-- ends if params[:item] -->
-   </div> <!-- ends container map-page-content-->
+
 
  <% end %> <!-- ends table-view div-->
 
