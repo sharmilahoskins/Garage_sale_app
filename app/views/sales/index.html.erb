@@ -13,14 +13,17 @@ var url = window.location.search;
 url = url.replace("?search=", '');
 // url2 and 3 prevent the alert box for locations not found from showing
 var url2 = url.replace("+", ' ');
+console.log("url2 is: " + url2)
 var url3 = url.replace("&item=", ' ');
+console.log("url3 is: " + url3)
 // turn sales.json into usable array
 var jsonarray;
 $.getJSON('../sales.json', function(json) {
   jsonarray = json;
 });
 // for no value in search
-if (url2 === "") {
+if (url2 === "" || url2 === "&item=") {
+  console.log("entering if url2 is blank")
 //plot initial point using geocode instead of coordinates (works just fine)
   function initialize() {
       geocoder = new google.maps.Geocoder();
@@ -49,7 +52,7 @@ if (url2 === "") {
               markersArray.push(marker);
           }
           else{
-              alert("Geocode was not successful for the following reason: " + status);
+              // alert("Geocode was not successful for the following reason: " + status);
           }
       });
 
@@ -58,6 +61,8 @@ if (url2 === "") {
 }
 // for a value in search
 else {function initialize() {
+  console.log("entering else case. url3 is " + url3 + "and url2 is " + url2)
+
     geocoder = new google.maps.Geocoder();
     bounds = new google.maps.LatLngBounds ();
 
@@ -86,7 +91,7 @@ else {function initialize() {
             markersArray.push(marker);
         }
         else{
-            alert("Geocode was not successful for the following reason: " + status);
+            // alert("Geocode was not successful for the following reason: " + status);
         }
     });
 
