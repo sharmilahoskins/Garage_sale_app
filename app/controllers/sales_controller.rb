@@ -52,7 +52,7 @@ class SalesController < ApplicationController
     #save the item to be used later
         @item =  params[:item]
     #find all items of that kind in the total database
-        @item_search_results = Item.basic_search( item_name: params[:item])
+        @item_search_results = Item.basic_search( {item_name: params[:item], item_description: params[:item]}, false)
     #if search was by city, select the items that are in the city
         if zip_city_var == 0
           @item_search_results.each do |item|
