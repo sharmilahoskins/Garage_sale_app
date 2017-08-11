@@ -1,0 +1,58 @@
+<% if !(params[:item].nil? || params[:item].empty?) && @items_within_search.length == 0 && @sales_within_search.length == 0 %>
+  <div class = "items-header"> <h4>No <%= @item %> found</h4>
+  </div>
+<%end %>
+
+<div>
+ <% if !(params[:item].nil? || params[:item].empty?) && @items_within_search.length != 0 %>
+   <div class="table-view">
+     <h1>Items</h1>
+     <table>
+       <thead>
+         <tr>
+           <th>Photo</th>
+           <th>Item Description</th>
+
+           <th colspan="3"></th>
+         </tr>
+       </thead>
+       <tbody>
+         <% @items_within_search.each do |item| %>
+           <tr>
+             <td><%= link_to image_tag(item.image.url(:med)), item.image.url %></td>
+             <td><%= item.item_description %>  <%= item.price %></td>
+             <td><%= link_to 'Show Sale Details', item.sale %></td>
+           <% end %> <!-- ends for loop-->
+           </tr>
+       </tbody>
+       </table>
+     </div> <!-- ends if params[:item] -->
+   </div> <!-- ends container map-page-content-->
+
+ <% end %> <!-- ends table-view div-->
+
+ <% if !(params[:item].nil? || params[:item].empty?) && @sales_within_search.length != 0 %>
+     <div class="table-view">
+       <table>
+         <thead>
+           <tr>
+             <th>Address</th>
+             <th>Sale Description</th>
+             <th colspan="3"></th>
+           </tr>
+         </thead>
+         <tbody>
+           <% @sales_within_search.each do |sale| %>
+
+             <tr>
+               <td><%= sale.street %><br><%= sale.city %>, <%= sale.state %></td>
+               <td><%= sale.description%></td>
+               <td><%= link_to 'Show Sale Details', sale %></td>
+             <% end %> <!-- ends for loop-->
+             </tr>
+         </tbody>
+         </table>
+       </div> <!-- ends if params[:item] -->
+     </div> <!-- ends container map-page-content-->
+
+   <% end %> <!-- ends table-view div-->
