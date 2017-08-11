@@ -160,7 +160,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
  <% if !(params[:item].nil? || params[:item].empty?) && @items_within_search.length == 0 %>
- <div class = "items-header"> <h4>No items found</h4>
+ <div class = "items-header"> <h4>No <%= @item %> found</h4>
  </div>
 
  <%end %>

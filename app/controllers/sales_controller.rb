@@ -27,20 +27,14 @@ class SalesController < ApplicationController
 
     if params[:search].nil? || params[:search].empty?
       @sales = Sale.all
-
     else
-
       @zip_or_city = params[:search]
-#      @searched = "true"
-
-
-
   # if it's a city (a string), to_i will make it evaluate to 0
       zip_city_var = @zip_or_city.to_i
 
       if zip_city_var == 0 
         @sales = Sale.where(city: @zip_or_city)
-        # @sales = Sale.basic_search(params[:search])
+          # @sales = Sale.basic_search(params[:search])
       else
         @sales = Sale.where(zip: @zip_or_city)
       end
@@ -51,36 +45,29 @@ class SalesController < ApplicationController
   #   zip_city_var = @zip_or_city.to_i
 # declare an array to hold items in area of search
     @items_within_search = []
-    @items_within_search2 = []
+    @sales_within_search = []
 
       if !(params[:item].nil? || params[:item].empty?)
         # @search_results = Item.basic_search( item_name: params[:item])
         @item =  params[:item]
 
         @item_search_results = Item.basic_search( item_name: params[:item])
-        @item_search_results2 = Sale.basic_search( item_name: params[:item])
-
+        @ales_within_search = Sale.basic_search( item_name: params[:item])
 
         if zip_city_var == 0
           @item_search_results.each do |item|
-
-  #add downcase to fix search problem
+          #add downcase to fix search problem
             if item.sale.city.downcase == @zip_or_city.downcase
-
               @items_within_search.push(item)
-              @items_within_search2.push(item)
-            end
-          end
-
+            end #end if
+          end #end do
         else
           @item_search_results.each do |item|
             if item.sale.zip == @zip_or_city
-              @items_within_search.push(item)
-              @items_within_search2.push(item)
-
-            end
-          end
-        end
+            @items_within_search.push(item)
+            end #end if
+          end #end do
+        end #end if-else
 
       else
         @items =  []
@@ -93,8 +80,8 @@ class SalesController < ApplicationController
       respond_to do |format|
         format.html { render '/sales/index.html' }
         format.json { render json: @sales }
-      end
-  end
+      end #do 
+  end #index method
 
 
   def mysales
