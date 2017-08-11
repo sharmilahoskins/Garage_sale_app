@@ -104,7 +104,8 @@ function geocodeAddress(geocoder, resultsMap) {
   <% if @user.nil? %>
   <% else %>
     <% if @sale.user_id == @user.id %>
-    <%= link_to 'Edit Items', sale_items_path(@sale) %> |
+    <%= link_to 'CanCan Issue', sale_items_path(@sale) %> |
+    <%= link_to 'Edit Items', '/items/user_index' %> |
     <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
     <% end %>
   <% end %>

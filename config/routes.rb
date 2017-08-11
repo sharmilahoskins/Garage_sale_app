@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'sales/find_item'
 
+  get 'items/user_index'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'sales/mysales'
 
