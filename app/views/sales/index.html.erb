@@ -172,7 +172,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </div>
 
 
+
+<!--Message if no sales in area, to be overlayed on map -->
+  <% if @sales.length == 0 %>
+      No sales in <%= @zip_or_city %>
+  <% end %>
+  
   <div id="itemstable-area">
+
+
 
     <%= render 'itemstable' %>
   </div>
