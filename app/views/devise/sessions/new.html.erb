@@ -1,37 +1,43 @@
-<div class="container-small col col-lg-3">
-  <h2>Log in</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container-fluid form-background">
+  <div class="row justify-content-sm-center">
+    <div class="form-text">
 
-    <div class="field">
-      <%= f.label :email, class: 'edit_form' %><br />
-      <%= f.email_field :email, autofocus: true, class: 'edit_form' %>
+        <h2 class="form-header">Log in</h2>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+          <div class="field">
+            <%#= f.label :email, class: 'edit_form' %>
+            <%= f.email_field :email, autofocus: true, class: 'edit_form', placeholder: 'name@email.com' %>
+          </div>
+          <br>
+
+          <div class="field">
+            <%#= f.label :password, class: 'edit_form' %>
+            <%= f.password_field :password, autocomplete: "off", class: 'edit_form', placeholder: 'password' %>
+          </div>
+          <br>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me, class: 'edit_form' %>
+              <%= f.label :remember_me, class: 'edit_form' %>
+            </div>
+          <% end -%>
+          <br>
+
+          <div class="actions">
+            <%= f.submit "Log in", class: 'button_style' %>
+          </div>
+          <br>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+
+        <br>
+        <p class="loginalert"><%=alert%></p>
+        <p class="loginalert"><%=notice%></p>
+        <br>
+
     </div>
-    <br>
-
-    <div class="field">
-      <%= f.label :password, class: 'edit_form' %><br />
-      <%= f.password_field :password, autocomplete: "off", class: 'edit_form' %>
-    </div>
-    <br>
-
-    <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me, class: 'edit_form' %>
-        <%= f.label :remember_me, class: 'edit_form' %>
-      </div>
-    <% end -%>
-    <br>
-
-    <div class="actions">
-      <%= f.submit "Log in", class: 'button_style' %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
-
-  <br>
-  <p class="loginalert"><%=alert%></p>
-  <p class="loginalert"><%=notice%></p>
-  <br>
-
+  </div>
 </div>

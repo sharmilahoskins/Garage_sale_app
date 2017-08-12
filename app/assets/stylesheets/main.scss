@@ -21,6 +21,7 @@ html, body {
   padding: 0;
   background-color: #ECECE4;
   font-family: 'Muli', sans-serif;
+
 }
 .navbar {
   // background-color: rgba(13, 75, 0, .5);
@@ -53,24 +54,73 @@ table {
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-.container-small {
-  max-width: 370px;
-  max-height: 525px;
-  background-color: rgba(50,144,110, 0.5);
-  margin: 20vh auto;
-  padding: 4%;
-  border: 3px outset rgba(188, 188, 188, 0.5);
-  border-radius: 5px;
-  @media screen and (max-width: $break-smalldesk) {
-    max-width: 300px;
-  }
-  @media screen and (max-width: $break-ipad) {
-    max-width: 295px;
-  }
-  @media screen and (max-width: $break-iphone) {
-    max-width: 260px;
-  }
+
+// FORM STYLING
+.form-background {
+  background: #ECECE4; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#fbfbea, #cae7b1); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#fbfbea, #cae7b1); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#fbfbea, #cae7b1); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#fbfbea, #cae7b1); /* Standard syntax */
+  height: 100%;
 }
+
+.form-text {
+  margin: 20vh auto;
+  // border: 1px dashed black;
+
+  width: 200px;
+}
+input {
+  border: 3px solid white;
+  border-radius: 5px;
+  padding: 4px;
+}
+input:focus {
+  outline: none;
+  border: 3px solid #ccc;
+}
+::placeholder {
+  color: #d9d9d9;
+}
+textarea {
+  border-radius: 3px;
+  border: 2px inset rgba(154,154,154,0.5);
+  width: 195px;
+}
+.form-header {
+  text-align: center;
+  padding: 5px;
+}
+.edit_form{
+  line-height: 80%;
+}
+.button_style {
+  width: 200px;
+  background-color: white;
+}
+#attach {
+  width: 210px;
+}
+
+// .container-small {
+//   max-width: 370px;
+//   max-height: 525px;
+//   background-color: rgba(50,144,110, 0.5);
+//   margin: auto;
+//   padding: 4%;
+//   border: 3px outset rgba(188, 188, 188, 0.5);
+//   border-radius: 5px;
+//   @media screen and (max-width: $break-smalldesk) {
+//     max-width: 300px;
+//   }
+//   @media screen and (max-width: $break-ipad) {
+//     max-width: 295px;
+//   }
+//   @media screen and (max-width: $break-iphone) {
+//     max-width: 260px;
+//   }
+// }
 .container-large {
   max-width: 380px;
   max-height: 800px;
@@ -117,14 +167,7 @@ table {
 .dropdown {
   width: 170px;
 }
-input {
-  border-radius: 5px;
-}
-textarea {
-  border-radius: 5px;
-  border: 2px inset rgba(154,154,154,0.5);
-  width: 195px;
-}
+
 .items-header{
   text-align: center;
   padding-top: 5vh;
@@ -160,15 +203,7 @@ textarea {
 .search-headers {
   font-size: 1.5em;
 }
-.edit_form{
-  line-height: 80%;
-}
-.button_style {
-  width: 195px;
-}
-#attach {
-  width: 210px;
-}
+
 #search_message{
   color: #a40000
 }
@@ -256,6 +291,8 @@ text-align: center;
 .iteminfo {
   padding: 13px;
 }
+ // end modal styling
+
 
 .loginalert, #error_explanation {
   position: absolute;
@@ -275,6 +312,13 @@ div.field_with_errors {
   display: inline;
 }
 
+#new_table{
+  float: top;
+}
+
+
+
+
 //shadow box around show page items
 // .items-container {
 //   margin: 25px 10px;
@@ -287,10 +331,3 @@ div.field_with_errors {
 // background-image: url(asset-path('map_page_bacground.png'));
 // background-repeat: no-repeat;
 // background-size: cover;
-
-
-#new_table{
-
-float: top;
-
-}
