@@ -2,21 +2,22 @@
 <%= form_for([@sale, @sale.items.build], remote: true, html: { multipart: true }) do |form| %>
 
   <div class="field">
-    <%= form.label :item_name, class: 'edit_form' %><br>
-    <%= form.text_field :item_name, id: :item_item_name, class: 'edit_form', required: true %>
+    <%#= form.label :item_name, class: 'edit_form' %><br>
+    <%= form.text_field :item_name, id: :item_item_name, class: 'edit_form', placeholder: 'item name', required: true %>
   </div>
 
   <div class="field">
-    <%= form.label :item_description, class: 'edit_form' %><br>
-    <%= form.text_area :item_description, id: :item_item_description, class: 'edit_form', required: true %>
+    <%#= form.label :item_description, class: 'edit_form' %><br>
+    <%= form.text_area :item_description, id: :item_item_description, class: 'edit_form', placeholder: 'description', required: true %>
   </div>
 
   <div class="field">
-    <%= form.label :price, class: 'edit_form' %><br>
-    <%= form.text_field :price, id: :item_price, class: 'edit_form', required: true %>
+    <%#= form.label :price, class: 'edit_form' %><br>
+    <%= form.text_field :price, id: :item_price, class: 'edit_form', placeholder: 'price', required: true %>
   </div>
   <br>
   <div class="field">
+    <%= form.label :add_image, class: 'edit_form' %>
     <%= form.file_field :image, id: :attach %>
   </div>
 

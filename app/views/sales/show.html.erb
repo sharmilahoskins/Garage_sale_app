@@ -77,25 +77,28 @@ function geocodeAddress(geocoder, resultsMap) {
   </p>
 
   <!-- Item view and form is below -->
-  <h2 class="items-header">Items for Sale</h2>
+  <h2 class="items-header">Featured Items for Sale</h2>
   <div id="items-modal-area">
     <%= render 'modal' %>
-
   </div>
-  <!-- Used to be render 'sales/modal' -->
+
 </div>
 
 <!--Check user role for adding items-->
 <% if @user.nil? %>
 <% else %>
   <% if @sale.user_id == @user.id %>
-  <div class="items-form">
-    <div class="container-small">
-      <p><%= alert %></p>
-      <h2>Add Item:</h2>
-      <%= render 'items/form' %>
+  <div class="container-fluid">
+    <div class="row justify-content-sm-center">
+      <div class="form-text-large">
+
+        <p><%= alert %></p>
+        <h2 class="form-header">Add Item:</h2>
+        <%= render 'items/form' %>
+
     </div>
   </div>
+</div>
   <% end %>
 <% end %>
 
