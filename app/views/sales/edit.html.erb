@@ -1,13 +1,16 @@
+<div class="container-fluid form-background">
+  <div class="row justify-content-sm-center">
+    <div class="form-text-large">
 
-<div class="container-large">
 
+        <h2 class="form-header">Edit Sale</h1>
 
-<h1>Edit Sale</h1>
+        <%= render 'form', sale: @sale %>
 
-<%= render 'form', sale: @sale %>
+        <!-- <%= link_to 'Show', @sale %> | -->
+        <br>
+        <%= link_to 'Back', @sale %>
 
-<!-- <%= link_to 'Show', @sale %> | -->
-<br>
-<%= link_to 'Back', @sale %>
-
+    </div>
+  </div>
 </div>

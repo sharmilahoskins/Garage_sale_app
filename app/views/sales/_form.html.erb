@@ -1,38 +1,38 @@
 <%= form_with(model: sale, local: true) do |form| %>
 
   <div class="field">
-    <%= form.label :street, class: 'edit_form'  %><br>
-    <%= form.text_field :street, id: :sale_street, class: 'edit_form', required: true  %>
+    <%#= form.label :street, class: 'edit_form'  %><br>
+    <%= form.text_field :street, id: :sale_street, class: 'edit_form', placeholder: 'street address', required: true  %>
   </div>
 
   <div class="field">
-    <%= form.label :city, class: 'edit_form'  %><br>
-    <%= form.text_field :city, id: :sale_city, class: 'edit_form', required: true  %>
+    <%#= form.label :city, class: 'edit_form'  %><br>
+    <%= form.text_field :city, id: :sale_city, class: 'edit_form', placeholder: 'city', required: true  %>
   </div>
 
   <div class="field">
-    <%= form.label :state, class: 'edit_form'  %><br>
-    <%= form.text_field :state, id: :sale_state, class: 'edit_form', required: true  %>
+    <%#= form.label :state, class: 'edit_form'  %><br>
+    <%= form.text_field :state, id: :sale_state, class: 'edit_form', placeholder: 'state', required: true  %>
   </div>
 
   <div class="field">
-    <%= form.label :zip, class: 'edit_form'  %><br>
-    <%= form.text_field :zip, id: :sale_zip, class: 'edit_form', required: true  %>
+    <%#= form.label :zip, class: 'edit_form'  %><br>
+    <%= form.text_field :zip, id: :sale_zip, class: 'edit_form', placeholder: 'zip code', required: true  %>
   </div>
 
   <div class="field">
-    <%= form.label :date, class: 'edit_form'  %><br>
+    <%#= form.label :date, class: 'edit_form'  %><br>
     <%= form.date_select :date, id: :sale_date, class: 'edit_form', required: true  %>
   </div>
 
   <div class="field">
-    <%= form.label :time, class: 'edit_form'  %><br>
-    <%= form.text_field :time, id: :sale_time, class: 'edit_form', required: true  %>
+    <%#= form.label :time, class: 'edit_form'  %><br>
+    <%= form.text_field :time, id: :sale_time, class: 'edit_form', placeholder: 'time', required: true  %>
   </div>
 
   <div class="field">
-    <%= form.label :description, class: 'edit_form'  %>
-    <%= form.text_area :description, id: :sale_description, class: 'edit_form', required: true  %>
+    <%#= form.label :description, class: 'edit_form'  %><br>
+    <%= form.text_area :description, id: :sale_description, class: 'edit_form', placeholder: 'sale description', required: true  %>
   </div>
 
   <input type="hidden" name="sale[user_id]" id="user_id" value="<%=@user.id%>" >

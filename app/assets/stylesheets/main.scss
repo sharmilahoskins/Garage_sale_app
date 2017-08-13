@@ -19,7 +19,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #ECECE4;
+  background-color: #ECF5D9;
   font-family: 'Muli', sans-serif;
 
 }
@@ -27,6 +27,7 @@ html, body {
   // background-color: rgba(13, 75, 0, .5);
   .navbar-brand {
     color: white;
+    width: 120px;
   }
   a {
     color: white;
@@ -64,11 +65,13 @@ table {
   background: linear-gradient(#fbfbea, #cae7b1); /* Standard syntax */
   height: 100%;
 }
-
 .form-text {
   margin: 20vh auto;
   // border: 1px dashed black;
-
+  width: 200px;
+}
+.form-text-large {
+  margin: 10vh auto;
   width: 200px;
 }
 input {
@@ -76,7 +79,7 @@ input {
   border-radius: 5px;
   padding: 4px;
 }
-input:focus {
+input:focus, textarea:focus {
   outline: none;
   border: 3px solid #ccc;
 }
@@ -84,9 +87,12 @@ input:focus {
   color: #d9d9d9;
 }
 textarea {
-  border-radius: 3px;
-  border: 2px inset rgba(154,154,154,0.5);
-  width: 195px;
+  border: 3px solid white;
+  border-radius: 5px;
+  // border-radius: 3px;
+  // border: 2px inset rgba(154,154,154,0.5);
+  width: 200px;
+  padding: 4px;
 }
 .form-header {
   text-align: center;
@@ -100,27 +106,28 @@ textarea {
   background-color: white;
 }
 #attach {
-  width: 210px;
+  width: 220px;
+  border: none;
 }
 
-// .container-small {
-//   max-width: 370px;
-//   max-height: 525px;
-//   background-color: rgba(50,144,110, 0.5);
-//   margin: auto;
-//   padding: 4%;
-//   border: 3px outset rgba(188, 188, 188, 0.5);
-//   border-radius: 5px;
-//   @media screen and (max-width: $break-smalldesk) {
-//     max-width: 300px;
-//   }
-//   @media screen and (max-width: $break-ipad) {
-//     max-width: 295px;
-//   }
-//   @media screen and (max-width: $break-iphone) {
-//     max-width: 260px;
-//   }
-// }
+.container-small {
+  max-width: 370px;
+  max-height: 525px;
+  background-color: rgba(50,144,110, 0.5);
+  margin: auto;
+  padding: 4%;
+  border: 3px outset rgba(188, 188, 188, 0.5);
+  border-radius: 5px;
+  @media screen and (max-width: $break-smalldesk) {
+    max-width: 300px;
+  }
+  @media screen and (max-width: $break-ipad) {
+    max-width: 295px;
+  }
+  @media screen and (max-width: $break-iphone) {
+    max-width: 260px;
+  }
+}
 .container-large {
   max-width: 380px;
   max-height: 800px;

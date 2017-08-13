@@ -1,5 +1,14 @@
-<div class="container-large">
-  <h1>Edit Item</h1>
-  <%= render 'editForm', item: @item %><br>
-  <%= link_to 'Back', sale_path(@sale) %>
+<div class="container-fluid form-background">
+  <div class="row justify-content-sm-center">
+    <div class="form-text-large">
+
+
+        <h2 class="form-header">Edit Item</h1>
+        <br>
+        <%= render 'editForm', item: @item %>
+        <%= link_to 'Back', sale_path(@sale) %>
+
+
+    </div>
+  </div>
 </div>
