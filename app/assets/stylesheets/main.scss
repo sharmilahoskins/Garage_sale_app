@@ -1,8 +1,10 @@
-
+//INDEX MAP
 #map {
   height: 65vh;
   margin-top: 56px;
 }
+
+//SHOW PAGE MAP
 #showmap {
   margin-left: 1vw;
   height: 45vh;
@@ -12,6 +14,8 @@
 .map-show {
   margin: 15vh auto 15vh auto;
 }
+
+//GENERAL
 html, body {
   height: 100%;
   margin: 0;
@@ -100,6 +104,9 @@ table {
   margin: 10vh auto;
   width: 200px;
 }
+#sale_date_1i, #sale_date_2i, #sale_date_3i {
+  font-size: 13.4px;
+}
 input {
   border: 3px solid white;
   border-radius: 5px;
@@ -130,7 +137,6 @@ textarea {
   background-color: white;
   cursor: pointer;
 }
-
 .imgfield {
   padding: 5px 10px;
   background: #bae1f5;
@@ -140,11 +146,8 @@ textarea {
   border-radius: 5px;
   text-align: center;
   float: left;
-
 }
-
 .add_image_button {
-
   position: absolute;
   z-index: 10;
   opacity: 0;
@@ -154,7 +157,6 @@ textarea {
   font-size: 24px;
   width: 100%;
 }
-
 .add_image_button:hover {
   color: white;
   cursor: pointer;
@@ -178,8 +180,17 @@ textarea {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .heading {
+      height: 100vh;
+      background-image: url(asset-path('grass_ipad.png'));
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
 .search {
   text-align: center;
   padding: 3vh 0 3vh 0;
