@@ -2,22 +2,22 @@
 
   <div class="field">
     <%#= form.label :street, class: 'edit_form'  %><br>
-    <%= form.text_field :street, id: :sale_street, class: 'edit_form', placeholder: 'street address', required: true  %>
+    <%= form.text_field :street, id: :sale_street, class: 'edit_form', placeholder: 'Street address', required: true  %>
   </div>
 
   <div class="field">
     <%#= form.label :city, class: 'edit_form'  %><br>
-    <%= form.text_field :city, id: :sale_city, class: 'edit_form', placeholder: 'city', required: true  %>
+    <%= form.text_field :city, id: :sale_city, class: 'edit_form', placeholder: 'City', required: true  %>
   </div>
 
   <div class="field">
     <%#= form.label :state, class: 'edit_form'  %><br>
-    <%= form.text_field :state, id: :sale_state, class: 'edit_form', placeholder: 'state', required: true  %>
+    <%= form.text_field :state, id: :sale_state, class: 'edit_form', placeholder: 'State', required: true  %>
   </div>
 
   <div class="field">
     <%#= form.label :zip, class: 'edit_form'  %><br>
-    <%= form.text_field :zip, id: :sale_zip, class: 'edit_form', placeholder: 'zip code', required: true  %>
+    <%= form.text_field :zip, id: :sale_zip, class: 'edit_form', placeholder: 'Zip code', required: true  %>
   </div>
 
   <div class="field">
@@ -27,12 +27,12 @@
 
   <div class="field">
     <%#= form.label :time, class: 'edit_form'  %><br>
-    <%= form.text_field :time, id: :sale_time, class: 'edit_form', placeholder: 'time', required: true  %>
+    <%= form.text_field :time, id: :sale_time, class: 'edit_form', placeholder: 'Time', required: true  %>
   </div>
 
   <div class="field">
     <%#= form.label :description, class: 'edit_form'  %><br>
-    <%= form.text_area :description, id: :sale_description, class: 'edit_form', placeholder: 'sale description', required: true  %>
+    <%= form.text_area :description, id: :sale_description, class: 'edit_form', placeholder: 'Sale description', required: true  %>
   </div>
 
   <input type="hidden" name="sale[user_id]" id="user_id" value="<%=@user.id%>" >

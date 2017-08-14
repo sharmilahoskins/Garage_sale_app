@@ -10,7 +10,7 @@
 
           <div class="field">
             <%#= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, class: 'edit_form', placeholder: 'name@email.com' %>
+            <%= f.email_field :email, autofocus: true, class: 'edit_form', placeholder: 'Name@email.com' %>
           </div>
           <br>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -19,12 +19,12 @@
 
           <div class="field">
             <%#= f.label :current_password, class: 'edit_form' %>
-            <%= f.password_field :current_password, autocomplete: "off", class: 'edit_form', placeholder: 'current password' %>
+            <%= f.password_field :current_password, autocomplete: "off", class: 'edit_form', placeholder: 'Current password' %>
           </div>
           <br>
           <div class="field">
             <!-- <%#= f.label :password, class: 'edit_form' %> <i>(New)</i> -->
-            <%= f.password_field :password, autocomplete: "off", class: 'edit_form', placeholder: 'new password (min 6)' %>
+            <%= f.password_field :password, autocomplete: "off", class: 'edit_form', placeholder: 'New password (min 6)' %>
             <!-- <%# if @minimum_password_length %> -->
               <!-- <em><%#= @minimum_password_length %> characters minimum</em> -->
             <%# end %>
@@ -32,7 +32,7 @@
           <br>
           <div class="field">
             <%#= f.label :password_confirmation, class: 'edit_form' %>
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'edit_form', placeholder: 'confirm new password' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'edit_form', placeholder: 'Confirm new password' %>
           </div>
           <br>
           <div class="actions">
