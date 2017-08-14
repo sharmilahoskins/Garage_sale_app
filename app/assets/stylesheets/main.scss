@@ -108,11 +108,41 @@ textarea {
 .button_style {
   width: 200px;
   background-color: white;
+  cursor: pointer;
 }
-#attach {
-  width: 220px;
-  border: none;
+
+.imgfield {
+  padding: 5px 10px;
+  background: #bae1f5;
+  color: black;
+  border: 2px solid white;
+  position: relative;
+  border-radius: 5px;
+  text-align: center;
+  float: left;
+
 }
+
+.add_image_button {
+
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  font-size: 24px;
+  width: 100%;
+}
+
+.add_image_button:hover {
+  color: white;
+  cursor: pointer;
+}
+// #attach {
+//   width: 220px;
+//   border: none;
+// }
 
 //HOME PAGE
 .title {
