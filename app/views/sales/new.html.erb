@@ -1,14 +1,9 @@
 <div class="container-fluid form-background">
   <div class="row justify-content-sm-center">
     <div class="form-text-large">
-
       <h2 class="form-header">New Sale</h1>
-
-
       <%= render 'form', sale: @sale %><br>
-
-
-      <%= link_to 'Back', root_path %>
+      <%= link_to 'Back', url_for(:back) %>
     </div>
   </div>
 </div>

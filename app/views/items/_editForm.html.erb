@@ -15,11 +15,11 @@
       <%= form.text_field :price, id: :item_price, required: true, class: 'edit_form', placeholder: 'Price'  %>
     </div>
     <br>
-      <div class="field">
-      <%= form.file_field :image, id: :attach%>
+    <div class="imgfield">
+      <%= form.label :add_image, "Update Image", class: 'edit_form' %>
+      <%= form.file_field :image, id: :attach, class: 'add_image_button'%>
     </div>
-
-
+    <br><br>
     <p>
     <%= link_to image_tag(@item.image.url(:large)), @item.image.url %>
     </p>

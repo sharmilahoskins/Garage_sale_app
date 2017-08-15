@@ -1,15 +1,14 @@
-<br><br>
-<p id="notice"><%= notice %></p>
-
-<h1>Items</h1>
-
+<br><br><br>
+<div class="row justify-content-sm-center">
+  <h1>Items</h1>
+</div>
 <table>
   <thead>
     <tr>
-      <th>Item name</th>
-      <th>Item description</th>
+      <th>Item Name</th>
+      <th>Item Description</th>
       <th>Price</th>
-      <th colspan="3"></th>
+      <th colspan="3">Options</th>
     </tr>
   </thead>
 
@@ -27,7 +26,4 @@
     <% end %>
   </tbody>
 </table>
-
-
-
-<!-- Need to add link to add item here -->
+<%= link_to 'Back to Map', sales_path %>
