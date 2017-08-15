@@ -4,6 +4,26 @@
   margin-top: 56px;
 }
 
+// InfoWindow inner div
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(4) {
+  border-radius: 10px !important;
+  border-color: blue !important;
+  border: 10px !important;
+  background-color: #8b9f96 !important;
+}
+// infowindow outer div
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(2) {
+  opacity: 1;
+  // border-color: red;
+  border: 10px solid black;
+  border-radius: 10px !important;
+}
+// infor window text content
+#iw-content {
+  color: white !important;
+  font-family: 'Muli', sans-serif;
+}
+
 //SHOW PAGE MAP
 #showmap {
   margin-left: 1vw;
