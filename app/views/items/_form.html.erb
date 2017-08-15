@@ -1,24 +1,23 @@
-
 <%= form_for([@sale, @sale.items.build], remote: true, html: { multipart: true }) do |form| %>
 
   <div class="field">
     <%#= form.label :item_name, class: 'edit_form' %><br>
-    <%= form.text_field :item_name, id: :item_item_name, class: 'edit_form', placeholder: 'Item name', required: true %>
+    <%= form.text_field :item_name, id: :item_item_name, class: 'edit_form', placeholder: 'Item name', required: true, pattern: '.*\S+.*', oninvalid: "this.setCustomValidity('Item name cannot be blank')", onchange: "setCustomValidity('')"%>
   </div>
 
   <div class="field">
     <%#= form.label :item_description, class: 'edit_form' %><br>
-    <%= form.text_area :item_description, id: :item_item_description, class: 'edit_form', placeholder: 'Description', required: true %>
+    <%= form.text_area :item_description, id: :item_item_description, class: 'edit_form', placeholder: 'Description', required: true, pattern: '.*\S+.*[a-z]', oninvalid: "this.setCustomValidity('Item description cannot be blank')", onchange: "setCustomValidity('')" %>
   </div>
 
   <div class="field">
     <%#= form.label :price, class: 'edit_form' %><br>
-    <%= form.text_field :price, id: :item_price, class: 'edit_form', placeholder: 'Price', required: true %>
+    <%= form.text_field :price, id: :item_price, class: 'edit_form', placeholder: 'Price', required: true, pattern: '.*\S+.*', oninvalid: "this.setCustomValidity('Item price cannot be blank')", onchange: "setCustomValidity('')" %>
   </div>
   <br>
   <div class="imgfield">
-    <%= form.label :add_image, class: 'edit_form' %>
-    <%= form.file_field :image, id: :attach, class: 'add_image_button' %>
+    <%= form.label :add_image, "Add Image", class: 'edit_form' %>
+    <%= form.file_field :image, id: :attach, class: 'add_image_button', required: true %>
   </div>
   <br><br>
   <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >
