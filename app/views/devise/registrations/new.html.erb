@@ -6,7 +6,7 @@
 
           <div class="field">
             <%#= f.label :email %>
-            <%= f.email_field :email, autofocus: true, class: 'edit_form', placeholder: 'name@email.com' %>
+            <%= f.email_field :email, autofocus: true, class: 'edit_form', placeholder: 'Name@email.com', required: true, pattern: '.*\S+.*', oninvalid: "this.setCustomValidity('Email cannot be blank')", onchange: "setCustomValidity('')" %>
           </div>
           <br>
           <div class="field">
@@ -14,12 +14,12 @@
             <%# if @minimum_password_length %>
             <!-- <em>(<%#= @minimum_password_length %> char min)</em> -->
             <%# end %>
-            <%= f.password_field :password, autocomplete: "off", class: 'edit_form', placeholder: 'password (6 char min)' %>
+            <%= f.password_field :password, autocomplete: "off", class: 'edit_form', placeholder: 'Password (6 char min)', required: true, pattern: '.*\S+.*', oninvalid: "this.setCustomValidity('Password cannot be blank')", onchange: "setCustomValidity('')" %>
           </div>
           <br>
           <div class="field">
             <%#= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'edit_form', placeholder: 'confirm password' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'edit_form', placeholder: 'Confirm password', required: true, pattern: '.*\S+.*', oninvalid: "this.setCustomValidity('Password confirmation cannot be blank')", onchange: "setCustomValidity('')" %>
           </div>
           <br>
 

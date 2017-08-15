@@ -3,8 +3,6 @@
   </div>
 <%end %>
 
-
-
  <% if !(params[:item].nil? || params[:item].empty?) && @items_within_search.length != 0 %>
    <div class="table-view">
      <table>
@@ -12,7 +10,6 @@
          <tr>
            <th>Photo</th>
            <th>Item Description</th>
-
            <th colspan="3"></th>
          </tr>
        </thead>
@@ -27,8 +24,6 @@
        </tbody>
        </table>
      </div> <!-- ends if params[:item] -->
-
-
  <% end %> <!-- ends table-view div-->
 
  <% if !(params[:item].nil? || params[:item].empty?) && @sales_within_search.length != 0 %>
@@ -43,16 +38,17 @@
          </thead>
          <tbody>
            <% @sales_within_search.each do |sale| %>
-
-             <tr>
-               <td><%= sale.street %><br><%= sale.city %>, <%= sale.state %></td>
-               <td><%= sale.description%></td>
-               <td><%= link_to 'Show Sale Details', sale %></td>
-             <% end %> <!-- ends for loop-->
-             </tr>
+           <tr>
+             <td><%= sale.street %><br><%= sale.city %>, <%= sale.state %></td>
+             <td><%= sale.description%></td>
+             <td><%= link_to 'Show Sale Details', sale %></td>
+           <% end %> <!-- ends for loop-->
+           </tr>
          </tbody>
          </table>
        </div> <!-- ends if params[:item] -->
      </div> <!-- ends container map-page-content-->
-
    <% end %> <!-- ends table-view div-->
+
+<!-- Take user back to the sales index page -->
+<%= link_to 'Back to Sales', sales_path %>

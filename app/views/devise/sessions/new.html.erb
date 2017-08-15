@@ -7,13 +7,13 @@
 
           <div class="field">
             <%#= f.label :email, class: 'edit_form' %>
-            <%= f.email_field :email, autofocus: true, class: 'edit_form', placeholder: 'name@email.com' %>
+            <%= f.email_field :email, autofocus: true, class: 'edit_form', placeholder: 'Name@email.com', required: true, pattern: '.*\S+.*', oninvalid: "this.setCustomValidity('Email cannot be blank')", onchange: "setCustomValidity('')" %>
           </div>
           <br>
 
           <div class="field">
             <%#= f.label :password, class: 'edit_form' %>
-            <%= f.password_field :password, autocomplete: "off", class: 'edit_form', placeholder: 'password' %>
+            <%= f.password_field :password, autocomplete: "off", class: 'edit_form', placeholder: 'Password', required: true, pattern: '.*\S+.*', oninvalid: "this.setCustomValidity('Password cannot be blank')", onchange: "setCustomValidity('')" %>
           </div>
           <br>
 
