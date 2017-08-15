@@ -43,6 +43,9 @@
                       <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
                         <a class="dropdown-item" data-method="delete" href="/users/sign_out">Log out</a>
+                       <% if current_user.has_role? :admin %>
+                        <a class="dropdown-item" data-method="get" href="/admin/index">Admin Page</a>
+                        <% end %>
                       </div>
                 <% else %>
                   <li class="nav-item"><a class="nav-link host-sale" data-method="get" href="/users/sign_up">Host Sale</a>
