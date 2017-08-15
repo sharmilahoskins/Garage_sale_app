@@ -1,8 +1,10 @@
-
+//INDEX MAP
 #map {
   height: 65vh;
   margin-top: 56px;
 }
+
+//SHOW PAGE MAP
 #showmap {
   margin-left: 1vw;
   height: 45vh;
@@ -12,6 +14,8 @@
 .map-show {
   margin: 15vh auto 15vh auto;
 }
+
+//GENERAL
 html, body {
   height: 100%;
   margin: 0;
@@ -34,16 +38,36 @@ html, body {
 .dropdown-item {
   color: black !important;
 }
+.dropdown-item:active {
+  background-color: #ccc;
+}
 .dropdown {
   width: 170px;
 }
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
+.navbar-toggler:active {
+  // outline: none;
+  border: 3px solid #ccc;
+}
+.navbar-toggler:focus {
+  outline: none;
+  cursor: pointer;
+}
 .navbar-brand {
   padding-top: 0;
   padding-bottom: 0;
 }
+.nav-item {
+  padding-right: 40px;
+  text-align:right;
+}
+.host-sale {
+  padding-left: 45px;
+}
+
+
 // TABLE STYLE
 table {
   border: 1px solid black;
@@ -80,6 +104,9 @@ table {
   margin: 10vh auto;
   width: 200px;
 }
+#sale_date_1i, #sale_date_2i, #sale_date_3i {
+  font-size: 13.4px;
+}
 input {
   border: 3px solid white;
   border-radius: 5px;
@@ -110,7 +137,6 @@ textarea {
   background-color: white;
   cursor: pointer;
 }
-
 .imgfield {
   padding: 5px 10px;
   // background: #f5ceba;
@@ -127,7 +153,6 @@ textarea {
 .imgfield:hover {
   border: 2px solid white;
 }
-
 .add_image_button {
   position: absolute;
   z-index: 10;
@@ -138,14 +163,10 @@ textarea {
   font-size: 0px; /*shrinks actual clickable button, so that pseudo button has the most clickable area*/
   width: 100%;
 }
-
 .add_image_button:hover {
   cursor: pointer;
 }
-// #attach {
-//   width: 220px;
-//   border: none;
-// }
+
 
 //HOME PAGE
 .title {
@@ -164,6 +185,17 @@ textarea {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .heading {
+      height: 100vh;
+      background-image: url(asset-path('grass_ipad.png'));
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
 .search {
   text-align: center;
   padding: 3vh 0 3vh 0;
@@ -171,6 +203,7 @@ textarea {
 .submit-button {
   width: 100px;
   border: 3px solid buttonface;
+  cursor: pointer;
 }
 //RANDOM
 .mysales {
@@ -189,7 +222,6 @@ textarea {
   padding-top: 60px;
   // text-align: center;
 }
-
 .map-page-content {
   width: 100vw;
   height: 50vh;
@@ -207,7 +239,7 @@ textarea {
   text-align: center;
 }
 
-//Sales index map page
+//SALES INDEX MAP PAGE
 .search-headers {
   font-size: 1.5em;
 }
@@ -217,6 +249,7 @@ textarea {
 #item-search {
   width: 100px;
   border: 3px solid buttonface;
+  cursor: pointer;
 }
 #item-search:focus {
   border: 3px solid #ccc;

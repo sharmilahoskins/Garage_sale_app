@@ -139,7 +139,7 @@ function codeAddresses(street, city, time, state, date, zip, description, id){
 google.maps.event.addDomListener(window, 'load', initialize);
 // end of google map api and start of database display
 </script>
-</html>
+
 
 <% if !params[:hidemap].present? %>
 <!-- Show the map if the hidemap params aren't there -->
@@ -180,3 +180,4 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <%= render 'itemstable' %>
   </div>
 </div>
+

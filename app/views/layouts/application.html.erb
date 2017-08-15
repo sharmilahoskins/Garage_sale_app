@@ -13,7 +13,7 @@
 
   <body>
 
-    <div class="container-fluid">
+
 
         <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-inverse bg-inverse" style="background-color: rgba(115,138,130, 0.8);">
           <div class="navbar-header">
@@ -40,20 +40,20 @@
                   <li class="nav-item dropdown user-dropdown">
                     <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>  User</a>
 
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
-                    <a class="dropdown-item" data-method="delete" href="/users/sign_out">Log out</a>
-                  </div>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
+                        <a class="dropdown-item" data-method="delete" href="/users/sign_out">Log out</a>
+                      </div>
                 <% else %>
-                  <li class="nav-item"><a class="nav-link" data-method="get" href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Host Sale</a>
+                  <li class="nav-item"><a class="nav-link host-sale" data-method="get" href="/users/sign_up">Host Sale</a>
                   </li>
-                  <li class="nav-item"><a class="nav-link" data-method="get" href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                  <li class="nav-item"><a class="nav-link" data-method="get" href="/users/sign_in">Login</a>
                   </li>
                 <% end %>
               </ul>
           </div>
         </nav>
-      </div>
+
 
     <%= yield %>
 
