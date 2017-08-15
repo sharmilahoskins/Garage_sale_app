@@ -80,10 +80,6 @@ function geocodeAddress(geocoder, resultsMap) {
 
 </div>
 
-<!--Bottom messsage for successfully uploading an item-->
-<p class="show-notice">
-  <%= notice %>
-</p>
 
 <!--Check user role for adding items-->
 <% if @user.nil? %>
@@ -111,7 +107,6 @@ function geocodeAddress(geocoder, resultsMap) {
     <%= link_to 'Edit Sale', edit_sale_path(@sale) %> |
     <% end %>
   <% end %>
-  <%= link_to 'Back', sales_path %>
 </div>
 
 
