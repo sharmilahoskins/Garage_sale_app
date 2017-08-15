@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "ResultMapSales", type: :feature do
 
-  before :all do
-    rake db:seed
-  end
+
 
 	  context 'Search for sales in a city or zipcode' do
     Steps 'Search city or zip' do
