@@ -42,7 +42,7 @@ gem 'rolify', '~> 5.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'textacular', '~> 5.0', '>= 5.0.1'
 gem 'paperclip', '~> 5.1'
-
+gem 'aws-sdk', '~> 2.3'
 gem 'rspec-rails'
 gem 'chromedriver-helper'
 # Use Capistrano for deployment

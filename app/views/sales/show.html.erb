@@ -84,6 +84,11 @@ function geocodeAddress(geocoder, resultsMap) {
 
 </div>
 
+<!--Bottom messsage for successfully uploading an item-->
+<p class="show-notice">
+  <%= notice %>
+</p>
+
 <!--Check user role for adding items-->
 <% if @user.nil? %>
 <% else %>
@@ -92,7 +97,6 @@ function geocodeAddress(geocoder, resultsMap) {
     <div class="row justify-content-sm-center">
       <div class="form-text-large">
 
-        <p><%= alert %></p>
         <h2 class="form-header">Add Item:</h2>
         <%= render 'items/form' %>
 

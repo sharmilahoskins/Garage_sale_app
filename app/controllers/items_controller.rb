@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show, :index]
-  load_and_authorize_resource 
+  load_and_authorize_resource
 
-  
+
   # GET /items
   # GET /items.json
 
@@ -57,19 +57,18 @@ class ItemsController < ApplicationController
   def create
     @sale = Sale.find(params[:sale_id])
     if item_params[:item_name].empty? || item_params[:item_name].blank?
-      redirect_to @sale, alert: "Item Name can't be blank."
+       redirect_to @sale, notice: "Item Name can't be blank."
     elsif item_params[:item_description].empty? || item_params[:item_description].blank?
-      redirect_to @sale, alert: "Item description can't be blank."
+       redirect_to @sale, notice: "Item description can't be blank."
     elsif item_params[:price].empty? || item_params[:price].blank?
-      redirect_to @sale, alert: "Item Price can't be blank."
+       redirect_to @sale, notice: "Item Price can't be blank."
     elsif item_params[:image].nil? || item_params[:image].blank?
-      redirect_to @sale, alert: "Item Image can't be blank."
+       redirect_to @sale, notice: "Item Image can't be blank."
     else
       @item = @sale.items.create(item_params)
-
       respond_to do |format|
         if @item.save
-          format.html { redirect_to @sale, notice: 'Item was successfully created.' }
+          format.html { redirect_to @sale, notice: 'FUUUUCK' }
           format.json { render :show, status: :created, location: @item }
         else
           format.html { redirect_to @sale, notice: 'Item was not able to be created.'  }
