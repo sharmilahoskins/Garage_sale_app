@@ -126,17 +126,42 @@
               });
 
               bounds.extend(results[0].geometry.location);
+    }
+}
+// takes json values and puts them into geocode
+function codeAddresses(street, city, time, state, date, zip, description, id){
+  var test = new Date(date)
+  var day = test.getDate();
+  var month = test.getMonth();
+  var year = test.getFullYear();
+  console.log(test.getDate())
+    setTimeout(geocoder.geocode( { 'address': street + city + state}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+            });
+// json values into info window
+            google.maps.event.addListener(marker, 'mouseover', function() {
+                infowindow.setContent('<div id="iw-content">' + '<strong>Address:</strong>' + ' ' + street + ', ' + city + ',' + ' ' + state + ',' + ' ' + zip + '<br />' + '<strong>Date:</strong>' + ' ' + month + '-' +  day + '-' + year + '<br />' + '<strong>Time:</strong>' + ' ' + time + ' ' + '<br />' +  '<strong>Description:</strong>' + ' ' + description + '<br />' + ' ' + '<a href="' + '../sales/' + id + '">Show</a>' + '</div>');
+                infowindow.open(map, this);
+            });
+            google.maps.event.addListener(map, 'click', function() {
+              infowindow.close();
+            });
 
-              markersArray.push(marker);
-          }
-          else{
-              alert("Geocode was not successful for the following reason: " + status);
-          }
+            bounds.extend(results[0].geometry.location);
 
-          map.getBounds(bounds);
-      });
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
+            markersArray.push(marker);
+        }
+        else{
+            
+        }
+
+        map.getBounds(bounds);
+    }), 250);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
 // end of google map api and start of database display
 </script>
 
@@ -184,3 +209,4 @@
 <% if params[:hidemap].present? %>
   <%= link_to 'Back', url_for(:back) %>
 <% end %>
+
