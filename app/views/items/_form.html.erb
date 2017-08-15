@@ -19,6 +19,7 @@
     <%= form.label :add_image, "Add Image", class: 'edit_form' %>
     <%= form.file_field :image, id: :attach, class: 'add_image_button', required: true %>
   </div>
+  <!-- <p>item[image]</p> -->
   <br><br>
   <input type="hidden" name="item[sale_id]" id="sale_id" value="<%=@sale.id%>" >
   <br>

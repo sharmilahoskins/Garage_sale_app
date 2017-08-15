@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>Garage Sale Finder</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'jquery', 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Muli" rel="stylesheet">
@@ -12,53 +10,45 @@
   </head>
 
   <body>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-inverse bg-inverse" style="background-color: rgba(115,138,130, 0.8);">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"><%= image_tag("salelogo.png", :alt => "home image", :width => 90, :height => 40) %></a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My Sales</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" data-method="get" href="/sales/new">Create Sale</a>
+                <a class="dropdown-item" data-method="get" href="/sales/mysales">View My Sales</a>
+              </div>
+          </li>
+          <% end %>
+          </ul>
+          <ul class="nav">
+            <% if user_signed_in? %>
+              <li class="nav-item dropdown user-dropdown">
+                <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>  User</a>
 
-
-        <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-inverse bg-inverse" style="background-color: rgba(115,138,130, 0.8);">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/"><%= image_tag("salelogo.png", :alt => "home image", :width => 90, :height => 40) %></a>
-          </div>
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <% if user_signed_in? %>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My Sales</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" data-method="get" href="/sales/new">Create Sale</a>
-                    <a class="dropdown-item" data-method="get" href="/sales/mysales">View My Sales</a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
+                    <a class="dropdown-item" data-method="delete" href="/users/sign_out">Log out</a>
                   </div>
-                </li>
-                <% end %>
-              </ul>
-              <ul class="nav">
-                <% if user_signed_in? %>
-                  <li class="nav-item dropdown user-dropdown">
-                    <a class="nav-link dropdown-toggle white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>  User</a>
-
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
-                        <a class="dropdown-item" data-method="delete" href="/users/sign_out">Log out</a>
-                       <% if current_user.has_role? :admin %>
-                        <a class="dropdown-item" data-method="get" href="/admin/index">Admin Page</a>
-                        <% end %>
-                      </div>
-                <% else %>
-                  <li class="nav-item"><a class="nav-link host-sale" data-method="get" href="/users/sign_up">Host Sale</a>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" data-method="get" href="/users/sign_in">Login</a>
-                  </li>
-                <% end %>
-              </ul>
-          </div>
-        </nav>
-
+            <% else %>
+              <li class="nav-item"><a class="nav-link host-sale" data-method="get" href="/users/sign_up">Host Sale</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" data-method="get" href="/users/sign_in">Login</a>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+    </nav>
 
     <%= yield %>
-
   </body>
 </html>

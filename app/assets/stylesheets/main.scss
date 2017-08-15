@@ -159,9 +159,6 @@ textarea {
 }
 .imgfield {
   padding: 5px 10px;
-  // background: #f5ceba;
-  // background: #f5bfba;
-  // background: #ffd6d1;
   background: #f5ddba;
   color: black;
   position: relative;
@@ -180,9 +177,13 @@ textarea {
   right: 0;
   top: 0;
   height: 100%;
-  font-size: 0px; /*shrinks actual clickable button, so that pseudo button has the most clickable area*/
+  font-size: 0px;
   width: 100%;
 }
+
+
+/*<input id="attach" class="add_image_button" required="required" type="file" name="item[image]">*/
+
 .add_image_button:hover {
   cursor: pointer;
 }
