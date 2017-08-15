@@ -31,16 +31,12 @@ function geocodeAddress(geocoder, resultsMap) {
     }
   });
 }
-
-</script>
-  <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9nhXMWs8RXF_OXTGrVAB7x-msZVhahGw&callback=initMap">
 </script>
 
 <div class="container map-show">
   <div class="row">
     <div class="col col-lg-8">
-      <div id="showmap" data-turbolinks-permanent></div>
+      <div id="showmap"></div>
     </div>
 
     <!-- Display sale info: -->
@@ -117,3 +113,9 @@ function geocodeAddress(geocoder, resultsMap) {
   <% end %>
   <%= link_to 'Back', sales_path %>
 </div>
+
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9nhXMWs8RXF_OXTGrVAB7x-msZVhahGw&callback=initMap">
+</script>
