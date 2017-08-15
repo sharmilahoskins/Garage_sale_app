@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+
+
 RSpec.feature "LandingPages", type: :feature do
 
 
