@@ -16,7 +16,7 @@
   var url3 = url.replace("&item=", ' ');
   // turn sales.json into usable array
   var jsonarray;
-  $.getJSON('../sales.json', function(json) {
+  $.getJSON('../sales.json?search=<%= params[:search] %>', function(json) {
     jsonarray = json;
   });
   // for no value in search
