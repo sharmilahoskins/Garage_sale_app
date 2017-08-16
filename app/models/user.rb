@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   rolify
-  has_many :sales
+  has_many :sales, :dependent => :destroy
 
   after_create :assign_role
 
