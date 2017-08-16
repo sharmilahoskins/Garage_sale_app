@@ -165,11 +165,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </div>
 </div>
 
-<div class="container map-page-content">
+<div id="item-search-box" class="container map-page-content">
   <div class="search">
     <form method="get" remote="true" action="/sales">
       <input type ="hidden" name = "search" value = "<%= @zip_or_city %>">
-      <span class="search-headers"><label for="textsearch">Search for Item in:  <%= @zip_or_city %></label></span><br>
+      <span class="search-headers"><label for="textsearch">Search for item in:  <%= @zip_or_city.upcase.titleize %></label></span><br>
       <input type="text" name="item" placeholder="Item" required pattern='.*\S+.*' oninvalid="this.setCustomValidity('Item search cannot be blank')" onchange="setCustomValidity('')">
       <input type="hidden" name="hidemap" value="hidemap">
       <input id="item-search" type="submit" value="Search">
@@ -180,11 +180,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <% if !params[:hidemap].present? %>
 <!-- Hide the sales table after an items search -->
      <div class="table-view">
-     <h2>Sales within <%= @zip_or_city %></h2>
+     <h2>All sales within <%= @zip_or_city.upcase.titleize %></h2>
        <table>
-       <header><div id = "paginate">
-        <%= will_paginate @sales %>
-        </div></header>
+
 
          <tbody>
            <% @sales.each do |sale| %>

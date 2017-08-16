@@ -58,6 +58,15 @@ item = Item.new(item_name: 'Tom arms for drums', item_description: 'Pair of arms
 item.image = File.open("#{Rails.root}/test/SeedFileImages/drumstomarms.jpg")
 item.save
 
+sale = Sale.create!(street: '13172 Capstone Drive', city: 'San Diego', state: 'California', zip: '92130', date: "2018-09-14", time: "8-11am", description: 'Moving soon and everything must go.', user_id: user.id )
+
+sale = Sale.create!(street: '13182 Capstone Drive', city: 'San Diego', state: 'California', zip: '92130', date: "2018-09-14", time: "8-11am", description: 'Moving soon and everything must go.', user_id: user.id )
+
+sale = Sale.create!(street: '13152 Capstone Drive', city: 'San Diego', state: 'California', zip: '92130', date: "2018-09-14", time: "8-11am", description: 'Moving soon and everything must go.', user_id: user.id )
+
+sale = Sale.create!(street: '13162 Capstone Drive', city: 'San Diego', state: 'California', zip: '92130', date: "2018-09-14", time: "8-11am", description: 'Moving soon and everything must go.', user_id: user.id )
+
+
 
 sale = Sale.create!(street: '4711 Timberline Drive', city: 'Austin', state: 'Texas', zip: '92130', date: "2018-03-14", time: "8-12pm", description: 'Jogging stroller, baby items, kids books and more.', user_id: user.id )
 
