@@ -30,9 +30,9 @@ class SalesController < ApplicationController
     
       if zip_city_var == 0 
 
-        @sales = Sale.where('lower(city) = ?', @zip_or_city.downcase)  
+        @sales = Sale.where('lower(city) = ?', @zip_or_city.downcase).paginate(:page => params[:page], :per_page => 4)  
       else
-        @sales = Sale.where(zip: @zip_or_city)
+        @sales = Sale.where(zip: @zip_or_city).paginate(:page => params[:page], :per_page => 10)
       end
 
     end

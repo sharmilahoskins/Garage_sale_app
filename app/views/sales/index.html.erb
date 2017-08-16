@@ -176,6 +176,35 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </form>
   </div>
 
+
+<% if !params[:hidemap].present? %>
+<!-- Hide the sales table after an items search -->
+     <div class="table-view">
+     <h2>Sales within <%= @zip_or_city %></h2>
+       <table>
+       <header><div id = "paginate">
+        <%= will_paginate @sales %>
+        </div></header>
+
+         <tbody>
+           <% @sales.each do |sale| %>
+           <tr>
+             <td><%= sale.street %><br><%= sale.city %>, <%= sale.state %></td>
+             <td><%= sale.description%></td>
+             <td><%= link_to 'Show Sale Details', sale %></td>
+           <% end %> <!-- ends for loop-->
+           </tr>
+         </tbody>
+         </table>
+       </div> <
+
+<% else %>
+<% params[:hidemap].present? %>
+<!-- Hide the sales table if hidemap params are there and create a spacer on top -->
+  <div class="spacer"></div>
+<% end %>
+
+
   <div id="itemstable-area">
     <%= render 'itemstable' %>
   </div>

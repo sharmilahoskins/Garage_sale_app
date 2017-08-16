@@ -45,6 +45,8 @@ gem 'paperclip', '~> 5.1'
 gem 'aws-sdk', '~> 2.3'
 gem 'rspec-rails'
 gem 'chromedriver-helper'
+
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
