@@ -180,9 +180,5 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <%= render 'itemstable' %>
   </div>
 
-<div class="row justify-content-sm-center">
-<% if params[:hidemap].present? %>
-  <%= link_to 'Back', url_for(:back) %>
-<% end %>
 </div>
-</div>
+
