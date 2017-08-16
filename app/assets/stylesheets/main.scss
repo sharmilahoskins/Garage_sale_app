@@ -35,6 +35,11 @@
   background-color: #8b9f96 !important;
 }
 
+#index-search-box {
+  margin-top: -40px;
+
+}
+
 
 //SHOW PAGE MAP
 #showmap {
@@ -117,6 +122,7 @@ table {
   text-align: center;
   padding: 5vh 0 5vh 0;
 }
+
 
 
 // FORM STYLING
@@ -258,7 +264,7 @@ textarea {
 .map-page-content {
   width: 100vw;
   height: 50vh;
-  padding-top: 5vh;
+  padding-top: -5vh;
 }
 .show-page-items {
   width: 100vw;
