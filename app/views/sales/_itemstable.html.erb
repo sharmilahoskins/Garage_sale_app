@@ -5,13 +5,14 @@
 
  <% if !(params[:item].nil? || params[:item].empty?) && @items_within_search.length != 0 %>
    <div class="table-view">
+   <h3><%= @item.upcase.titleize %> Found at these Sales:</h3>
      <table>
        <thead>
-         <tr>
+<!--          <tr>
            <th>Photo</th>
            <th>Item Description</th>
            <th colspan="3">Options</th>
-         </tr>
+         </tr> -->
        </thead>
        <tbody>
          <% @items_within_search.each do |item| %>
@@ -20,32 +21,19 @@
              <td><%= item.item_description %>  <%= item.price %></td>
              <td><%= link_to 'Show Sale Details', item.sale %></td>
            <% end %> <!-- ends for loop-->
+
+         <% @sales_within_search.each do |sale| %>
+           <tr>
+             <td> No photo of <%= @item %> available</td>
+             <td><%= sale.description%></td>
+             <td><%= link_to 'Show Sale Details', sale %></td>
+           <% end %> <!-- ends for loop-->
            </tr>
+
+           </tr>
+
        </tbody>
        </table>
      </div> <!-- ends if params[:item] -->
  <% end %> <!-- ends table-view div-->
 
- <% if !(params[:item].nil? || params[:item].empty?) && @sales_within_search.length != 0 %>
-     <div class="table-view">
-       <table>
-         <thead>
-           <tr>
-             <th>Address</th>
-             <th>Sale Description</th>
-             <th colspan="3"></th>
-           </tr>
-         </thead>
-         <tbody>
-           <% @sales_within_search.each do |sale| %>
-           <tr>
-             <td><%= sale.street %><br><%= sale.city %>, <%= sale.state %></td>
-             <td><%= sale.description%></td>
-             <td><%= link_to 'Show Sale Details', sale %></td>
-           <% end %> <!-- ends for loop-->
-           </tr>
-         </tbody>
-         </table>
-       </div> <!-- ends if params[:item] -->
-     </div> <!-- ends container map-page-content-->
-   <% end %> <!-- ends table-view div-->
