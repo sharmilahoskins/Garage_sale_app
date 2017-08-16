@@ -156,6 +156,7 @@ class SalesController < ApplicationController
     @sale = Sale.new(sale_params)
     @user = current_user
 
+
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
