@@ -15,14 +15,26 @@
 #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(2) {
   opacity: 1;
   // border-color: red;
-  border: 10px solid black;
+  // border: 10px solid black;
   border-radius: 10px !important;
 }
 // infor window text content
 #iw-content {
-  color: white !important;
   font-family: 'Muli', sans-serif;
 }
+
+.gm-style-iw {
+  color: white !important;
+}
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div {
+  background-color: #8b9f96 !important;
+}
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div {
+  background-color: #8b9f96 !important;
+}
+
 
 //SHOW PAGE MAP
 #showmap {
