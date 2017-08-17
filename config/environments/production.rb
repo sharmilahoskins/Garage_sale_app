@@ -32,6 +32,9 @@ Rails.application.configure do
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
+  # ---------ADDED TO ALLOW EMAIL FOR SENDGRID/HEROKU -----------
+  config.action_mailer.default_url_options = { host: "https://garage-sale-080917.herokuapp.com" }
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 

@@ -81,5 +81,9 @@ test:
 production:
   <<: *default
   database: Garage_production
-  username: Garage
-  password: <%= ENV['GARAGE_DATABASE_PASSWORD'] %>
+  #-------------REMOVED USERNAME AND PASSWORD FOR HEROKU------
+
+  # username: Garage
+  # password: <%= ENV['GARAGE_DATABASE_PASSWORD'] %>
+  
+  #-------------REMOVED USERNAME AND PASSWORD FOR HEROKU------
