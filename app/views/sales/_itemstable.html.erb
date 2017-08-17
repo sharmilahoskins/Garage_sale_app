@@ -3,7 +3,7 @@
   </div>
 <%end %>
 
- <% if !(params[:item].nil? || params[:item].empty?) && @items_within_search.length != 0 %>
+ <% if !(params[:item].nil? || params[:item].empty?) && (@items_within_search.length != 0 || @sales_within_search.length != 0) %>
    <div class="table-view">
    <h3><%= @item.upcase.titleize %> Found at these Sales:</h3>
      <table>
