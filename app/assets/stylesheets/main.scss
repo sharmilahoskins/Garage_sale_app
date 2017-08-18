@@ -201,10 +201,6 @@ textarea {
   font-size: 0px;
   width: 100%;
 }
-
-
-/*<input id="attach" class="add_image_button" required="required" type="file" name="item[image]">*/
-
 .add_image_button:hover {
   cursor: pointer;
 }
@@ -382,6 +378,10 @@ text-align: center;
 }
 .iteminfo {
   padding: 13px;
+}
+
+.pictext {
+  padding: 10px;
 }
  // end modal styling
 
