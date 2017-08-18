@@ -1,7 +1,7 @@
 
 
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-xs-center">
     <% @sale.items.each do |i| %>
       <div class="col col-xs-3 pictext">
         <%= link_to image_tag(i.image.url(:large), :alt => i.item_description), "#myModal", :class => "btn", "data-toggle" => "modal", "data-dismiss" => "modal", :src => i.image.url(:original)  %>
