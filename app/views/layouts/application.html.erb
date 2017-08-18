@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Garage Sale Finder</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'jquery', 'application', 'data-turbolinks-track': 'reload' %>
@@ -39,9 +41,9 @@
                     <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
                     <a class="dropdown-item" data-method="delete" href="/users/sign_out">Log out</a>
 
-               <% if current_user.has_role? :admin %>     
+               <% if current_user.has_role? :admin %>
                   <a class="dropdown-item" data-method="get" href="/admin/index">Admin Page</a>
-               <% end %>   
+               <% end %>
                   </div>
             <% else %>
               <li class="nav-item"><a class="nav-link host-sale" data-method="get" href="/users/sign_up">Host Sale</a>
