@@ -7,6 +7,8 @@
     <%= javascript_include_tag 'jquery', 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Muli" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="http://maps.google.com/maps/api/js?sensor=false"
+      type="text/javascript"></script>
   </head>
 
   <body>
@@ -39,9 +41,9 @@
                     <a class="dropdown-item" data-method="get" href="/users/edit">Change password</a>
                     <a class="dropdown-item" data-method="delete" href="/users/sign_out">Log out</a>
 
-               <% if current_user.has_role? :admin %>     
+               <% if current_user.has_role? :admin %>
                   <a class="dropdown-item" data-method="get" href="/admin/index">Admin Page</a>
-               <% end %>   
+               <% end %>
                   </div>
             <% else %>
               <li class="nav-item"><a class="nav-link host-sale" data-method="get" href="/users/sign_up">Host Sale</a>

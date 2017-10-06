@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
       @item = @sale.items.create(item_params)
       respond_to do |format|
         if @item.save
-          format.html { redirect_to @sale, notice: 'FUUUUCK' }
+          format.html { redirect_to @sale, notice: '' }
           format.json { render :show, status: :created, location: @item }
         else
           format.html { redirect_to @sale, notice: 'Item was not able to be created.'  }
