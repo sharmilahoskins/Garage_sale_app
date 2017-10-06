@@ -1,36 +1,18 @@
-<!-- Map starts here -->
-<!-- Pull address from this input -->
-<input id="address" type="hidden" value="<%= @sale.street %>,<%= @sale.city %>,<%= @sale.state %>,<%= @sale.zip %>">
-
 <script>
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('showmap'), {
-    zoom: 12,
-    center: {lat: 32.70961, lng: -117.1579991}
-  });
 
-  var geocoder = new google.maps.Geocoder();
-  // document.getElementById('submit').addEventListener('click',
-  function geocodeme() {
-    geocodeAddress(geocoder, map);
-  };
-  geocodeme()
-}
+  function initMap() {
+    var myLatLng = {lat: <%=@sale.latitude%>, lng: <%=@sale.longitude%>};
 
-function geocodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('address').value;
-  geocoder.geocode({'address': address}, function(results, status) {
-    if (status === 'OK') {
-      resultsMap.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-        map: resultsMap,
-        position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
+    var map = new google.maps.Map(document.getElementById('showmap'), {
+      zoom: 14,
+      center: myLatLng
+    });
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map
+    });
+  }
 </script>
 
 <div class="container map-show">
@@ -45,7 +27,7 @@ function geocodeAddress(geocoder, resultsMap) {
 
       <p>
         <strong>Address: </strong>
-        <%= @sale.street %>, <%= @sale.city %>, <%= @sale.state %>, <%= @sale.zip %>
+        <%= @sale.street %>, <%= @sale.zip %>
       </p>
 
       <p>
@@ -80,7 +62,6 @@ function geocodeAddress(geocoder, resultsMap) {
 
 </div>
 
-
 <!--Check user role for adding items-->
 <% if @user.nil? %>
 <% else %>
@@ -104,12 +85,10 @@ function geocodeAddress(geocoder, resultsMap) {
   <% else %>
     <% if @sale.user_id == @user.id %>
     <%= link_to 'Edit Items', '/items/user_index' %> |
-    <%= link_to 'Edit Sale', edit_sale_path(@sale) %> 
+    <%= link_to 'Edit Sale', edit_sale_path(@sale) %>
     <% end %>
   <% end %>
 </div>
-
-
 
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9nhXMWs8RXF_OXTGrVAB7x-msZVhahGw&callback=initMap">
