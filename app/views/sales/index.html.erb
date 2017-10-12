@@ -153,7 +153,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <div class="container-fluid">
   <div class="row">
     <div class="col col-sm-3">
-      <p>Wrong city?<%= link_to ' Search again', root_path %></p>
+      <p>Wrong city? <%= link_to ' Search again', root_path %></p>
     </div>
     <div class="nosale-message col col-sm-6">
       <% if @sales.length == 0 %>
@@ -194,7 +194,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
            </tr>
          </tbody>
          </table>
-       </div> <
+       </div>
 
 <% else %>
 <% params[:hidemap].present? %>
@@ -208,4 +208,3 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </div>
 
 </div>
-
