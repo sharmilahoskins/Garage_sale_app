@@ -11,6 +11,7 @@
   border: 10px !important;
   background-color: #8b9f96 !important;
 }
+
 // infowindow outer div
 #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(2) {
   opacity: 1;
@@ -18,6 +19,7 @@
   // border: 10px solid black;
   border-radius: 10px !important;
 }
+
 // infor window text content
 #iw-content {
   font-family: 'Muli', sans-serif;
@@ -40,7 +42,6 @@
 
 }
 
-
 //SHOW PAGE MAP
 #showmap {
   margin-left: 1vw;
@@ -48,6 +49,7 @@
   max-width: 40vw;
   z-index: 0;
 }
+
 .map-show {
   margin: 15vh auto 15vh auto;
 }
@@ -66,44 +68,50 @@ html, body {
   // background-color: rgba(13, 75, 0, .5);
   .navbar-brand {
     color: white;
-    width: 120px;
+    /* resized to 90px so cursor doesnt appear on empty space next to icon */
+    width: 90px;
+    padding: 0;
+    margin-right: 0;
   }
   a {
     color: white;
   }
 }
+
 .dropdown-item {
   color: black !important;
 }
+
 .dropdown-item:active {
   background-color: #ccc;
 }
+
 .dropdown {
   width: 170px;
 }
+
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
+
 .navbar-toggler:active {
-  // outline: none;
-  border: 3px solid #ccc;
+  /* 1px border prevents sizing issue on click */
+  border: 1px solid #ccc;
 }
+
 .navbar-toggler:focus {
   outline: none;
   cursor: pointer;
 }
-.navbar-brand {
-  padding-top: 0;
-  padding-bottom: 0;
-}
+
 .nav-item {
   padding-right: 40px;
-  text-align:right;
+  text-align: right;
 }
+
 .host-sale {
   padding-left: 45px;
 }
-
 
 // TABLE STYLE
 table {
@@ -116,14 +124,13 @@ table {
     background-color: rgba(188, 188, 188, 0.5)
   }
 }
+
 .table-view {
   max-width: 80vw;
   margin: auto;
   text-align: center;
   padding: 5vh 0 5vh 0;
 }
-
-
 
 // FORM STYLING
 .form-background {
@@ -132,52 +139,66 @@ table {
   background: -o-linear-gradient(#fbfbea, #a5c0b8); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#fbfbea, #a5c0b8); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#fbfbea, #a5c0b8); /* Standard syntax */
-  height: 100%;
+  height: 117vh; /* ensures the background covers the entire back area. at 100% it left a gap on some pages */
 }
+
 .form-text {
   margin: 20vh auto;
   width: 200px;
 }
+
 .form-text-large {
   margin: 10vh auto;
   width: 200px;
 }
+
 #sale_date_1i, #sale_date_2i, #sale_date_3i {
   font-size: 13.4px;
 }
+
 input {
   border: 3px solid white;
   border-radius: 5px;
   padding: 4px;
 }
+
 input:focus, textarea:focus {
   outline: none;
   border: 3px solid #ccc;
 }
+
 ::placeholder {
   color: #cccccc;
 }
+
 textarea {
   border: 3px solid white;
   border-radius: 5px;
-  width: 200px;
+  width: 212px;
   padding: 4px;
 }
+
 .form-header {
   text-align: center;
   padding: 5px;
+  margin-bottom: 10px;
 }
-.edit_form{
+
+.edit_form {
   line-height: 80%;
 }
+
 .reset_form {
-  width: 200px;
+  width: 212px;
 }
+
+/* button styling on forms. 212px matches the size of input fields */
 .button_style {
-  width: 200px;
+  width: 212px;
   background-color: white;
   cursor: pointer;
 }
+
 .imgfield {
   padding: 5px 10px;
   background: #f5ddba;
@@ -191,6 +212,7 @@ textarea {
 .imgfield:hover {
   border: 2px solid white;
 }
+
 .add_image_button {
   position: absolute;
   z-index: 10;
@@ -201,10 +223,10 @@ textarea {
   font-size: 0px;
   width: 100%;
 }
+
 .add_image_button:hover {
   cursor: pointer;
 }
-
 
 //HOME PAGE
 .title {
@@ -214,15 +236,18 @@ textarea {
   padding-top: 20vh;
   padding-bottom: 20px;
 }
+
 .sale {
   font-family: 'Architects Daughter', sans-serif;
 }
+
 .heading {
   height: 100vh;
   background-image: url(asset-path('grass_final.png'));
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 @media only screen
   and (min-device-width: 768px)
   and (max-device-width: 1024px)
@@ -234,45 +259,55 @@ textarea {
       background-size: cover;
     }
   }
+
 .search {
   text-align: center;
   padding: 3vh 0 3vh 0;
 }
+
 .submit-button {
   width: 100px;
   border: 3px solid buttonface;
   cursor: pointer;
 }
+
 //RANDOM
 .mysales {
   text-align: center;
   margin-top: 20vh;
 }
+
 .items-header{
   text-align: center;
   padding-top: 5vh;
 }
+
 .show-notice {
   text-align: center;
 }
+
 .home-notice {
   position: absolute;
   padding-top: 60px;
   // text-align: center;
 }
+
 .map-page-content {
   width: 100vw;
   height: 50vh;
   padding-top: -5vh;
 }
+
 .show-page-items {
   width: 100vw;
   padding-bottom: 10vh;
   background-color: white;
 }
+
 .items-form {
   width: 100vw;
 }
+
 .show-page-links {
   text-align: center;
 }
@@ -281,17 +316,21 @@ textarea {
 .search-headers {
   font-size: 1.5em;
 }
+
 .spacer {
   height: 60px;
 }
+
 #item-search {
   width: 100px;
   border: 3px solid buttonface;
   cursor: pointer;
 }
+
 #item-search:focus {
   border: 3px solid #ccc;
 }
+
 .nosale-message {
   width: 40%;
   margin: auto;
@@ -299,11 +338,11 @@ textarea {
   color: #a40000
 }
 
-
 //MODAL STYLING
 .images {
 text-align: center;
 }
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place
@@ -363,6 +402,7 @@ text-align: center;
   from {transform:scale(0)}
   to {transform:scale(1)}
 }
+
 .close:hover,
 .close:focus {
   color: #bbb;
@@ -376,6 +416,7 @@ text-align: center;
       width: 100%;
   }
 }
+
 .iteminfo {
   padding: 13px;
 }
@@ -384,7 +425,6 @@ text-align: center;
   padding: 10px;
 }
  // end modal styling
-
 
 .loginalert, #error_explanation {
   position: absolute;
