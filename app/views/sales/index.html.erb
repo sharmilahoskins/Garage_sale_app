@@ -36,28 +36,26 @@
 
 <% if !params[:hidemap].present? %>
 <!-- Hide the sales table after an items search -->
-     <div class="table-view">
-     <h2>All sales within <%= @zip_or_city%></h2>
-       <table>
-
-         <tbody>
-           <% @sales.each do |sale| %>
-           <tr>
-             <td><%= sale.street %><br><%= sale.city %>, <%= sale.state %></td>
-             <td><%= sale.description%></td>
-             <td><%= link_to 'Show Sale Details', sale %></td>
-           <% end %> <!-- ends for loop-->
-           </tr>
-         </tbody>
-         </table>
-       </div> <
+  <div class="table-view">
+    <h2>All sales within <%= @zip_or_city%></h2>
+     <table>
+      <tbody>
+        <% @sales.each do |sale| %>
+         <tr>
+           <td><%= sale.street %><br><%= sale.city %>, <%= sale.state %></td>
+           <td><%= sale.description%></td>
+           <td><%= link_to 'Show Sale Details', sale %></td>
+         <% end %> <!-- ends for loop-->
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 <% else %>
 <% params[:hidemap].present? %>
 <!-- Hide the sales table if hidemap params are there and create a spacer on top -->
   <div class="spacer"></div>
 <% end %>
-
 
   <div id="itemstable-area">
     <%= render 'itemstable' %>
@@ -71,64 +69,64 @@
 
 <script>
 
-// ---reload js when user clicks back button on browser---#TODO slows down page load..find another way.
-$(document).ready(function($){
-   $(window).on('popstate', function(){
-      location.reload(true);
-   });
-});
-// ---reload js when user clicks back button on browser---
+  // ---reload js when user clicks back button on browser---#TODO slows down page load..find another way.
+  $(document).ready(function($){
+     $(window).on('popstate', function(){
+        location.reload(true);
+     });
+  });
+  // ---reload js when user clicks back button on browser---
 
 
-var locations = []
-<% @sales.each do |sale| %>
-  locations.push(
-			<%= raw [
-				sale.latitude,
-				sale.longitude,
-				sale.street.to_json.gsub('"',''),
-				sale.zip.to_json.gsub('"',''),
-				sale.date.to_json.gsub('"',''),
-				sale.time.to_json.gsub('"',''),
-				sale.description.to_json.gsub('"',''),
-				sale.id
-			] %>
-		)
-<% end %>
+  var locations = []
+  <% @sales.each do |sale| %>
+    locations.push(
+  			<%= raw [
+  				sale.latitude,
+  				sale.longitude,
+  				sale.street.to_json.gsub('"',''),
+  				sale.zip.to_json.gsub('"',''),
+  				sale.date.to_json.gsub('"',''),
+  				sale.time.to_json.gsub('"',''),
+  				sale.description.to_json.gsub('"',''),
+  				sale.id
+  			] %>
+  		)
+  <% end %>
 
-var map = new google.maps.Map(document.getElementById('map'), {
-  zoom: 10,
-  center: new google.maps.LatLng(locations[0][0],locations[0][1]),
-  mapTypeId: google.maps.MapTypeId.ROADMAP
-});
-
-var infowindow = new google.maps.InfoWindow();
-
-var marker, i;
-
-for (i = 0; i < locations.length; i++) {
-  marker = new google.maps.Marker({
-    position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-    map: map
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: new google.maps.LatLng(locations[0][0],locations[0][1]),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
-  google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-    return function() {
-      infowindow.setContent(
-				'<strong>Street:</strong> ' + locations[i][2] + ' ' +
-				locations[i][3] + '<br/>' +
-				'<strong>Date:</strong> ' + locations[i][4] + '<br/>' +
-				'<strong>Time:</strong> ' + locations[i][5] + '<br/>' +
-				'<strong>Description:</strong> ' + locations[i][6] + '<br/>' +
-				' ' + '<a href="' + '../sales/' + locations[i][7] + '">Show</a>'
-			);
-      infowindow.open(map, this);
-    }
-  })(marker, i));
-	google.maps.event.addListener(map, 'click', function() {
-		infowindow.close();
-	});
-}
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+
+  for (i = 0; i < locations.length; i++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+      map: map
+    });
+
+    google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+      return function() {
+        infowindow.setContent(
+  				'<strong>Street:</strong> ' + locations[i][2] + ' ' +
+  				locations[i][3] + '<br/>' +
+  				'<strong>Date:</strong> ' + locations[i][4] + '<br/>' +
+  				'<strong>Time:</strong> ' + locations[i][5] + '<br/>' +
+  				'<strong>Description:</strong> ' + locations[i][6] + '<br/>' +
+  				' ' + '<a href="' + '../sales/' + locations[i][7] + '">Show</a>'
+  			);
+        infowindow.open(map, this);
+      }
+    })(marker, i));
+  	google.maps.event.addListener(map, 'click', function() {
+  		infowindow.close();
+  	});
+  }
 
 </script>
 <!-- ***** ends map markers *****-->

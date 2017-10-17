@@ -18,7 +18,7 @@
   // border: 10px solid black;
   border-radius: 10px !important;
 }
-// infor window text content
+// info window text content
 #iw-content {
   font-family: 'Muli', sans-serif;
 }
@@ -162,6 +162,7 @@ textarea {
   border-radius: 5px;
   width: 200px;
   padding: 4px;
+  line-height: 18px !important;
 }
 .form-header {
   text-align: center;
@@ -248,10 +249,7 @@ textarea {
   text-align: center;
   margin-top: 20vh;
 }
-.items-header{
-  text-align: center;
-  padding-top: 5vh;
-}
+
 .show-notice {
   text-align: center;
 }
@@ -299,6 +297,25 @@ textarea {
   color: #a40000
 }
 
+//SALES SHOW PAGE
+
+.iteminfo {
+  max-width: 200px;
+
+  #item-name {
+    font-size: 20px;
+  }
+  p {
+    margin-bottom: .5rem;
+  }
+
+}
+
+.items-header{
+  text-align: center;
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+}
 
 //MODAL STYLING
 .images {

@@ -157,7 +157,7 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
-    @sale.address = @sale.street + ',' + @sale.city + ',' + @sale.zip
+    @sale.address = @sale.street + ', ' + @sale.city + ', ' + @sale.state
     @user = current_user
     respond_to do |format|
       if @sale.save
