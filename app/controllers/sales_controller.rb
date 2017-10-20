@@ -12,7 +12,8 @@ class SalesController < ApplicationController
   def index
     @user = current_user
 
-#find the completed sales from the past and delete them from the database
+
+    #find the completed sales from the past and delete them from the database
     @finished = Sale.where('date < ?', DateTime.now)
     @finished.destroy_all
 
@@ -27,11 +28,11 @@ class SalesController < ApplicationController
       @zip_or_city = params[:search]
   # if it's a city (a string), to_i will make it evaluate to 0
       zip_city_var = @zip_or_city.to_i
-    
-      if zip_city_var == 0 
+
+      if zip_city_var == 0
 
         @sales = Sale.where('lower(city) = ?', @zip_or_city.downcase)
-        # @sales = Sale.where('lower(city) = ?', @zip_or_city.downcase).paginate(:page => params[:page], :per_page => 10)  
+        # @sales = Sale.where('lower(city) = ?', @zip_or_city.downcase).paginate(:page => params[:page], :per_page => 10)
       else
         @sales = Sale.where(zip: @zip_or_city)
       # @sales = Sale.where(zip: @zip_or_city).paginate(:page => params[:page], :per_page => 10)
@@ -156,8 +157,8 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
+    @sale.address = @sale.street + ', ' + @sale.city + ', ' + @sale.state
     @user = current_user
-
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
@@ -203,6 +204,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:street, :city, :state, :zip, :date, :time, :description, :user_id)
+      params.require(:sale).permit(:street, :city, :state, :zip, :date, :time, :description, :user_id, :latitude, :longitude, :address)
     end
 end
