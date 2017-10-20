@@ -34,9 +34,9 @@
   </div>
 
 
-<% if !params[:hidemap].present? %>
+<!-- <% if !params[:hidemap].present? %> -->
 <!-- Hide the sales table after an items search -->
-  <div class="table-view">
+  <!-- <div class="table-view">
     <h2>All sales within <%= @zip_or_city%></h2>
      <table>
       <tbody>
@@ -45,17 +45,17 @@
            <td><%= sale.street %><br><%= sale.city %>, <%= sale.state %></td>
            <td><%= sale.description%></td>
            <td><%= link_to 'Show Sale Details', sale %></td>
-         <% end %> <!-- ends for loop-->
+         <% end %>
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> -->
 
-<% else %>
-<% params[:hidemap].present? %>
+<!-- <% else %> -->
+<!-- <% params[:hidemap].present? %> -->
 <!-- Hide the sales table if hidemap params are there and create a spacer on top -->
-  <div class="spacer"></div>
-<% end %>
+  <!-- <div class="spacer"></div> -->
+<!-- <% end %> -->
 
   <div id="itemstable-area">
     <%= render 'itemstable' %>

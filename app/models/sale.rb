@@ -2,7 +2,7 @@ class Sale < ApplicationRecord
   #lines below added for geocoder
 
   geocoded_by :address
-  after_validation :geocode, :if => :street_changed?
+  after_validation :geocode, :if => :address_changed?
   #ends geocoder
   belongs_to :user
   has_many :items, :dependent => :destroy

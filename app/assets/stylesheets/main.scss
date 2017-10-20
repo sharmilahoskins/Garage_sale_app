@@ -206,6 +206,12 @@ textarea {
   cursor: pointer;
 }
 
+.state_select {
+  width: 200px;
+  select {
+    width: 100%;
+  }
+}
 
 //HOME PAGE
 .title {

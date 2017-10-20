@@ -10,7 +10,7 @@
     <%= form.text_field :city, id: :sale_city, class: 'edit_form', placeholder: 'City', required: true, pattern: '.*\S+.*', oninvalid: "this.setCustomValidity('City cannot be blank')", onchange: "setCustomValidity('')"  %>
   </div>
 
-  <div class="field">
+  <div class="field state_select">
     <%#= form.label :state, class: 'edit_form'  %><br>
     <!-- <%= form.text_field :state, id: :sale_state, class: 'edit_form', placeholder: 'State', required: true, pattern: '.*\S+.*', oninvalid: "this.setCustomValidity('State cannot be blank')", onchange: "setCustomValidity('')"  %> -->
     <select id="sale_state state" name="sale[state]" class="edit_form" required="true" pattern=".*\S+.*" oninvalid="this.setCustomValidity('State cannot be blank')" onchange="setCustomValidity('')">
