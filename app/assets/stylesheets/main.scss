@@ -175,7 +175,7 @@ input:focus, textarea:focus {
 textarea {
   border: 3px solid white;
   border-radius: 5px;
-  width: 212px;
+  width: 200px;
   padding: 4px;
   line-height: 18px !important;
 }
@@ -191,12 +191,12 @@ textarea {
 }
 
 .reset_form {
-  width: 212px;
+  width: 200px;
 }
 
 /* button styling on forms. 212px matches the size of input fields */
 .button_style {
-  width: 212px;
+  width: 200px;
   background-color: white;
   cursor: pointer;
 }
