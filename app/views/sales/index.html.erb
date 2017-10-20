@@ -10,7 +10,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col col-sm-3">
-      <p>Wrong city?<%= link_to ' Search again', root_path %></p>
+      <p>Wrong city? <%= link_to ' Search again', root_path %></p>
     </div>
     <div class="nosale-message col col-sm-6">
       <% if @sales.length == 0 %>
@@ -36,6 +36,7 @@
 
 <!-- <% if !params[:hidemap].present? %> -->
 <!-- Hide the sales table after an items search -->
+
   <!-- <div class="table-view">
     <h2>All sales within <%= @zip_or_city%></h2>
      <table>
@@ -53,6 +54,7 @@
 
 <!-- <% else %> -->
 <!-- <% params[:hidemap].present? %> -->
+
 <!-- Hide the sales table if hidemap params are there and create a spacer on top -->
   <!-- <div class="spacer"></div> -->
 <!-- <% end %> -->
@@ -62,6 +64,7 @@
   </div>
 
 </div>
+
 
 
 <!-- ***** begins map markers *****-->
@@ -130,3 +133,4 @@
 
 </script>
 <!-- ***** ends map markers *****-->
+
