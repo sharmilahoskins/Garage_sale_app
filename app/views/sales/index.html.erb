@@ -87,7 +87,7 @@
   			<%= raw [
   				sale.latitude,
   				sale.longitude,
-  				sale.street.to_json.gsub('"',''),
+  				sale.address.to_json.gsub('"',''),
   				sale.zip.to_json.gsub('"',''),
   				sale.date.to_json.gsub('"',''),
   				sale.time.to_json.gsub('"',''),
