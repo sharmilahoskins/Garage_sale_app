@@ -50,15 +50,14 @@
 <!--</div> cant find what this div goes to-->
 
 <script>
-$(document).ready(function () {
-  $('#myModal').on('show.bs.modal', function (e) {
-    var image = $(e.relatedTarget).attr('src');
-    $(".modal-content").attr("src", image);
+  $(document).ready(function () {
+    $('#myModal').on('show.bs.modal', function (e) {
+      var image = $(e.relatedTarget).attr('src');
+      $(".modal-content").attr("src", image);
+    });
+    var captionText = document.getElementById("caption");
+    $( ".pictext" ).on( "click", function() {
+      captionText.innerHTML = $(this).find("#itemdesc").text();
+    });
   });
-  var captionText = document.getElementById("caption");
-  $( ".pictext" ).on( "click", function() {
-    captionText.innerHTML = $(this).find("#itemdesc").text();
-  });
-});
-
 </script>

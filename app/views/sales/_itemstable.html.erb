@@ -17,7 +17,9 @@
        <tbody>
          <% @items_within_search.each do |item| %>
            <tr>
-             <td><%= link_to image_tag(item.image.url(:med)), item.image.url %></td>
+             <!-- <td><%= link_to image_tag(item.image.url(:med)), item.image.url %></td> -->
+
+             <td><%= link_to image_tag(item.image.url(:med)), "#myModal", :class => "btn", "data-toggle" => "modal", "data-dismiss" => "modal", :src => item.image.url(:original)  %></td>
              <td><%= item.item_description %>  <%= item.price %></td>
              <td><%= link_to 'Show Sale Details', item.sale %></td>
            <% end %> <!-- ends for loop-->
@@ -37,3 +39,24 @@
      </div> <!-- ends if params[:item] -->
  <% end %> <!-- ends table-view div-->
 
+ <div id="myModal" class="modal" role="dialog">
+
+   <!-- Modal Content (The Image) -->
+   <div class="modal-body">
+     <img class="modal-content" src="" />
+   </div>
+
+   <div class="modal-footer">
+     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+   </div>
+   
+ </div>
+
+ <script>
+   $(document).ready(function () {
+     $('#myModal').on('show.bs.modal', function (e) {
+       var image = $(e.relatedTarget).attr('src');
+       $(".modal-content").attr("src", image);
+     });
+   });
+ </script>
