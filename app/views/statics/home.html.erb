@@ -10,7 +10,7 @@
     <form method="get" action="/sales">
       <span class="search-headers"><label for="search">Find Garage Sales:</label></span><br>
       <!-- The regex blocks only whitespace input -->
-      <input type="text" name="search" placeholder="City or Zip code" required pattern='.*\S+.*' oninvalid="this.setCustomValidity('City or zip code cannot be blank')" onchange="setCustomValidity('')">
+      <input type="text" id="homepage-search" name="search" placeholder="City or Zip code" required pattern='.*\S+.*' oninvalid="this.setCustomValidity('City or zip code cannot be blank')" onchange="setCustomValidity('')">
       <input type="submit" value="Search" class="submit-button">
     </form>
   </div>
