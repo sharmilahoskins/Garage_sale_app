@@ -176,6 +176,7 @@ class SalesController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @sale.update(sale_params)
+        @sale.update_attribute(:address, @sale.street + ', ' + @sale.city + ', ' + @sale.state)
         format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
         format.json { render :show, status: :ok, location: @sale }
       else
