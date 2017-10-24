@@ -170,13 +170,17 @@ class SalesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sales/1
-  # PATCH/PUT /sales/1.json
+
   def update
+    sale_params[:id] = @sale.id
+    @sale.street = sale_params[:street]
+    @sale.city = sale_params[:city]
+    @sale.state = sale_params[:state]
+    @sale.zip = sale_params[:zip]
     @user = current_user
+    @sale.address = @sale.street + ', ' + @sale.city + ', ' + @sale.state
     respond_to do |format|
       if @sale.update(sale_params)
-        @sale.update_attribute(:address, @sale.street + ', ' + @sale.city + ', ' + @sale.state)
         format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
         format.json { render :show, status: :ok, location: @sale }
       else
@@ -185,6 +189,7 @@ class SalesController < ApplicationController
       end
     end
   end
+
 
   # DELETE /sales/1
   # DELETE /sales/1.json
